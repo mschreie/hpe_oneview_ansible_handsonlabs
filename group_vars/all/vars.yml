@@ -1,0 +1,54 @@
+---
+# Oneview configuration
+ov_template: Workshop
+# VMware Install related vars
+cust_iso_file: custom_esxi.iso
+bastion_get_url: "http://{{ hostvars.bastion_host.ansible_host }}/isos"
+bastion_iso_dir: /var/www/html/isos
+esxi_installiso: "{{ bastion_get_url }}/{{ cust_iso_file }}"
+
+# OneView Server profile Template creation
+server_profile_template_name: "{{ ov_template }}"
+server_hardware_type_name: "SY 480 Gen10 4"
+enclosure_group_name: "Demo1_Rack12_EG"
+## server_profile_name: "RHEl76"
+deployment_network_name: "Redhat_workload"
+## fc_network_1: "FC01"
+## fc_network_2: "FC02"
+## os_deployment_plan_name: "RHEL"
+## storage_pool_name: "SSD_r5"
+## volume_template_name: "SVT-1"
+## firmware_baseline_name: "HPE Synergy Custom SPP 2018110 2019 02 15"
+
+# adjustable VMware installation related vars:
+org_iso:  "{{ bastion_iso_dir }}/VMware-VMvisor-Installer-7.0U2a-17867351.x86_64.iso"
+cust_iso: "{{ bastion_iso_dir }}/{{ cust_iso_file }}"
+esxi_rootpw: "{{ vault_esxi_rootpw }}"
+## Hint: put vault_ - variables into a seperate vault file named "vault"
+## encrpyt that file with:  ansible-vault encrypt group_vars/all/vault
+## assure the credential for file-encryption is put into tower as "vault"
+## and the credential is available to the playbooks
+
+
+# static or dhcp
+#### static will not realy work this way for more than one host to deploy ....
+#### but the esxi parameters must be tight to the specific host in the inventory
+#### we would also need different naming for the (different) iso-images
+#### second step approach
+esxi_bootproto: dhcp
+# only if static:   # not finished yet
+esxi_ip: 1.2.3.4  
+esxi_mask: 255.255.255.0
+esxi_gw: 1.2.3.1
+esxi_fqdn: esxi.example.com
+esxi_nameserver: 1.2.3.1
+esxi_domain: example.com
+
+# fixed WMware installation related vars:
+mnt_dir:  /esxi_cdrom_mount
+wrk_dir:  /esxi_cdrom
+ks_template: ks.cfg
+ks_dest: "{{ wrk_dir }}/ks.cfg"
+bootoption: "runweasel ks=cdrom:/KS.CFG"
+bootcfg_dest: "{{ wrk_dir }}/efi/boot/boot.cfg"
+bootcfg_dest2: "{{ wrk_dir }}/boot.cfg"
