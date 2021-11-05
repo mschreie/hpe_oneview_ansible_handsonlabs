@@ -1,3 +1,4 @@
+---
 all:
   children:
     bastion_hosts:
@@ -148,8 +149,8 @@ all:
 
     linux_hosts:
       children:
-        tower_hosts
-        bastion_hosts
+        tower_hosts:
+        bastion_hosts:
 
 
     jump_hosts:
@@ -190,7 +191,7 @@ all:
 
     windows_hosts:
       children:
-        jump_hosts
+        jump_hosts:
 
     target_hosts:
       hosts:
@@ -229,11 +230,3 @@ all:
           ansible_host: '10.31.113.41' 
           # per list this should be 10.31.124.41
           ilo_ip: '10.31.114.41'
-  vars:
-     oneview_username: Administrator
-     oneview_password: "!HPEstorage2050"
-     oneview_api_version: '2000'
-     oneview_domain: 'domain'
-
-#    ansible_user: ansible
-#    ansible_password: r3dh4t1!
