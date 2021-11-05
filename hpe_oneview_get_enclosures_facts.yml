@@ -1,5 +1,5 @@
 ---
-- hosts: oneview_servers
+- hosts: oneview_hosts
   gather_facts: true
 
   tasks:
