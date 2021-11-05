@@ -8,7 +8,7 @@
         hostname: "{{ ansible_host }}"
         username: "{{ oneview_username }}"
         password: "{{ oneview_password }}"
-        auth_login_domain: "{{ oneview_domain }}"
+        # auth_login_domain: "{{ oneview_domain }}"
         api_version: "{{ oneview_apiversion }}"
       delegate_to: localhost
 
