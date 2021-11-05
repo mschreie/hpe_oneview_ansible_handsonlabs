@@ -1,7 +1,239 @@
-localhost    ansible_connection=local
-bastion_host ansible_host=10.6.80.25
-oneview_host ansible_host=composer.synergy.hybridit.hpecic.net
+all:
+  children:
+    bastion_hosts:
+      hosts:
+        bastion1:
+          ansible_host: '10.31.46.1'
+          guest_hostname: bastion1
+        bastion2:
+          ansible_host: '10.31.46.2'
+          guest_hostname: bastion2
+        bastion3:
+          ansible_host: '10.31.46.3'
+          guest_hostname: bastion3
+        bastion4:
+          ansible_host: '10.31.46.4'
+          guest_hostname: bastion4
+        bastion5:
+          ansible_host: '10.31.46.5'
+          guest_hostname: bastion5
+        bastion6:
+          ansible_host: '10.31.46.6'
+          guest_hostname: bastion6
+        bastion7:
+          ansible_host: '10.31.46.7'
+          guest_hostname: bastion7
+        bastion8:
+          ansible_host: '10.31.46.8'
+          guest_hostname: bastion8
+        bastion9:
+          ansible_host: '10.31.46.9'
+          guest_hostname: bastion9
+        bastion10:
+          ansible_host: '10.31.46.10'
+          guest_hostname: bastion10
+        bastion11:
+          ansible_host: '10.31.46.11'
+          guest_hostname: bastion11
+        bastion12:
+          ansible_host: '10.31.46.12'
+          guest_hostname: bastion12
+        bastion13:
+          ansible_host: '10.31.46.13'
+          guest_hostname: bastion13
+        bastion14:
+          ansible_host: '10.31.46.14'
+          guest_hostname: bastion14
+        bastion15:
+          ansible_host: '10.31.46.15'
+          guest_hostname: bastion15
+        bastion16:
+          ansible_host: '10.31.46.16'
+          guest_hostname: bastion16
+        bastion17:
+          ansible_host: '10.31.46.17'
+          guest_hostname: bastion17
+        bastion18:
+          ansible_host: '10.31.46.18'
+          guest_hostname: bastion18
+        bastion19:
+          ansible_host: '10.31.46.19'
+          guest_hostname: bastion19
+        bastion20:
+          ansible_host: '10.31.46.20'
+          guest_hostname: bastion20
+        bastion21:
+          ansible_host: '10.31.46.21'
+          guest_hostname: bastion21
+      vars:
+        guest_memory: '4096'
+        guest_vcpu: '2'
+        bastion_iso_dir: /var/www/html/isos
+        activationkey: RHEL
 
-[esx_hosts]
-esx1    ansible_host="1.2.3.4"   ov_hardware="Demo1_Rack12_Frame3, bay 5" ilo_ip=10.6.25.137
-esx2    ansible_host="1.2.3.5"   ov_hardware="Demo1_Rack12_Frame3, bay 6" ilo_ip=10.6.25.138
+    tower_hosts:
+      hosts:
+        tower1:
+          ansible_host: '10.31.36.1'
+          guest_hostname: tower1
+        tower2:
+          ansible_host: '10.31.36.2'
+          guest_hostname: tower2
+        tower3:
+          ansible_host: '10.31.36.3'
+          guest_hostname: tower3
+        tower4:
+          ansible_host: '10.31.36.4'
+          guest_hostname: tower4
+        tower5:
+          ansible_host: '10.31.36.5'
+          guest_hostname: tower5
+        tower6:
+          ansible_host: '10.31.36.6'
+          guest_hostname: tower6
+        tower7:
+          ansible_host: '10.31.36.7'
+          guest_hostname: tower7
+        tower8:
+          ansible_host: '10.31.36.8'
+          guest_hostname: tower8
+        tower9:
+          ansible_host: '10.31.36.9'
+          guest_hostname: tower9
+        tower10:
+          ansible_host: '10.31.36.10'
+          guest_hostname: tower10
+        tower11:
+          ansible_host: '10.31.36.11'
+          guest_hostname: tower11
+        tower12:
+          ansible_host: '10.31.36.12'
+          guest_hostname: tower12
+        tower13:
+          ansible_host: '10.31.36.13'
+          guest_hostname: tower13
+        tower14:
+          ansible_host: '10.31.36.14'
+          guest_hostname: tower14
+        tower15:
+          ansible_host: '10.31.36.15'
+          guest_hostname: tower15
+        tower16:
+          ansible_host: '10.31.36.16'
+          guest_hostname: tower16
+        tower17:
+          ansible_host: '10.31.36.17'
+          guest_hostname: tower17
+        tower18:
+          ansible_host: '10.31.36.18'
+          guest_hostname: tower18
+        tower19:
+          ansible_host: '10.31.36.19'
+          guest_hostname: tower19
+        tower20:
+          ansible_host: '10.31.36.20'
+          guest_hostname: tower20
+        tower21:
+          ansible_host: '10.31.36.21'
+          guest_hostname: tower21
+
+      vars:
+        guest_memory: '10240'
+        guest_vcpu: '4'
+        tower_passwords:
+          admin_password: "r3dh4t1!"
+          pg_password: "r3dh4t1!"
+          rabbitmq_password: "r3dh4t1!"
+        activationkey: AAP
+
+    linux_hosts:
+      children:
+        tower_hosts
+        bastion_hosts
+
+
+    jump_hosts:
+      hosts:
+        wing21:
+          ansible_host: '10.31.16.21' 
+          guest_hostname: wing21
+      vars:
+        ansible_connection: winrm
+        ansible_winrm_cert_pem: xxxxxxx
+        ansible_winrm_cert_key_pem: xxxxxxx
+        ansible_winrm_transport: certificate
+
+    oneview_hosts:
+      hosts:
+        g1ov:
+          ansible_host: '10.31.56.1' 
+        g2ov:
+          ansible_host: '10.31.56.2' 
+        g3ov:
+          ansible_host: '10.31.56.3' 
+        g4ov:
+          ansible_host: '10.31.56.4' 
+        g5ov:
+          ansible_host: '10.31.56.5' 
+        g6ov:
+          ansible_host: '10.31.56.6' 
+        g7ov:
+          ansible_host: '10.31.56.7' 
+        g8ov:
+          ansible_host: '10.31.56.8' 
+        g9ov:
+          ansible_host: '10.31.56.9' 
+        g10ov:
+          ansible_host: '10.31.56.10' 
+        g11ov:
+          ansible_host: '10.31.56.11' 
+
+    windows_hosts:
+      children:
+        jump_hosts
+
+    target_hosts:
+      hosts:
+        g1:
+          ansible_host: '10.31.13.41' 
+          ilo_ip: '10.31.14.41'
+        g2:
+          ansible_host: '10.31.23.41' 
+          ilo_ip: '10.31.24.41'
+        g3:
+          ansible_host: '10.31.33.41' 
+          ilo_ip: '10.31.34.41'
+        g4:
+          ansible_host: '10.31.43.41' 
+          ilo_ip: '10.31.44.41'
+        g5:
+          ansible_host: '10.31.53.41' 
+          ilo_ip: '10.31.54.41'
+        g6:
+          ansible_host: '10.31.63.41' 
+          ilo_ip: '10.31.64.41'
+        g7:
+          ansible_host: '10.31.73.41' 
+          ilo_ip: '10.31.74.41'
+        g8:
+          ansible_host: '10.31.83.41' 
+          ilo_ip: '10.31.84.41'
+        g9:
+          ansible_host: '10.31.93.41' 
+          ilo_ip: '10.31.94.41'
+        g10:
+          ansible_host: '10.31.103.41' 
+          # per list this should be 10.31.114.41
+          ilo_ip: '10.31.104.41'
+        g11:
+          ansible_host: '10.31.113.41' 
+          # per list this should be 10.31.124.41
+          ilo_ip: '10.31.114.41'
+  vars:
+     oneview_username: Administrator
+     oneview_password: "!HPEstorage2050"
+     oneview_api_version: '2000'
+     oneview_domain: 'domain'
+
+#    ansible_user: ansible
+#    ansible_password: r3dh4t1!
