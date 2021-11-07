@@ -9,14 +9,6 @@
         msg: "You need to define ov_hardware_name for each host which should be deployed via this script"
       when: ov_hardware_name is undefined 
 
-# Moved as var into group_vars/all
-#    - name: Set Oneview Server Profile Name for the host in question
-#      set_fact:
-#        ov_profile: "Workshop_{{ inventory_hostname_short }}"
-#      when: ov_profile is undefined or ov_profile is not match ("^Workshop_.*")
-
-
-
     - name: Power Off compute in order to remove the profile
       hpe.oneview.oneview_server_hardware:
         hostname: "{{ hostvars[oneview_host].ansible_host }}"

@@ -37,7 +37,6 @@ profile_data:
   managementProcessor:
     manageMp: false
     mpSettings: []
-  name: Base Profile 
   osDeploymentSettings:
     deployMethod: null
     osCustomAttributes: []
