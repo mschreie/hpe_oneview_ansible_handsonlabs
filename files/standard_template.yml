@@ -37,13 +37,11 @@ profile_data:
           sasLogicalJBODId: null
         mode: RAID
         predictiveSpareRebuild: Unmanaged
-    reapplyState: NotApplying
     sasLogicalJBODs: []
   macType: Physical
   managementProcessor:
     manageMp: false
     mpSettings: []
-    reapplyState: NotApplying
   name: Base Profile 
   osDeploymentSettings:
     deployMethod: null
@@ -51,10 +49,8 @@ profile_data:
     deploymentPortId: null
     forceOsDeployment: false
     osCustomAttributes: []
-    reapplyState: NotApplying
   refreshState: NotRefreshing
   sanStorage:
     manageSanStorage: false
-    reapplyState: NotApplying
     sanSystemCredentials: []
     volumeAttachments: []
