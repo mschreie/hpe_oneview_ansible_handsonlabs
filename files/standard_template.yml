@@ -20,7 +20,6 @@ profile_data:
     manageFirmware: false
     firmwareActivationType: null
     firmwareInstallType: null
-    firmwareScheduleDateTime: ''
     forceInstallFirmware: false
   localStorage:
     controllers:
@@ -55,7 +54,6 @@ profile_data:
     forceOsDeployment: false
     osCustomAttributes: []
     reapplyState: NotApplying
-  profileUUID: 5272cea1-f66d-4909-98a7-eef1e4604f9b
   refreshState: NotRefreshing
   sanStorage:
     manageSanStorage: false
