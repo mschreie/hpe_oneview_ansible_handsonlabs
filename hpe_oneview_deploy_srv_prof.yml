@@ -22,7 +22,7 @@
         hostname: "{{ hostvars[oneview_host].ansible_host }}"
         username: "{{ oneview_username }}"
         password: "{{ oneview_password }}"
-        auth_login_domain: "{{ oneview_domain }}"
+        #auth_login_domain: "{{ oneview_domain }}"
         api_version: "{{ oneview_apiversion }}"
         state: power_state_set
         data:
@@ -37,7 +37,7 @@
         hostname: "{{ hostvars[oneview_host].ansible_host }}"
         username: "{{ oneview_username }}"
         password: "{{ oneview_password }}"
-        auth_login_domain: "{{ oneview_domain }}"
+        #auth_login_domain: "{{ oneview_domain }}"
         api_version: "{{ oneview_apiversion }}"
         name: "{{ ov_template }}"
       delegate_to: localhost
@@ -51,7 +51,7 @@
         hostname: "{{ hostvars[oneview_host].ansible_host }}"
         username: "{{ oneview_username }}"
         password: "{{ oneview_password }}"
-        auth_login_domain: "{{ oneview_domain }}"
+        #auth_login_domain: "{{ oneview_domain }}"
         api_version: "{{ oneview_apiversion }}"
         data:
           name: "{{ ov_profile }}"
@@ -66,7 +66,7 @@
         hostname: "{{ hostvars[oneview_host].ansible_host }}"
         username: "{{ oneview_username }}"
         password: "{{ oneview_password }}"
-        auth_login_domain: "{{ oneview_domain }}"
+        #auth_login_domain: "{{ oneview_domain }}"
         api_version: "{{ oneview_apiversion }}"
         state: "compliant"
         data:
@@ -78,7 +78,7 @@
         hostname: "{{ hostvars[oneview_host].ansible_host }}"
         username: "{{ oneview_username }}"
         password: "{{ oneview_password }}"
-        auth_login_domain: "{{ oneview_domain }}"
+        #auth_login_domain: "{{ oneview_domain }}"
         api_version: "{{ oneview_apiversion }}"
         name: "{{ ov_hardware_name }}"
         options:
@@ -90,7 +90,7 @@
         hostname: "{{ hostvars[oneview_host].ansible_host }}"
         username: "{{ oneview_username }}"
         password: "{{ oneview_password }}"
-        auth_login_domain: "{{ oneview_domain }}"
+        #auth_login_domain: "{{ oneview_domain }}"
         api_version: "{{ oneview_apiversion }}"
         state: power_state_set
         data:
