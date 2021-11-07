@@ -7,7 +7,7 @@
   tasks:
     - name: Add a Server Hardware
       hpe.oneview.oneview_server_hardware:
-        hostname: "{{ hostvars.[oneview_host].ansible_host }}"
+        hostname: "{{ hostvars[oneview_host].ansible_host }}"
         username: "{{ oneview_username }}"
         password: "{{ oneview_password }}"
         # auth_login_domain: "{{ oneview_domain }}"
