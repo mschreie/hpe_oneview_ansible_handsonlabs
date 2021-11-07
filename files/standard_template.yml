@@ -17,13 +17,9 @@ profile_data:
     secureBoot: Disabled
   description: nothing fancy
   eTag: 1636296830670/4
-  enclosureBay: null
-  enclosureGroupUri: null
-  enclosureUri: null
   firmware:
     consistencyState: Unknown
     firmwareActivationType: null
-    firmwareBaselineUri: null
     firmwareInstallType: null
     firmwareScheduleDateTime: ''
     forceInstallFirmware: false
@@ -61,8 +57,6 @@ profile_data:
     deploymentPortId: null
     forceOsDeployment: false
     osCustomAttributes: []
-    osDeploymentPlanUri: null
-    osVolumeUri: null
     reapplyState: NotApplying
   profileUUID: 5272cea1-f66d-4909-98a7-eef1e4604f9b
   refreshState: NotRefreshing
