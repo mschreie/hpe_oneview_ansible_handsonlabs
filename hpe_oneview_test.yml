@@ -6,10 +6,10 @@
      
     - name: Gather Oneview version facts
       hpe.oneview.oneview_version_facts:
-        hostname: "{{ oneview_hostname }}"
+        hostname: "{{ ansbile_hostname }}"
         username: "{{ oneview_username }}"
         password: "{{ oneview_password }}"
-        auth_login_domain: "{{ oneview_domain }}"
+        # auth_login_domain: "{{ oneview_domain }}"
         api_version: "{{ oneview_apiversion }}"
       delegate_to: localhost
 
@@ -17,11 +17,23 @@
 
     - name: Gather user facts
       hpe.oneview.oneview_user_facts:
-        hostname: "{{ oneview_hostname }}"
+        hostname: "{{ ansbile_hostname }}"
         username: "{{ oneview_username }}"
         password: "{{ oneview_password }}"
-        auth_login_domain: "{{ oneview_domain }}"
+        # auth_login_domain: "{{ oneview_domain }}"
         api_version: "{{ oneview_apiversion }}"
       delegate_to: localhost
 
     - debug: var=users
+
+    - name: Gather facts about all Enclosures
+      hpe.oneview.oneview_enclosure_facts:
+        hostname: "{{ ansible_host }}"
+        username: "{{ oneview_username }}"
+        password: "{{ oneview_password }}"
+        # auth_login_domain: "{{ oneview_domain }}"
+        api_version: "{{ oneview_apiversion }}"
+      delegate_to: localhost
+
+    - debug: var=enclosures
+
