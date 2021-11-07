@@ -1,6 +1,6 @@
 ---
 - hosts: oneview_hosts
-  gather_facts: true
+  gather_facts: false
 
   tasks:
      
