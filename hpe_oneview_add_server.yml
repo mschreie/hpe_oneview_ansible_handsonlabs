@@ -15,8 +15,8 @@
         state: present
         data:
           hostname : "{{ilo_ip}}"
-          username : "{{ilo_user}}"
-          password : "{{ilo_pw}}"
+          username : "{{ilo_username}}"
+          password : "{{ilo_password}}"
           force : true
           licensingIntent: "OneView"
           configurationState: "Managed"
