@@ -5,6 +5,7 @@
     - hpe.oneview
   
   tasks:
+    ## FIXME: needs to be more sophisticated: does not succeed when off already
     - name: Power of Server gentley
       hpe.oneview.oneview_server_hardware:
         hostname: "{{ hostvars[oneview_host].ansible_host }}"
