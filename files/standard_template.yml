@@ -25,7 +25,6 @@ profile_data:
     controllers:
       - deviceSlot: Embedded
         driveWriteCache: Unmanaged
-        importConfiguration: false
         initialize: true
         logicalDrives:
         - accelerator: Unmanaged
