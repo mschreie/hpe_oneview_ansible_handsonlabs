@@ -7,7 +7,7 @@ profile_data:
   boot:
     manageBoot: false
   bootMode:
-    manageMode: true
+    manageMode: false
     mode: UEFIOptimized
     pxeBootPolicy: Auto
   description: nothing fancy
@@ -23,7 +23,7 @@ profile_data:
         initialize: true
         logicalDrives:
         - accelerator: Unmanaged
-          bootable: true
+          bootable: false
           driveTechnology: null
           name: Logical Drive 1
           numPhysicalDrives: 2
