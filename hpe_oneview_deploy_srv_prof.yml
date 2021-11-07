@@ -6,8 +6,8 @@
 
   tasks:
     - fail:
-        msg: "You need to define ov_hardware for each host which should be deployed via this script"
-      when: ov_hardware is undefined 
+        msg: "You need to define ov_hardware_name for each host which should be deployed via this script"
+      when: ov_hardware_name is undefined 
 
 # Moved as var into group_vars/all
 #    - name: Set Oneview Server Profile Name for the host in question
@@ -26,7 +26,7 @@
         api_version: "{{ oneview_apiversion }}"
         state: power_state_set
         data:
-          name : '{{ ov_hardware }}'
+          name : '{{ ov_hardware_name }}'
           powerStateData:
             powerState: "Off"
             powerControl: "PressAndHold"
@@ -56,7 +56,7 @@
         data:
           name: "{{ ov_profile }}"
           serverProfileTemplateName: "{{ ov_template }}"
-          serverHardwareName: "{{ ov_hardware }}"
+          serverHardwareName: "{{ ov_hardware_name }}"
         params:
           force: True
       delegate_to: localhost
@@ -80,7 +80,7 @@
         password: "{{ oneview_password }}"
         auth_login_domain: "{{ oneview_domain }}"
         api_version: "{{ oneview_apiversion }}"
-        name: "{{ ov_hardware }}"
+        name: "{{ ov_hardware_name }}"
         options:
           - remoteConsoleUrl
       delegate_to: localhost
@@ -94,7 +94,7 @@
         api_version: "{{ oneview_apiversion }}"
         state: power_state_set
         data:
-            name : '{{ ov_hardware }}'
+            name : '{{ ov_hardware_name }}'
             powerStateData:
                 powerState: "Off"
                 powerControl: "PressAndHold"

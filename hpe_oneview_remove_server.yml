@@ -15,7 +15,7 @@
         api_version: "{{ oneview_apiversion }}"
         state: power_state_set
         data:
-          name : "{{ilo_ovname}}"
+          name : "{{ov_hardware_name}}"
           powerStateData:
             powerState: "Off"
             powerControl: "MomentaryPress"
@@ -43,5 +43,5 @@
         state: absent
         data:
           # name: "{{ilo_ip}}"
-          name: "{{ilo_ovname}}"
+          name: "{{ov_hardware_name}}"
       delegate_to: localhost

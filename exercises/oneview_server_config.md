@@ -33,8 +33,8 @@ bastion_host ansible_host=10.6.80.25
 oneview_host ansible_host=composer.synergy.hybridit.hpecic.net
 
 [esx_hosts]
-esx1    ansible_host="1.2.3.4"   ov_hardware="Demo1_Rack12_Frame3, bay 5" ilo_ip=2.3.4.4
-esx2    ansible_host="1.2.3.5"   ov_hardware="Demo1_Rack12_Frame3, bay 6" ilo_ip=2.3.4.5
+esx1    ansible_host="1.2.3.4"   ov_hardware_name="Demo1_Rack12_Frame3, bay 5" ilo_ip=2.3.4.4
+esx2    ansible_host="1.2.3.5"   ov_hardware_name="Demo1_Rack12_Frame3, bay 6" ilo_ip=2.3.4.5
 ```
 
 For ease of use this inventory resides within github and we create an Ansible Tower inventory which syncs data form there.

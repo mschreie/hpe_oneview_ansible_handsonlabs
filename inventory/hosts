@@ -180,7 +180,7 @@ all:
           ansible_host: '10.31.13.41' 
           ilo_ip: '10.31.14.41'
           ## FIXME: next var is known from "add server job" and should be persisted ther
-          ilo_ovname: "RMCR2G2ilo.techmktg.houston.lab"
+          ov_hardware_name: "RMCR2G2ilo.techmktg.houston.lab"
           oneview_host: g1ov
           esxi_bootproto: static
           esxi_ip: "{{ ansible_host }}"
