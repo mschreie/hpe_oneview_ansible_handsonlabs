@@ -6,7 +6,7 @@
      
     - name: Gather Oneview version facts
       hpe.oneview.oneview_version_facts:
-        hostname: "{{ ansbile_hostname }}"
+        hostname: "{{ ansible_host }}"
         username: "{{ oneview_username }}"
         password: "{{ oneview_password }}"
         # auth_login_domain: "{{ oneview_domain }}"
@@ -17,7 +17,7 @@
 
     - name: Gather user facts
       hpe.oneview.oneview_user_facts:
-        hostname: "{{ ansbile_hostname }}"
+        hostname: "{{ ansible_host }}"
         username: "{{ oneview_username }}"
         password: "{{ oneview_password }}"
         # auth_login_domain: "{{ oneview_domain }}"
