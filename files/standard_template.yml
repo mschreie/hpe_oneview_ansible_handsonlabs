@@ -6,11 +6,6 @@ profile_data:
     manageBios: false
   boot:
     manageBoot: false
-    order:
-      - CD
-      - USB
-      - HardDisk
-      - PXE
   bootMode:
     manageMode: true
     mode: UEFIOptimized
