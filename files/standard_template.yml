@@ -1,6 +1,7 @@
 ---
 profile_data:
   name: "{{ ov_profile }}"
+  serverHardwareTypeName: "{{ server_hardware_type_name }}"
   bios:
     manageBios: false
   boot:
