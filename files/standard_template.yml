@@ -16,15 +16,13 @@ profile_data:
     pxeBootPolicy: Auto
     secureBoot: Disabled
   description: nothing fancy
-  eTag: 1636296830670/4
   firmware:
-    consistencyState: Unknown
+    reapplyState: NotApplying
+    manageFirmware: false
     firmwareActivationType: null
     firmwareInstallType: null
     firmwareScheduleDateTime: ''
     forceInstallFirmware: false
-    manageFirmware: false
-    reapplyState: NotApplying
   localStorage:
     controllers:
       - deviceSlot: Embedded
