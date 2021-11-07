@@ -45,7 +45,6 @@ profile_data:
   name: Base Profile 
   osDeploymentSettings:
     deployMethod: null
-    forceOsDeployment: false
     osCustomAttributes: []
   refreshState: NotRefreshing
   sanStorage:
