@@ -19,7 +19,7 @@
 
     - name: Power Off compute in order to remove the profile
       hpe.oneview.oneview_server_hardware:
-        hostname: "{{ hostvars.oneview_host.ansible_host }}"
+        hostname: "{{ hostvars[oneview_host].ansible_host }}"
         username: "{{ oneview_username }}"
         password: "{{ oneview_password }}"
         auth_login_domain: "{{ oneview_domain }}"
@@ -34,7 +34,7 @@
       
     - name: Retrieve info of  server profile template 
       hpe.oneview.oneview_server_profile_template_facts:
-        hostname: "{{ hostvars.oneview_host.ansible_host }}"
+        hostname: "{{ hostvars[oneview_host].ansible_host }}"
         username: "{{ oneview_username }}"
         password: "{{ oneview_password }}"
         auth_login_domain: "{{ oneview_domain }}"
@@ -48,7 +48,7 @@
 
     - name: Create profile from template and assign to compute
       hpe.oneview.oneview_server_profile:
-        hostname: "{{ hostvars.oneview_host.ansible_host }}"
+        hostname: "{{ hostvars[oneview_host].ansible_host }}"
         username: "{{ oneview_username }}"
         password: "{{ oneview_password }}"
         auth_login_domain: "{{ oneview_domain }}"
@@ -63,7 +63,7 @@
 
     - name: Ensure profile state is compliant
       hpe.oneview.oneview_server_profile:
-        hostname: "{{ hostvars.oneview_host.ansible_host }}"
+        hostname: "{{ hostvars[oneview_host].ansible_host }}"
         username: "{{ oneview_username }}"
         password: "{{ oneview_password }}"
         auth_login_domain: "{{ oneview_domain }}"
@@ -75,7 +75,7 @@
 
     - name: Gather sso iLO url facts about a Server Hardware
       hpe.oneview.oneview_server_hardware_facts:
-        hostname: "{{ hostvars.oneview_host.ansible_host }}"
+        hostname: "{{ hostvars[oneview_host].ansible_host }}"
         username: "{{ oneview_username }}"
         password: "{{ oneview_password }}"
         auth_login_domain: "{{ oneview_domain }}"
@@ -87,7 +87,7 @@
  
     - name: Power Off the server hardware
       hpe.oneview.oneview_server_hardware:
-        hostname: "{{ hostvars.oneview_host.ansible_host }}"
+        hostname: "{{ hostvars[oneview_host].ansible_host }}"
         username: "{{ oneview_username }}"
         password: "{{ oneview_password }}"
         auth_login_domain: "{{ oneview_domain }}"
