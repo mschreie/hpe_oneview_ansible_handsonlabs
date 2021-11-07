@@ -31,7 +31,7 @@
     - name: persist ov_hardware_name to local file
       lineinfile:
         path: /var/lib/awx/oneview_deployment.state
-        regexp: "{{ inventory_hostname }}"
+        ##regexp: "{{ inventory_hostname }}"
         line: "{{ inventory_hostname }}: {{ ansible_facts['server_hardware']['name'] }}"
         state: present
         create: yes
