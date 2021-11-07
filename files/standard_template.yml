@@ -29,7 +29,6 @@ profile_data:
         logicalDrives:
         - accelerator: Unmanaged
           bootable: true
-          driveNumber: 1
           driveTechnology: null
           name: Logical Drive 1
           numPhysicalDrives: 2
