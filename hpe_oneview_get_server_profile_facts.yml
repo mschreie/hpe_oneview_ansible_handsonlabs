@@ -23,7 +23,7 @@
     - name: display new server facts
       debug:
         ## msg: "{{ ansible_facts['server_profile']['name'] }}"
-        msg: "{{ server_profiles }}"
+        msg: "{{ server_profiles | to_nice_yaml }}"
       ignore_errors: True
       register: display_facts
 
