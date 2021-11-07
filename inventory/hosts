@@ -179,6 +179,8 @@ all:
         g1:
           ansible_host: '10.31.13.41' 
           ilo_ip: '10.31.14.41'
+          ## FIXME: next var is known from "add server job" and should be persisted ther
+          ilo_ovname: "RMCR2G2ilo.techmktg.houston.lab"
           oneview_host: g1ov
         g2:
           ansible_host: '10.31.23.41' 
