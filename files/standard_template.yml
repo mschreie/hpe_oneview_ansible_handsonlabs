@@ -15,7 +15,6 @@ profile_data:
     manageMode: true
     mode: UEFIOptimized
     pxeBootPolicy: Auto
-    secureBoot: Disabled
   description: nothing fancy
   firmware:
     manageFirmware: false
