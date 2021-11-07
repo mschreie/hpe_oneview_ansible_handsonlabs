@@ -1,0 +1,45 @@
+---
+- hosts: target_hosts
+  gather_facts: false
+  collections:
+    - hpe.oneview
+  
+  tasks:
+    - name: Power of Server gentley
+      hpe.oneview.oneview_server_hardware:
+        hostname: "{{ hostvars[oneview_host].ansible_host }}"
+        username: "{{ oneview_username }}"
+        password: "{{ oneview_password }}"
+        # auth_login_domain: "{{ oneview_domain }}"
+        api_version: "{{ oneview_apiversion }}"
+        state: power_state_set
+        data:
+          name : "{{ilo_ip}}"
+          powerStateData:
+            powerState: "Off"
+            powerControl: "MomentaryPress"
+      delegate_to: localhost
+      
+    - name: Remove a Server Profile
+      hpe.oneview.oneview_server_profile:
+        hostname: "{{ hostvars[oneview_host].ansible_host }}"
+        username: "{{ oneview_username }}"
+        password: "{{ oneview_password }}"
+        # auth_login_domain: "{{ oneview_domain }}"
+        api_version: "{{ oneview_apiversion }}"
+        state: absent
+        data:
+          name: "{{ov_profile}}"
+      delegate_to: localhost
+
+    - name: Remove a Server Hardware
+      hpe.oneview.oneview_server_hardware:
+        hostname: "{{ hostvars[oneview_host].ansible_host }}"
+        username: "{{ oneview_username }}"
+        password: "{{ oneview_password }}"
+        # auth_login_domain: "{{ oneview_domain }}"
+        api_version: "{{ oneview_apiversion }}"
+        state: absent
+        data:
+          name: "{{ilo_ip}}"
+      delegate_to: localhost

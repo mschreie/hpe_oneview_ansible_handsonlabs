@@ -1,0 +1,28 @@
+---
+######
+# Get ServerProfile Facts of Assigned ServerProfiles
+# Required for getting the ServerProfile in YML Format for configuring and deploying new profile
+######
+
+- hosts: target_hosts
+  gather_facts: no
+  collections:
+    - hpe.oneview
+
+  tasks:
+    - name: Gather facts about all Server Profiles
+      hpe.oneview.oneview_server_profile_facts:
+        hostname: "{{ hostvars[oneview_host].ansible_host }}"
+        username: "{{ oneview_username }}"
+        password: "{{ oneview_password }}"
+        # auth_login_domain: "{{ oneview_domain }}"
+        api_version: "{{ oneview_apiversion }}"
+      delegate_to: localhost
+
+
+    - name: display new server facts
+      debug:
+        msg: "{{ ansible_facts['server_profile']['name'] }}"
+      ignore_errors: True
+      register: display_facts
+
