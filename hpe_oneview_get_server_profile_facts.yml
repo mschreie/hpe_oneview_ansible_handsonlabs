@@ -22,7 +22,8 @@
 
     - name: display new server facts
       debug:
-        msg: "{{ ansible_facts['server_profile']['name'] }}"
+        ## msg: "{{ ansible_facts['server_profile']['name'] }}"
+        msg: "{{ server_profile }}"
       ignore_errors: True
       register: display_facts
 
