@@ -2,7 +2,7 @@
 - hosts: target_hosts
   gather_facts: no
   
-  vars_file:
+  vars_files:
     ## FIXME: you could add whichprofile var and source
     # - files/{{ whichprofile }}_template.yml
     # => still same profiles for all nodes
