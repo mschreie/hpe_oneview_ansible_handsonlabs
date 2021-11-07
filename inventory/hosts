@@ -182,45 +182,131 @@ all:
           ## FIXME: next var is known from "add server job" and should be persisted ther
           ilo_ovname: "RMCR2G2ilo.techmktg.houston.lab"
           oneview_host: g1ov
+          esxi_bootproto: static
+          esxi_ip: "{{ ansible_host }}"
+          esxi_mask: 255.255.0.0
+          esxi_gw: 10.31.255.254
+          esxi_fqdn: esxi.example.com
+          esxi_nameserver:  10.187.1.10
+          esxi_domain: example.com
+
         g2:
           ansible_host: '10.31.23.41' 
           ilo_ip: '10.31.24.41'
           oneview_host: g2ov
+          esxi_bootproto: static
+          esxi_ip: "{{ ansible_host }}"
+          esxi_mask: 255.255.0.0
+          esxi_gw: 10.31.255.254
+          esxi_fqdn: esxi.example.com
+          esxi_nameserver:  10.187.1.10
+          esxi_domain: example.com
+
         g3:
           ansible_host: '10.31.33.41' 
           ilo_ip: '10.31.34.41'
           oneview_host: g3ov
+          esxi_bootproto: static
+          esxi_ip: "{{ ansible_host }}"
+          esxi_mask: 255.255.0.0
+          esxi_gw: 10.31.255.254
+          esxi_fqdn: esxi.example.com
+          esxi_nameserver:  10.187.1.10
+          esxi_domain: example.com
+
         g4:
           ansible_host: '10.31.43.41' 
           ilo_ip: '10.31.44.41'
           oneview_host: g4ov
+          esxi_bootproto: static
+          esxi_ip: "{{ ansible_host }}"
+          esxi_mask: 255.255.0.0
+          esxi_gw: 10.31.255.254
+          esxi_fqdn: esxi.example.com
+          esxi_nameserver:  10.187.1.10
+          esxi_domain: example.com
+
         g5:
           ansible_host: '10.31.53.41' 
           ilo_ip: '10.31.54.41'
           oneview_host: g5ov
+          esxi_bootproto: static
+          esxi_ip: "{{ ansible_host }}"
+          esxi_mask: 255.255.0.0
+          esxi_gw: 10.31.255.254
+          esxi_fqdn: esxi.example.com
+          esxi_nameserver:  10.187.1.10
+          esxi_domain: example.com
+
         g6:
           ansible_host: '10.31.63.41' 
           ilo_ip: '10.31.64.41'
           oneview_host: g6ov
+          esxi_bootproto: static
+          esxi_ip: "{{ ansible_host }}"
+          esxi_mask: 255.255.0.0
+          esxi_gw: 10.31.255.254
+          esxi_fqdn: esxi.example.com
+          esxi_nameserver:  10.187.1.10
+          esxi_domain: example.com
+
         g7:
           ansible_host: '10.31.73.41' 
           ilo_ip: '10.31.74.41'
           oneview_host: g7ov
+          esxi_bootproto: static
+          esxi_ip: "{{ ansible_host }}"
+          esxi_mask: 255.255.0.0
+          esxi_gw: 10.31.255.254
+          esxi_fqdn: esxi.example.com
+          esxi_nameserver:  10.187.1.10
+          esxi_domain: example.com
+
         g8:
           ansible_host: '10.31.83.41' 
           ilo_ip: '10.31.84.41'
           oneview_host: g8ov
+          esxi_bootproto: static
+          esxi_ip: "{{ ansible_host }}"
+          esxi_mask: 255.255.0.0
+          esxi_gw: 10.31.255.254
+          esxi_fqdn: esxi.example.com
+          esxi_nameserver:  10.187.1.10
+          esxi_domain: example.com
+
         g9:
           ansible_host: '10.31.93.41' 
           ilo_ip: '10.31.94.41'
           oneview_host: g9ov
+          esxi_bootproto: static
+          esxi_ip: "{{ ansible_host }}"
+          esxi_mask: 255.255.0.0
+          esxi_gw: 10.31.255.254
+          esxi_fqdn: esxi.example.com
+          esxi_nameserver:  10.187.1.10
+          esxi_domain: example.com
+
         g10:
           ansible_host: '10.31.103.41' 
-          # per list this should be 10.31.114.41
           ilo_ip: '10.31.104.41'
           oneview_host: g10ov
+          esxi_bootproto: static
+          esxi_ip: "{{ ansible_host }}"
+          esxi_mask: 255.255.0.0
+          esxi_gw: 10.31.255.254
+          esxi_fqdn: esxi.example.com
+          esxi_nameserver:  10.187.1.10
+          esxi_domain: example.com
+
         g11:
           ansible_host: '10.31.113.41' 
-          # per list this should be 10.31.124.41
           ilo_ip: '10.31.114.41'
           oneview_host: g11ov
+          esxi_bootproto: static
+          esxi_ip: "{{ ansible_host }}"
+          esxi_mask: 255.255.0.0
+          esxi_gw: 10.31.255.254
+          esxi_fqdn: esxi.example.com
+          esxi_nameserver:  10.187.1.10
+          esxi_domain: example.com
+
