@@ -66,11 +66,6 @@ all:
         bastion21:
           ansible_host: '10.31.46.21'
           guest_hostname: bastion21
-      vars:
-        guest_memory: '4096'
-        guest_vcpu: '2'
-        bastion_iso_dir: /var/www/html/isos
-        activationkey: RHEL
 
     tower_hosts:
       hosts:
@@ -138,15 +133,6 @@ all:
           ansible_host: '10.31.36.21'
           guest_hostname: tower21
 
-      vars:
-        guest_memory: '10240'
-        guest_vcpu: '4'
-        tower_passwords:
-          admin_password: "r3dh4t1!"
-          pg_password: "r3dh4t1!"
-          rabbitmq_password: "r3dh4t1!"
-        activationkey: AAP
-
     linux_hosts:
       children:
         tower_hosts:
@@ -158,11 +144,6 @@ all:
         wing21:
           ansible_host: '10.31.16.21' 
           guest_hostname: wing21
-      vars:
-        ansible_connection: winrm
-        ansible_winrm_cert_pem: xxxxxxx
-        ansible_winrm_cert_key_pem: xxxxxxx
-        ansible_winrm_transport: certificate
 
     oneview_hosts:
       hosts:
@@ -198,35 +179,46 @@ all:
         g1:
           ansible_host: '10.31.13.41' 
           ilo_ip: '10.31.14.41'
+          oneview_host: g1ov
         g2:
           ansible_host: '10.31.23.41' 
           ilo_ip: '10.31.24.41'
+          oneview_host: g2ov
         g3:
           ansible_host: '10.31.33.41' 
           ilo_ip: '10.31.34.41'
+          oneview_host: g3ov
         g4:
           ansible_host: '10.31.43.41' 
           ilo_ip: '10.31.44.41'
+          oneview_host: g4ov
         g5:
           ansible_host: '10.31.53.41' 
           ilo_ip: '10.31.54.41'
+          oneview_host: g5ov
         g6:
           ansible_host: '10.31.63.41' 
           ilo_ip: '10.31.64.41'
+          oneview_host: g6ov
         g7:
           ansible_host: '10.31.73.41' 
           ilo_ip: '10.31.74.41'
+          oneview_host: g7ov
         g8:
           ansible_host: '10.31.83.41' 
           ilo_ip: '10.31.84.41'
+          oneview_host: g8ov
         g9:
           ansible_host: '10.31.93.41' 
           ilo_ip: '10.31.94.41'
+          oneview_host: g9ov
         g10:
           ansible_host: '10.31.103.41' 
           # per list this should be 10.31.114.41
           ilo_ip: '10.31.104.41'
+          oneview_host: g10ov
         g11:
           ansible_host: '10.31.113.41' 
           # per list this should be 10.31.124.41
           ilo_ip: '10.31.114.41'
+          oneview_host: g11ov

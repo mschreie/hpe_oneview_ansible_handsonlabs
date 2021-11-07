@@ -1,23 +1,30 @@
 ---
 - hosts: target_hosts
   gather_facts: false
-
+  collections:
+    - hpe.oneview
+  
   tasks:
-    - name: Add a Server Hardware to Oneview
+    - name: Add a Server Hardware
       hpe.oneview.oneview_server_hardware:
-        hostname: "{{ oneview_hostname }}"
+        hostname: "{{ hostvars.oneview_host.ansible_host }}"
         username: "{{ oneview_username }}"
         password: "{{ oneview_password }}"
-        auth_login_domain: "{{ oneview_domain }}"
+        # auth_login_domain: "{{ oneview_domain }}"
         api_version: "{{ oneview_apiversion }}"
-
         state: present
         data:
           hostname : "{{ilo_ip}}"
-          username : "admin"
+          username : "{{ilo_user}}"
           password : "{{ilo_pw}}"
           force : true
           licensingIntent: "OneView"
           configurationState: "Managed"
       delegate_to: localhost
-      # ignore_errors: true
+
+    - name: display new server facts
+      debug:
+        msg: "{{ ansible_facts['server_hardware']['name'] }}"
+      ignore_errors: True
+      register: display_facts
+
