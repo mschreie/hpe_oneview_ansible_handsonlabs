@@ -8,8 +8,8 @@ profile_data:
     manageBoot: false
   bootMode:
     manageMode: false
-    mode: UEFIOptimized
-    pxeBootPolicy: Auto
+    #mode: UEFIOptimized
+    #pxeBootPolicy: Auto
   description: nothing fancy
   firmware:
     manageFirmware: false
