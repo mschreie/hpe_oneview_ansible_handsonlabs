@@ -1,6 +1,15 @@
 ---
 - hosts: target_hosts
   gather_facts: no
+  
+  vars_file:
+    ## FIXME: you could add whichprofile var and source
+    # - files/{{ whichprofile }}_template.yml
+    # => still same profiles for all nodes
+    # => allow for different data sets named e.g. like each host 
+    #    within template file 
+    #    and choose when using 
+    - files/standard_template.yml
 
   tasks:
     - name: Create a server profile template
@@ -13,90 +22,12 @@
 
         state: present
         data:
-          name: "{{ server_profile_template_name }}"
-          serverHardwareTypeName: "{{ server_hardware_type_name }}"
-          enclosureGroupName: "{{ enclosure_group_name }}"
-          #initialScopeNames:
-          #  - Renamed
-          #  - test
-          managementProcessor: 
-            complianceControl: "Checked"
-            manageMp: true
-            mpSettings: 
-              - settingType: "AdministratorAccount"
-                args: 
-                  deleteAdministratorAccount: false
-                  password: "{{ ilo_password }}"
-          bios:
-            complianceControl: "Checked"
-            manageBios: true
-            overriddenSettings: 
-             - id: "CustomPostMessage"
-               value: "This is the Workshop Custom Post screen message"
-             - id: "ExtendedMemTest"
-               value: "Disabled"
-          boot:
-            manageBoot: true
-            order:
-              - "HardDisk"
-          bootMode:
-            manageMode: true
-            mode: "UEFIOptimized"
-            pxeBootPolicy: "Auto"
-            secureBoot: "Disabled"
-          connectionSettings:
-            complianceControl: "CheckedMinimum"
-            manageConnections: true
-            connections: 
-              - id: 1
-                name: "Red Hat Wrkld"
-                functionType: "Ethernet"
-                networkName: "{{ deployment_network_name }}"
-                ##networkName: null
-                portId: "Mezz 3:1-a"
-                requestedMbps: 2500
-                requestedVFs: "Auto"
-                boot:
-                  priority: "Primary"
-                  ethernetBootType: "PXE"
-                  bootVlanId: null
-                lagName: null
-                managed: true
-                isolatedTrunk: false
-          localStorage: 
-            complianceControl: "CheckedMinimum"
-            ##sasLogicalJBODs: null
-            controllers: 
-              - deviceSlot: "Embedded"
-                mode: "Mixed"
-                initialize: true
-                driveWriteCache: "Unmanaged"
-                predictiveSpareRebuild: "Unmanaged"
-                logicalDrives: 
-                  - name: "OS_VOL"
-                    raidLevel: "RAID1"
-                    bootable: true
-                    numPhysicalDrives: 2
-                    driveTechnology: null
-                    sasLogicalJBODId: null
-                    accelerator: "Unmanaged"
-                    numSpareDrives: null
-          sanStorage:
-                complianceControl: "Unchecked"
-                manageSanStorage: false
-          firmware:
-            complianceControl: Unchecked
-            manageFirmware: false
-            ##firmwareBaselineName: "{{ firmware_baseline_name }}"
-            ##firmwareInstallType: "FirmwareAndOSDrivers"
-            forceInstallFirmware: false
-          osDeploymentSettings: null
+          "{{profile_data}}"
         params:
           force: true
       delegate_to: localhost
       register: result
       run_once: true
-
 
     - debug: msg= "{{ result.msg }}"
 

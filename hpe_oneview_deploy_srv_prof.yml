@@ -9,10 +9,11 @@
         msg: "You need to define ov_hardware for each host which should be deployed via this script"
       when: ov_hardware is undefined 
 
-    - name: Set Oneview Server Profile Name for the host in question
-      set_fact:
-        ov_profile: "Workshop_{{ inventory_hostname_short }}"
-      when: ov_profile is undefined or ov_profile is not match ("^Workshop_.*")
+# Moved as var into group_vars/all
+#    - name: Set Oneview Server Profile Name for the host in question
+#      set_fact:
+#        ov_profile: "Workshop_{{ inventory_hostname_short }}"
+#      when: ov_profile is undefined or ov_profile is not match ("^Workshop_.*")
 
 
 

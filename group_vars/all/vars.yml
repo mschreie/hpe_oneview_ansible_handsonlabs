@@ -1,18 +1,20 @@
 ---
 # Oneview configuration
-ov_template: Workshop
+ov_template: "Workshop_{{ inventory_hostname_short }}"
+ov_profile:  "Workshop_{{ inventory_hostname_short }}"
+
 # VMware Install related vars
-cust_iso_file: custom_esxi.iso
-bastion_get_url: "http://{{ hostvars.bastion_host.ansible_host }}/isos"
+cust_iso_file: {{ov_profile}}_esxi.iso
+bastion_get_url: "http://{{ hostvars[bastion_host].ansible_host }}/isos"
 bastion_iso_dir: /var/www/html/isos
 esxi_installiso: "{{ bastion_get_url }}/{{ cust_iso_file }}"
 
 # OneView Server profile Template creation
 server_profile_template_name: "{{ ov_template }}"
-server_hardware_type_name: "SY 480 Gen10 4"
-enclosure_group_name: "Demo1_Rack12_EG"
+server_hardware_type_name: "DL360 Gen9 1"
+#enclosure_group_name: "Demo1_Rack12_EG"
 ## server_profile_name: "RHEl76"
-deployment_network_name: "Redhat_workload"
+#deployment_network_name: "Redhat_workload"
 ## fc_network_1: "FC01"
 ## fc_network_2: "FC02"
 ## os_deployment_plan_name: "RHEL"
@@ -36,17 +38,11 @@ esxi_rootpw: "{{ vault_esxi_rootpw }}"
 #### we would also need different naming for the (different) iso-images
 #### second step approach
 esxi_bootproto: dhcp
-# only if static:   # not finished yet
-esxi_ip: 1.2.3.4  
-esxi_mask: 255.255.255.0
-esxi_gw: 1.2.3.1
-esxi_fqdn: esxi.example.com
-esxi_nameserver: 1.2.3.1
-esxi_domain: example.com
+# if static: config on host-level in inventory file
 
 # fixed WMware installation related vars:
-mnt_dir:  /esxi_cdrom_mount
-wrk_dir:  /esxi_cdrom
+mnt_dir:  "/{{ ov_profile }}_esxi_cdrom_mount"
+wrk_dir:  "/{{ ov_profile }}_esxi_cdrom"
 ks_template: ks.cfg
 ks_dest: "{{ wrk_dir }}/ks.cfg"
 bootoption: "runweasel ks=cdrom:/KS.CFG"

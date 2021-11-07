@@ -1,0 +1,74 @@
+---
+profile_data:
+  name: "{{ ov_profile }}"
+  serverHardwareName: "{{ ov_hardware }}"
+  bios:
+    manageBios: false
+  boot:
+    manageBoot: false
+    order:
+      - CD
+      - USB
+      - HardDisk
+      - PXE
+  bootMode:
+    manageMode: true
+    mode: UEFIOptimized
+    pxeBootPolicy: Auto
+    secureBoot: Disabled
+  description: nothing fancy
+  eTag: 1636296830670/4
+  enclosureBay: null
+  enclosureGroupUri: null
+  enclosureUri: null
+  firmware:
+    consistencyState: Unknown
+    firmwareActivationType: null
+    firmwareBaselineUri: null
+    firmwareInstallType: null
+    firmwareScheduleDateTime: ''
+    forceInstallFirmware: false
+    manageFirmware: false
+    reapplyState: NotApplying
+  localStorage:
+    controllers:
+      - deviceSlot: Embedded
+        driveWriteCache: Unmanaged
+        importConfiguration: false
+        initialize: true
+        logicalDrives:
+        - accelerator: Unmanaged
+          bootable: true
+          driveNumber: 1
+          driveTechnology: null
+          name: Logical Drive 1
+          numPhysicalDrives: 2
+          numSpareDrives: null
+          raidLevel: RAID1
+          sasLogicalJBODId: null
+        mode: RAID
+        predictiveSpareRebuild: Unmanaged
+    reapplyState: NotApplying
+    sasLogicalJBODs: []
+  macType: Physical
+  managementProcessor:
+    manageMp: false
+    mpSettings: []
+    reapplyState: NotApplying
+  name: Base Profile 
+  osDeploymentSettings:
+    deployMethod: null
+    deploymentMac: null
+    deploymentPortId: null
+    forceOsDeployment: false
+    osCustomAttributes: []
+    osDeploymentPlanUri: null
+    osVolumeUri: null
+    reapplyState: NotApplying
+  profileUUID: 5272cea1-f66d-4909-98a7-eef1e4604f9b
+  refreshState: NotRefreshing
+  sanStorage:
+    manageSanStorage: false
+    reapplyState: NotApplying
+    sanSystemCredentials: []
+    volumeAttachments: []
