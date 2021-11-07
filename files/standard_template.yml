@@ -5,9 +5,11 @@ profile_data:
   bios:
     manageBios: false
   boot:
-    manageBoot: false
+    manageBoot: true
+    order:
+      - "HardDisk"
   bootMode:
-    manageMode: true
+    manageBoot: true
     mode: UEFIOptimized
     pxeBootPolicy: Auto
   description: nothing fancy
