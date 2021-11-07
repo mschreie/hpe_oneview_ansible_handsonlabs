@@ -17,7 +17,6 @@ profile_data:
     secureBoot: Disabled
   description: nothing fancy
   firmware:
-    reapplyState: NotApplying
     manageFirmware: false
     firmwareActivationType: null
     firmwareInstallType: null
