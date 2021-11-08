@@ -25,7 +25,10 @@ server_hardware_type_name: "DL360 Gen9 1"
 # adjustable VMware installation related vars:
 org_iso:  "{{ bastion_iso_dir }}/VMware-VMvisor-Installer-7.0U3-18644231.x86_64.iso"
 cust_iso: "{{ bastion_iso_dir }}/{{ cust_iso_file }}"
-esxi_rootpw: "{{ vault_esxi_rootpw }}"
+## esxi_rootpw should be in Tower credential!!
+# named: esxi_password
+##esxi_rootpw: "{{ vault_esxi_rootpw }}"
+#
 ## Hint: put vault_ - variables into a seperate vault file named "vault"
 ## encrpyt that file with:  ansible-vault encrypt group_vars/all/vault
 ## assure the credential for file-encryption is put into tower as "vault"
