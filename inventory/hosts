@@ -180,7 +180,8 @@ all:
           ansible_host: '10.31.13.41' 
           ilo_ip: '10.31.14.41'
           ## FIXME: next var is known from "add server job" and should be persisted ther
-          ov_hardware_name: "RMCR2G2ilo.techmktg.houston.lab"
+          ilo_ovname: "RMCR2G2ilo.techmktg.houston.lab"
+          bastion_host: bastion1
           oneview_host: g1ov
           esxi_bootproto: static
           esxi_ip: "{{ ansible_host }}"
@@ -193,6 +194,7 @@ all:
         g2:
           ansible_host: '10.31.23.41' 
           ilo_ip: '10.31.24.41'
+          bastion_host: bastion2
           oneview_host: g2ov
           esxi_bootproto: static
           esxi_ip: "{{ ansible_host }}"
@@ -205,6 +207,7 @@ all:
         g3:
           ansible_host: '10.31.33.41' 
           ilo_ip: '10.31.34.41'
+          bastion_host: bastion3
           oneview_host: g3ov
           esxi_bootproto: static
           esxi_ip: "{{ ansible_host }}"
@@ -217,6 +220,7 @@ all:
         g4:
           ansible_host: '10.31.43.41' 
           ilo_ip: '10.31.44.41'
+          bastion_host: bastion4
           oneview_host: g4ov
           esxi_bootproto: static
           esxi_ip: "{{ ansible_host }}"
@@ -229,6 +233,7 @@ all:
         g5:
           ansible_host: '10.31.53.41' 
           ilo_ip: '10.31.54.41'
+          bastion_host: bastion5
           oneview_host: g5ov
           esxi_bootproto: static
           esxi_ip: "{{ ansible_host }}"
@@ -241,6 +246,7 @@ all:
         g6:
           ansible_host: '10.31.63.41' 
           ilo_ip: '10.31.64.41'
+          bastion_host: bastion6
           oneview_host: g6ov
           esxi_bootproto: static
           esxi_ip: "{{ ansible_host }}"
@@ -253,6 +259,7 @@ all:
         g7:
           ansible_host: '10.31.73.41' 
           ilo_ip: '10.31.74.41'
+          bastion_host: bastion7
           oneview_host: g7ov
           esxi_bootproto: static
           esxi_ip: "{{ ansible_host }}"
@@ -265,6 +272,7 @@ all:
         g8:
           ansible_host: '10.31.83.41' 
           ilo_ip: '10.31.84.41'
+          bastion_host: bastion8
           oneview_host: g8ov
           esxi_bootproto: static
           esxi_ip: "{{ ansible_host }}"
@@ -277,6 +285,7 @@ all:
         g9:
           ansible_host: '10.31.93.41' 
           ilo_ip: '10.31.94.41'
+          bastion_host: bastion9
           oneview_host: g9ov
           esxi_bootproto: static
           esxi_ip: "{{ ansible_host }}"
@@ -289,6 +298,7 @@ all:
         g10:
           ansible_host: '10.31.103.41' 
           ilo_ip: '10.31.104.41'
+          bastion_host: bastion10
           oneview_host: g10ov
           esxi_bootproto: static
           esxi_ip: "{{ ansible_host }}"
@@ -301,6 +311,7 @@ all:
         g11:
           ansible_host: '10.31.113.41' 
           ilo_ip: '10.31.114.41'
+          bastion_host: bastion21
           oneview_host: g11ov
           esxi_bootproto: static
           esxi_ip: "{{ ansible_host }}"

@@ -1,5 +1,5 @@
 ---
-- hosts: bastion_host
+- hosts: target_hosts
   gather_facts: no
   ##  become: true
 
@@ -10,17 +10,18 @@
        path: "{{ mnt_dir }}"
        state: unmounted
      become: true
+     delegate_to: "{{ hostvars[bastion_host].ansible_host }}"
 
    - name: Remove workingdir with Iso content
      file:
        path: "{{ item }}"
        state: absent
      become: true
+     # needs to run as root as file ownership wont allow deletion otherwise
      loop:
         - "{{ wrk_dir }}"
         - "{{ mnt_dir }}"
-     # needs to run as root as file ownership will not allow deletion otherwise 
-
+     delegate_to: "{{ hostvars[bastion_host].ansible_host }}"
 
 #   i leave the  customized iso image where it is
 #   - name: Remove customized iso image

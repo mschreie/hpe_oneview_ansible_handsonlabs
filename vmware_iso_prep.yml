@@ -1,5 +1,5 @@
 ---
-- hosts: bastion_host
+- hosts: target_hosts
   gather_facts: no
   ##  become: true
 
@@ -12,6 +12,8 @@
        opts: loop,ro
        state: mounted
      become: true
+     delegate_to: "{{ hostvars[bastion_host].ansible_host }}"
+
 
    - name: Copy Iso content to workingdir
      copy:
@@ -19,6 +21,7 @@
        dest: "{{ wrk_dir }}/"
        remote_src: yes
      become: true
+     delegate_to: "{{ hostvars[bastion_host].ansible_host }}"
      # needs to run as root otherwise all files will change ownership 
 
    - name: Unmount installation ISO 
@@ -26,6 +29,7 @@
        path: "{{ mnt_dir }}"
        state: unmounted
      become: true
+     delegate_to: "{{ hostvars[bastion_host].ansible_host }}"
 
    - name: create custom kickstart file 
      template:
@@ -34,6 +38,7 @@
        owner: root
        group: root
      become: true
+     delegate_to: "{{ hostvars[bastion_host].ansible_host }}"
 
    - name: add boot options
      # Replace before the expression till the begin of the file (requires >=2.4)
@@ -43,6 +48,7 @@
        #replace: '\1 {{ bootoption }}'    # would add our options to the existing ones
        replace: 'kernelopt={{ bootoption }}'    # adds our options instead of the existing ones
      become: true
+     delegate_to: "{{ hostvars[bastion_host].ansible_host }}"
 
    - name: add boot options II
      # Replace before the expression till the begin of the file (requires >=2.4)
@@ -52,6 +58,7 @@
        #replace: '\1 {{ bootoption }}'    # would add our options to the existing ones
        replace: 'kernelopt={{ bootoption }}'    # adds our options instead of the existing ones
      become: true
+     delegate_to: "{{ hostvars[bastion_host].ansible_host }}"
 
    - name: assure destination directory to be in place
      file: 
@@ -60,11 +67,13 @@
        modification_time: preserve
        access_time: preserve
      become: true
+     delegate_to: "{{ hostvars[bastion_host].ansible_host }}"
 
 
    - name: create customized iso image
      shell: "genisoimage -relaxed-filenames -J -R -o {{ cust_iso }} -b isolinux.bin -c boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -eltorito-alt-boot -e efiboot.img -no-emul-boot {{ wrk_dir }}"
      become: true
+     delegate_to: "{{ hostvars[bastion_host].ansible_host }}"
 
 # not needed as we create the iso right into the bastion_iso_dir
 #   - name: put customized iso image in place
@@ -75,4 +84,4 @@
 #       owner: root
 #       group: root
 #       mode: '0644'
-
+#     delegate_to: "{{ hostvars[bastion_host].ansible_host }}"
