@@ -1,5 +1,6 @@
 ---
-- hosts: g1
+##- hosts: g1
+- hosts: bastion21
   gather_facts: false
   
   tasks:
@@ -11,4 +12,4 @@
         line: "g1: RMCR2G2ilo.techmktg.houston.lab"
         state: present
         create: yes
-      delegate_to: bastion21  
+#      delegate_to: bastion21  
