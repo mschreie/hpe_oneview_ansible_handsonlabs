@@ -1,0 +1,14 @@
+---
+- hosts: g1
+  gather_facts: false
+  
+  tasks:
+    - name: persist ov_hardware_name to local file
+      lineinfile:
+        # path: /var/lib/awx/oneview_deployment.state
+        path: /tmp/oneview_deployment.state
+        ##regexp: "{{ inventory_hostname }}"
+        line: "g1: RMCR2G2ilo.techmktg.houston.lab"
+        state: present
+        create: yes
+      delegate_to: localhost  
