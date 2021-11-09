@@ -2,6 +2,9 @@
 - hosts: target_hosts
   gather_facts: no
   become: false
+  collections:
+    - community.general
+
 
   tasks:
   - name: debug hostvars

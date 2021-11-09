@@ -2,9 +2,8 @@
 collections:
 # Manadatoriy for our oneview management!
 - hpe.oneview
-# Tue Nov  9 03:30:05 PST 2021 mschreie@redhat.com
-# i commented this out. As i do not know what it is needed for...
-# - community.general
+# needed for hpe_iloboot
+- community.general
 # maybe needed for vmware playbooks
 ## -  ansible.posix
 
