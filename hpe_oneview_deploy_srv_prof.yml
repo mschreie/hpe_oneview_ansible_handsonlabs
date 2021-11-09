@@ -17,7 +17,7 @@
     
     - name: print out the ov_hardware_name
       debug:
-        msg "ov_hardware_name:  {{ ov_hardware_name }}"
+        msg: "ov_hardware_name:  {{ ov_hardware_name }}"
       
     - fail:
         msg: "You need to define ov_hardware_name for each host which should be deployed via this script"
