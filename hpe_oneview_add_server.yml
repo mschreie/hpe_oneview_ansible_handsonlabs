@@ -36,4 +36,5 @@
         line: "{{ inventory_hostname }}: {{ ansible_facts['server_hardware']['name'] }}"
         state: present
         create: yes
-      delegate_to: localhost  
+#      delegate_to: localhost  
+      delegate_to: "{{ hostvars[bastion_host].ansible_host }}"
