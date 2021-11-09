@@ -1,14 +1,20 @@
 ---
-- hosts: g1
+- hosts: target_hosts
   gather_facts: false
   
   tasks:
-    - name: persist ov_hardware_name to local file
-      lineinfile:
-        # path: /var/lib/awx/oneview_deployment.state
-        path: /tmp/oneview_deployment.state
-        ##regexp: "{{ inventory_hostname }}"
-        line: "g1: RMCR2G2ilo.techmktg.houston.lab"
-        state: present
-        create: yes
+    - name: read ov_hardware_names from file
+      include_vars:
+        file: "/tmp/oneview_deployment.state"
+        name: ovhostnamelist
+      delegate_to: bastion21  
+
+    - name: see what we got
+      debug:
+        msg: "{{ ovhostnamelist }}"
+      #delegate_to: bastion21  
+
+    - name: see what we got
+      debug:
+        msg: "{{ ovhostnamelist.g1 }}"
       delegate_to: bastion21  

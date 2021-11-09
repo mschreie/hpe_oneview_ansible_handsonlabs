@@ -5,6 +5,20 @@
   vars:
 
   tasks:
+    - name: read ov_hardware_names from file
+      include_vars:
+        file: "/tmp/oneview_deployment.state"
+        name: ovhostnamelist
+      delegate_to: "{{ hostvars[bastion_host].ansible_host }}"
+
+    - name: extract ov_hardware_name
+      set_fact: 
+        ov_hardware_name: ovhostnamelist[ansible_host]
+    
+    - name: print out the ov_hardware_name
+      debug:
+        msg "ov_hardware_name:  {{ ov_hardware_name }}"
+      
     - fail:
         msg: "You need to define ov_hardware_name for each host which should be deployed via this script"
       when: ov_hardware_name is undefined 
