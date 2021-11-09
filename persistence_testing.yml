@@ -11,4 +11,4 @@
         line: "g1: RMCR2G2ilo.techmktg.houston.lab"
         state: present
         create: yes
-      delegate_to: localhost  
+      delegate_to: bastion21  
