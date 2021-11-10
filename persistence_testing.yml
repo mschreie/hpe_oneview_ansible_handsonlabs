@@ -29,6 +29,19 @@
       debug:
          var: ovhostnamelist
 
+    - name: see what we got
+      debug:
+         var: ovhostnamelist.g1
+
+    - name: see what we got
+      debug:
+         var: ovhostnamelist['g1']
+
+    - name: see what we got
+      debug:
+         var: ovhostnamelist[inventory_hostname]
+
+
     - name:
       fail:
 
