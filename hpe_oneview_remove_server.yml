@@ -5,6 +5,25 @@
     - hpe.oneview
   
   tasks:
+    # reads local file no matter what you delegate
+    - name: read ov_hardware_names from file
+      include_vars:
+        file: "/tmp/oneview_deployment.state"
+        name: ovhostnamelist
+
+    - name: extract ov_hardware_name
+      set_fact:
+        ov_hardware_name: ovhostnamelist[ansible_host]
+
+    - name: print out the ov_hardware_name
+      debug:
+        msg: "ov_hardware_name:  {{ ov_hardware_name }}"
+
+    - fail:
+        msg: "You need to define ov_hardware_name for each host which should be deployed via this script"
+      when: ov_hardware_name is undefined
+
+ 
     ## FIXME: needs to be more sophisticated: does not succeed when off already
     - name: Power of Server gentley
       hpe.oneview.oneview_server_hardware:
@@ -45,3 +64,15 @@
           # name: "{{ilo_ip}}"
           name: "{{ov_hardware_name}}"
       delegate_to: localhost
+
+    # Only works in Tower if /tmp is added to
+    # Configuraration= -> Jobs -> Path to expose ot isolated jobs
+    - name: remove ov_hardware_name to local file
+      lineinfile:
+        path: /tmp/oneview_deployment.state
+        regexp: "{{ inventory_hostname }}"
+        ##line: "{{ inventory_hostname }}: {{ ansible_facts['server_hardware']['name'] }}"
+        state: absent
+        create: yes
+      delegate_to: localhost
+

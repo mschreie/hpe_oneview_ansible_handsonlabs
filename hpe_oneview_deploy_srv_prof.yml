@@ -5,12 +5,11 @@
   vars:
 
   tasks:
+    # reads local file no matter what you delegate
     - name: read ov_hardware_names from file
       include_vars:
         file: "/tmp/oneview_deployment.state"
         name: ovhostnamelist
-        remote_src: true
-      delegate_to: "{{ hostvars[bastion_host].ansible_host }}"
 
     - name: extract ov_hardware_name
       set_fact: 
