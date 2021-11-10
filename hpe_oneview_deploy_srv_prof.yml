@@ -13,7 +13,7 @@
 
     - name: extract ov_hardware_name
       set_fact: 
-        ov_hardware_name: ovhostnamelist[inventory_hostname]
+        ov_hardware_name: "{{  ovhostnamelist[inventory_hostname] }}"
     
     - name: print out the ov_hardware_name
       debug:
