@@ -1,20 +1,55 @@
 ---
 - hosts: target_hosts
+#- hosts: localhost
   gather_facts: false
+  vars:
+    myvars: {}
   
   tasks:
-    - name: read ov_hardware_names from file
-      include_vars:
-        file: "/tmp/oneview_deployment.state"
-        name: ovhostnamelist
+    # only read local files no matter what you delegate
+    # - name: read ov_hardware_names from file
+    #   include_vars:
+    #     file: "/tmp/oneview_deployment.state"
+    #     name: ovhostnamelist
+    #   delegate_to: bastion21  
+
+#    # needs to be b64decoded 
+#    # result is once again just a string...
+#    - name: read ov_hardware_names from file
+#      slurp:
+#         src: "/tmp/oneview_deployment.state"
+#      register: ovhostnamelist
+#    - name: see what we got
+#      debug:
+#        msg: "{{ ovhostnamelist.content  | b64decode }}"
+
+
+#    GREAT i read the file and get the lines separated into a list!!
+#    - name: read file
+#      set_fact:
+#        filecontent: "{{ (lookup('file', '/tmp/oneview_deployment.state')).split('\n') }}"
+#
+#    - name: see what we got
+#      debug:
+#        var: filecontent
+
+# now i also get each line transfered into key/value pair stored in a dict
+    - name: try to split file
+      set_fact: {
+        myvars: "{{ myvars | combine( { item.split(':')[0]: item.split(':')[1] } ) }}"
+              }
+      loop:
+        "{{ (lookup('file', '/tmp/oneview_deployment.state')).split('\n') }}"
+      delegate_to: bastion21  
+
+
+    - name: see what we got
+      debug:
+        var: myvars
       delegate_to: bastion21  
 
     - name: see what we got
       debug:
-        msg: "{{ ovhostnamelist }}"
-      #delegate_to: bastion21  
-
-    - name: see what we got
-      debug:
-        msg: "{{ ovhostnamelist.g1 }}"
+        var: myvars.g2
       delegate_to: bastion21  
+
