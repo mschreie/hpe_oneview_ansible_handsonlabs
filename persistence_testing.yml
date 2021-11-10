@@ -6,12 +6,27 @@
     myvars: {}
   
   tasks:
+   # Only works in Tower if /tmp is added to
+   # Configuraration= -> Jobs -> Path to expose ot isolated jobs 
+   - name: persist ov_hardware_name to local file
+      lineinfile:
+        # path: /var/lib/awx/oneview_deployment.state
+        path: /tmp/oneview_deployment.state
+        ##regexp: "{{ inventory_hostname }}"
+        line: "{{ inventory_hostname }}: {{ ansible_facts['server_hardware']['name'] }}"
+        state: present
+        create: yes
+
     # only read local files no matter what you delegate
-    # - name: read ov_hardware_names from file
-    #   include_vars:
-    #     file: "/tmp/oneview_deployment.state"
-    #     name: ovhostnamelist
-    #   delegate_to: bastion21  
+     - name: read ov_hardware_names from file
+       include_vars:
+         file: "/tmp/oneview_deployment.state"
+         name: ovhostnamelist
+
+    - name: see what we got
+      debug:
+        var: ovhostnamelist
+
 
 #    # needs to be b64decoded 
 #    # result is once again just a string...
@@ -34,12 +49,24 @@
 #        var: filecontent
 
 # now i also get each line transfered into key/value pair stored in a dict
+    - name: read remote file
+      slurp:
+         src: "/tmp/oneview_deployment.state"
+      register: ovhostnamestring
+      delegate_to: bastion21  
+
+    - name: see what we got
+      debug:
+        var: (ovhostnamestring.content | b64decode) 
+      delegate_to: bastion21  
+
     - name: try to split file
       set_fact: {
         myvars: "{{ myvars | combine( { item.split(':')[0]: item.split(':')[1] } ) }}"
               }
       loop:
-        "{{ (lookup('file', '/tmp/oneview_deployment.state')).split('\n') }}"
+        ##"{{ (lookup('file', '/tmp/oneview_deployment.state')).split('\n') }}"
+        "{{ (ovhostnamestring.content | b64decode).split('\n') }}"
       delegate_to: bastion21  
 
 
