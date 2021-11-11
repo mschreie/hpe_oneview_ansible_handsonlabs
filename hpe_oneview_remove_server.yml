@@ -13,7 +13,7 @@
 
     - name: extract ov_hardware_name
       set_fact:
-        ov_hardware_name: ovhostnamelist[ansible_host]
+        ov_hardware_name: "{{ ovhostnamelist[ansible_host] }}"
 
     - name: print out the ov_hardware_name
       debug:
