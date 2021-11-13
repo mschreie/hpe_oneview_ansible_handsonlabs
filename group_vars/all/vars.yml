@@ -1,7 +1,7 @@
 ---
 # Oneview configuration
-ov_template: "Workshop_{{ inventory_hostname_short }}"
-ov_profile:  "Workshop_{{ inventory_hostname_short }}"
+ov_template: "Workshop_{{ lab_id }}_{{ inventory_hostname_short }}"
+ov_profile:  "Workshop_{{ lab_id }}_{{ inventory_hostname_short }}"
 
 # VMware Install related vars
 cust_iso_file: "{{ov_profile}}_esxi.iso"
