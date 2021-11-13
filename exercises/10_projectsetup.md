@@ -1,4 +1,4 @@
-# Getting Started with HPE OneView
+# Project Setup
 
 ## Introduction
 
@@ -11,19 +11,9 @@ Now we need to set up a Project. The project defines the source repository where
 
 Navigate to **Projects** in Tower UI, create a **New Project** :
 
-The Project we need is:
-
-
-
-
 ![Create-Prj](/images/create-prj.png)
 
-* NAME : HPE OneView Workshop
-* Organization : Default
-* SCM TYPE : Git
-* SCM URL : https://github.com/mschreie/hpe_oneview_ansible_handsonlabs.git
-* Tick : nothing
-* Other fields : leave blank or leave default
+The Project we need is:
 
 | Parameter | Value |
 |---|---|
@@ -32,8 +22,11 @@ The Project we need is:
 | ORGANIZATION | Handsonlabs Organization |
 | SCM TYPE | Git |
 | SCM URL | https://github.com/mschreie/hpe_oneview_ansible_handsonlabs |
-Leave the other fields blank or with default values.<br>
-You do not need to tick any "SCM UPDATE OPTIONS"
+| other fields | Leave them blank or with default values.<br>
+| SCM UPDATE OPTIONS | You do not need to tick any |
+
+IMPORTANT:<br>
+please be precise with the NAME of the Project. The prepared playbooks which take over some configuration steps for you, expect the Project name to be exatly as noted here.
 
 
 Hint:<br>
