@@ -41,7 +41,10 @@ The following is an example. Names and IP adresses wil differ in your environmen
 |---|---|
 | HOST NAME | g11 |
 | DESCRIPTION | |
-| VARIABLES |  ```
+| VARIABLES |  see below |
+
+The VARIABLES field as example:
+```
 --- 
 ansible_host: "10.31.113.41"
 ilo_ip: "10.31.114.41"
@@ -63,9 +66,3 @@ It might be that the Info-Pages has a parameter `host_ip`. In the VARIABLES text
 | other fields | Leave them blank or with default values.<br>
 | SCM UPDATE OPTIONS | You do not need to tick any |
 
-IMPORTANT:<br>
-please be precise with the NAME of the Project. The prepared playbooks which take over some configuration steps for you, expect the Project name to be exatly as noted here.
-
-
-Hint:<br>
-We do not want the project to be updated before a job is launched to safe time. In our case the repository is quite stable and if for any reason an update is needed, we can still trigger this manualy.<br>
