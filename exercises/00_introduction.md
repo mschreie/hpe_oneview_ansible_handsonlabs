@@ -31,9 +31,8 @@ We already created an "Organization" called "Handsonlabs Organization". We recom
 - **Bastion Host** : To configure the Controller and to have a place the controller can prepare e.g. ISO-Images needed for the deployment process, we use the Bastion host.<br><br> 
 You typically work as user "ansible" on the bastion host.<br><br> 
 You find following directories on bastion host:
-|---|---|
-|/var/www/html/isos|This directory offers the Installation ISO immages and is reachable via browser as http://..../isos/ . You will also find some usefull files about the setup of your environment.|
-|$HOME/cmd_line|This directory offers some scripts to help you speed up repetetive or boring tasks.| 
+-- /var/www/html/isos<br>This directory offers the Installation ISO immages and is reachable via browser as http://..../isos/ . You will also find some usefull files about the setup of your environment.
+-- $HOME/cmd_line<br>This directory offers some scripts to help you speed up repetetive or boring tasks.
 
 - **Target Physical Server** : We have all together 10 DL360 Gen 9 Servers with integrated ILO 4. As we have 20 Lab environments please coordinate with your peers on usage.
 
