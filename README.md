@@ -20,7 +20,7 @@ To allow this to happen in a timely manner, we prepared some playbooks to fast f
 | **40 Virtual Environment Setup** :<br> The OneView Ansible Modules need python modules available. We will configure this | [VenvSetup](./exercises/40_venvsetup.md) |
 | **50 Credentials Setup** :<br> To connect to OneView instance you need credentials. We will configure this | [CredentialSetup](./exercises/50_credentialsetup.md) |
 | **60 Job Template Setup** :<br> The whole process form adding the server to oneview up to installation ov ESXi is seperated into a couple of jobs, each with it's own playbook. We set up these job templates and let them run to see things working | [JobtemplateSetup](./exercises/60_jobtemplatesetup.md) |
-| **70 Bonus Exercice** : Learn how to create a workflow template in Ansible Tower (Controller)| [Create an overall Workflow](./exercises/70_workflow.md)
+| **70 Bonus Exercice** :<br> Learn how to create a workflow template in Ansible Tower (Controller)| [Create an overall Workflow](./exercises/70_workflow.md)
 
 
 
