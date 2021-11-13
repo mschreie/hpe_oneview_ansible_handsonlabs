@@ -57,12 +57,7 @@ esxi_gw: "10.31.255.254"
 esxi_fqdn: "esxi.example.com"
 esxi_nameserver: "10.187.1.10"
 esxi_domain: "example.com"
-```|
+```
 
 HINT:
 It might be that the Info-Pages has a parameter `host_ip`. In the VARIABLES textbox this needs to be called `ansible_host`
-| SCM TYPE | Git |
-| SCM URL | https://github.com/mschreie/hpe_oneview_ansible_handsonlabs |
-| other fields | Leave them blank or with default values.<br>
-| SCM UPDATE OPTIONS | You do not need to tick any |
-
