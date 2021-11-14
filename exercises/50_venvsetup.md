@@ -33,7 +33,7 @@ With putty type in a session name `towerXX` and the IP-Adress and click `Save` b
 - cd to virtual environment base directory and create a new virtual python environment 
 ```
 # cd /var/lib/awx/venv/
-# python3 -m venv hpe_venv
+# python3 -m venv hpe_venv --system-site-packages
 ```
 - activate that environment
 ```
