@@ -81,7 +81,7 @@ The Credentail  we need is:
 | ORGANIZATION | Handsonlabs Organization |
 | CREDENTIAL TYPE | HPE Oneview Credential |
 | HPE ONEVIEW USERNAME | Administrator |
-| HPE ONEVIEW PASSWORD | <will be defined elsewhere> |
+| HPE ONEVIEW PASSWORD | will be defined elsewhere |
 | HPE ONEVIEW DOMAIN | domain |
 | HPE ONEVIEW API VERSION | 2000 |
 

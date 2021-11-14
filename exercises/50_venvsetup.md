@@ -2,68 +2,86 @@
 
 ## Introduction
 
-Ansible Modules are typically written in python. Some of these ansibke modules need python modules to run. Python has a concept of virtual environments which allow you to install python modules within one such virtual environment without harming the other virtual environments. Ansible Tower makes use of this and allows to choose which venv (virtual environment) to execute with.
+Ansible Modules are typically written in python. Some of these ansible modules need python modules to run. Python has a concept of virtual environments, which allow you to install python modules within one such virtual environment without harming the other virtual environments. Ansible Tower makes use of this and allows to choose which venv (virtual environment) to execute with.
 We will create a venv on the Tower host and assure the 
 
-XXXXXX
-
-
-Ansible is very powerful. One reason to that is the huge community providing roles and content collections. The community versions can be found on https://galaxy.ansible.com. To have a trustful source with certified modules Red Hat Partners and Customers should use Automation Hub as source of content collections and roles.<br>
-The HPE OneView Collection for instance is a certified and supported content collection, found on Red Hat Automation Hub.<br><br>
-
-Within Ansible Controller you define a credential for each repository you want to connect to. This credential is of credential_type `Ansible Galaxy/Automation Hub API Token`.<br>
-A freshly installed Tower has the parameters needed to connect to galaxy (the community repository) predefined in a credentail called `Ansible Galaxy`.<br>
-Automation Hub needs a valid subscription and a downloaded Automation Token. [see here for more details](https://console.redhat.com/ansible/automation-hub/token) As we did not want to disclose this token, we created the `Automation Hub` Credential on your behalf.
 
 ## Our aim
-- We will now create a first Job Template, which uses Oneview Module to connect to Oneview and fetch some data.
-- Executing this Job Template will fail, becaus the Content Collection holding the Module is not downloadable.
-- We will then assure that the Organization has `Automation Hub` and `Ansible Galaxy` credentials attached. (order important)
-- Executing this Job Template again should get the module started. Most likely we will run in other issues. (which will be addressed later).
+- We will examin the last run of our Job Template, which uses Oneview Module. Most likely some python module is missing.
+- We will create a virtual environment on the TOWER node manually
+- We will assure that our Job Template will use the newly created venv.
+- Executing this Job Template again should get the job run through.
 
 ## The Tasks
-### Create Job Template
+
+### Review Job Execution 
+Review the output of the last time we executed the Job template
+Navigate to **Jobs** in Tower UI, and click on the upmost **XX - Oneview: Oneview testing** :
+
+This should bring you back to the `JOBS / XX - OneView: Oneview testing` View.<br>
+Please investigate for the reason of failure in the provided logs. Most likely some pyhton modules are missing.
+
+![venv-Missing](/images/venv_missing.png)
+
+### Create a virtual environment
 HINT:<br>
-Use putty to establish ssh connections to the bastion host.<br>
-With putty type in a session name `bastionXX` and the IP-Adress and click `Save` bevor clicking `Open`.<br>
+Use putty to establish ssh connections to the TOWER host.<br>
+With putty type in a session name `towerXX` and the IP-Adress and click `Save` bevor clicking `Open`.<br>
 
-- Connect to your bastion host via ssh. 
-- Login as user `ansible`.
-- cd to cmd_line 
-- and execute the playbook `30_create-test-job.yml`.
-
-Example:
+- Connect to your tower host via ssh. 
+- Login as user `root`.
+- cd to virtual environment base directory and create a new virtual python environment 
 ```
-[ansible@bastion1 cmd_line]$ cd
-[ansible@bastion1 ~]$ cd cmd_line
-[ansible@bastion1 cmd_line]$ ansible-playbook -i inventory 30_create-test-job.yml
+# cd /var/lib/awx/venv/
+# python3 -m venv hpe_venv
 ```
-HINT:
-Depending on time and interest you might want to look at `inventory` file and recon the different host_groups. If you then look at the header of the playbook you might find the host_group this play is targeted against.<br>
-For a deeper investigation you might also want to look into `group_vars/all.yml` file, which defines many variables used throughout the cmd-line used playbooks. 
+- activate that environment
+```
+# source hpe_venv/bin/activate
+(hpe_venv) # python3 -V
+Python 3.6.8
+```
 
-### Execute Job Template
-Navigate to **Templates** in Tower UI, and click on **Oneview: Oneview testing** :
+- install all needed python modules 
+With your virtual environment set up and active, you can install the HPE sdks required for this use-case. In this workshop we will focus on :
 
-You should now see the definition of the Job Template. The Job Templates brings together:
-- the playbook (found in the repository of the project)
-- the project  (to know whihc repositoy to search)
-- the inventory (to know which hosts to execute against)
+   - HPE OneView
+   - HPE ILO
+To Install HPE OneView SDK, there are three ways to do so. In this workshop we will rely on pip to do so. Further details can be found on HPE official github repository in the link below :
 
-We will discover more aspects of the Job Template later.<br><br>
+https://github.com/HewlettPackard/oneview-python
+```
+(hpe_venv) $ pip install hpeOneView hpICsp python-hpilo python-ilorest-library psutil
+Collecting hpOneView
+  Downloading https://files.pythonhosted.org/packages/75/0c/a932041b58827c04cf3a565e0ace692e75f731d368e532ec4d484c870030/hpOneView-5.3.0.tar.gz (81kB)
+    100% |████████████████████████████████| 81kB 3.6MB/s 
+Collecting hpICsp
+  Cache entry deserialization failed, entry ignored
+  Using cached https://files.pythonhosted.org/packages/16/7d/22dcc6291808384bcc3bae3d50100662c607456695841aa48dedd3d8e445/hpICsp-1.0.2.tar.gz
+Collecting python-ilorest-library
+...
+Successfully installed decorator-5.1.0 hpICsp-1.0.2 hpeOneView-5.3.0 jsonpatch-1.32 jsonpath-rw-1.4.0 jsonpointer-2.1 ply-3.11 python-ilorest-library-3.2.2 six-1.16.0 urllib3-1.26.6
 
-Switch `VERBOSITY` to `3 (Debug)` and press `SAVE`.<br>
-press `LAUNCH`
+```
+- verify installation
+```
+(hpe_venv) $ pip freeze 
+```
+- deactivate the environment and exit
+```
+(hpe_venv) $ deactivate 
+[root@tower venv]#  exit
+```
 
-This should bring you to the `JOBS / XX - OneView: Oneview testing` View.<br>
-You find some information about this specific job just running and the log output. After a short while the STATUS will be red `Failed`. Please investigate for the reason of failure.
+### Configure Job Template to use the new a virtual environment
+Navigate to **Templates** in Tower UI, and click on **OneView: Oneview testing** :
 
-### Assure `Automation Hub` and `Ansible Galaxy` credentials attached to Organization
-Navigate to **Organizations** in Tower UI, and click on **Handsonlabs Organization** :
+Change the ANSIBLE ENVIRONMENT
 
-Left to the `GALAXY CREDENTIALS` Textbox click on the **magnifying glass**.<br>
-Tower will only show credentials of the coresponding type. Select both credentials. Please assure that `Automation Hub` shows up first. Tower will search for colletions in the order the repositories are listed.<br>
-Click `SAVE`
+| Parameter | Value |
+|---|---|
+| ANSIBLE ENVIRONMENT | /var/lib/awx/venv/hpe_venv |
+Leave all other fields unaltered and Click `SAVE`
 
 ### Execute Job Template again
-Launch the Job / Job Template a second time and review the output. We should be able to see the Module got executed but will then fail for other reasons. Maybe you can analyse the reason?
+Launch the Job / Job Template a second time and review the output. The Job should run through without error. 

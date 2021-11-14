@@ -10,47 +10,18 @@ A freshly installed Tower has the parameters needed to connect to galaxy (the co
 Automation Hub needs a valid subscription and a downloaded Automation Token. [see here for more details](https://console.redhat.com/ansible/automation-hub/token) As we did not want to disclose this token, we created the `Automation Hub` Credential on your behalf.
 
 ## Our aim
-- We will now create a first Job Template, which uses Oneview Module to connect to Oneview and fetch some data.
-- Executing this Job Template will fail, becaus the Content Collection holding the Module is not downloadable.
+- We now from the last section that our Job Template is still not working. Executing this Job Template fails, becaus the Content Collection holding the Module is not downloadable.
 - We will then assure that the Organization has `Automation Hub` and `Ansible Galaxy` credentials attached. (order important)
 - Executing this Job Template again should get the module started. Most likely we will run in other issues. (which will be addressed later).
 
 ## The Tasks
-### Create Job Template
-HINT:<br>
-Use putty to establish ssh connections to the bastion host.<br>
-With putty type in a session name `bastionXX` and the IP-Adress and click `Save` bevor clicking `Open`.<br>
 
-- Connect to your bastion host via ssh. 
-- Login as user `ansible`.
-- cd to cmd_line 
-- and execute the playbook `30_create-test-job.yml`.
+### Review Job Execution 
+Review the output of the last time we executed the Job template
+Navigate to **Jobs** in Tower UI, and click on the upmost **XX - Oneview: Oneview testing** :
 
-Example:
-```
-[ansible@bastion1 cmd_line]$ cd
-[ansible@bastion1 ~]$ cd cmd_line
-[ansible@bastion1 cmd_line]$ ansible-playbook -i inventory 30_create-test-job.yml
-```
-HINT:
-Depending on time and interest you might want to look at `inventory` file and recon the different host_groups. If you then look at the header of the playbook you might find the host_group this play is targeted against.<br>
-For a deeper investigation you might also want to look into `group_vars/all.yml` file, which defines many variables used throughout the cmd-line used playbooks. 
-
-### Execute Job Template
-Navigate to **Templates** in Tower UI, and click on **Oneview: Oneview testing** :
-
-You should now see the definition of the Job Template. The Job Templates brings together:
-- the playbook (found in the repository of the project)
-- the project  (to know whihc repositoy to search)
-- the inventory (to know which hosts to execute against)
-
-We will discover more aspects of the Job Template later.<br><br>
-
-Switch `VERBOSITY` to `3 (Debug)` and press `SAVE`.<br>
-press `LAUNCH`
-
-This should bring you to the `JOBS / XX - OneView: Oneview testing` View.<br>
-You find some information about this specific job just running and the log output. After a short while the STATUS will be red `Failed`. Please investigate for the reason of failure.
+This should bring you back to the `JOBS / XX - OneView: Oneview testing` View.<br>
+Please investigate for the reason of failure in the provided logs. Most likely the module to be executed can not be found.
 
 ### Assure `Automation Hub` and `Ansible Galaxy` credentials attached to Organization
 Navigate to **Organizations** in Tower UI, and click on **Handsonlabs Organization** :
