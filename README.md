@@ -24,17 +24,17 @@ To allow this to happen in a timely manner, we prepared some playbooks to fast f
 
 
 
-[comment]: <> ## Our workshop:
+<!-- ## Our workshop:
 
-[comment]: <> | Topic   | Exercises  | 
-[comment]: <> |---|---|
-[comment]: <> | **Prerequisites** : This document will explain the prerequisites for this workshop| [Prerequisites](./exercises/prerequisites.md) |
-[comment]: <> | **Exercice 0** : This guide explains how to install Red Hat Ansible Tower (Controller)| [Ansible Tower Deployment](./exercises/ansible_tower_install.md) |
-[comment]: <> | **Preparation** : This preparation guides you to setup the bastion host| [Prepare Bastion Host](./exercises/prepare_bastion_host.md) |
-[comment]: <> | **Exercice 1** : This prerequisite guides you to setup git and vscode on your windows laptop| [Code Editor and Git on Windows](./exercises/code_editor_and_git_on_windows.md) |
-[comment]: <> | **Exercice 2** : This prerequisites guides you to create a fork of the provided workshop repository| [Cloning Workshop Using Git](./exercises/git.md) |
-[comment]: <> | **Exercice 3** : This exercise helps to create your first virtual environement in tower| [Setting up Virtual Environment](./exercises/virtual_environment.md) |
-[comment]: <> | **Exercice 4** : This exercise introduces how to automate HPE OneView with Ansible Tower (Controller)| [Getting Started with HPE OneView](./exercises/getting_started_with_hpe_oneview.md) |
-[comment]: <> | **Exercice 5** : This excerice automates HW manipulation via  HPE OneView with Ansible Tower (Controller)| [Automationg HPE OneView to manipulate Server Configuration](./exercises/oneview_server_config.md) |
-[comment]: <> |  **Exercice 6** : This excerice automates deployment of ESXi with Ansible Tower (Controller)| [VMware ESXi Automated Deployment](./exercises/vmware_install.md)
-
+ | Topic   | Exercises  | 
+ |---|---|
+ | **Prerequisites** : This document will explain the prerequisites for this workshop| [Prerequisites](./exercises/prerequisites.md) |
+ | **Exercice 0** : This guide explains how to install Red Hat Ansible Tower (Controller)| [Ansible Tower Deployment](./exercises/ansible_tower_install.md) |
+ | **Preparation** : This preparation guides you to setup the bastion host| [Prepare Bastion Host](./exercises/prepare_bastion_host.md) |
+ | **Exercice 1** : This prerequisite guides you to setup git and vscode on your windows laptop| [Code Editor and Git on Windows](./exercises/code_editor_and_git_on_windows.md) |
+ | **Exercice 2** : This prerequisites guides you to create a fork of the provided workshop repository| [Cloning Workshop Using Git](./exercises/git.md) |
+ | **Exercice 3** : This exercise helps to create your first virtual environement in tower| [Setting up Virtual Environment](./exercises/virtual_environment.md) |
+ | **Exercice 4** : This exercise introduces how to automate HPE OneView with Ansible Tower (Controller)| [Getting Started with HPE OneView](./exercises/getting_started_with_hpe_oneview.md) |
+ | **Exercice 5** : This excerice automates HW manipulation via  HPE OneView with Ansible Tower (Controller)| [Automationg HPE OneView to manipulate Server Configuration](./exercises/oneview_server_config.md) |
+ |  **Exercice 6** : This excerice automates deployment of ESXi with Ansible Tower (Controller)| [VMware ESXi Automated Deployment](./exercises/vmware_install.md)
+-->
