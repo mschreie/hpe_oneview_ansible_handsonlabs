@@ -13,13 +13,13 @@ As adding these jobs might be a tedious task we once again help you with a playb
 
 HINT: Please sync with your peer, who uses the same target systems on hwo to proceed. After the integration of all playbooks one user might want to start with executing while the other starts with analysing. We should swap roles after first run went through.
 
-### User A
+##### User A
 - Add all missing Job Templates 
 - Execute the job templates 
 - Hand over the environment to your peer
 - start examination of the playbooks and job templates
 
-### USER B
+##### USER B
 - Add all missing Job Templates 
 - start examination of the playbooks and job templates
 - get the environment handed over 
