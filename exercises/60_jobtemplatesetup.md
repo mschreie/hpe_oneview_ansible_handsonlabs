@@ -38,11 +38,13 @@ Example:
 
 ### Execute the job templates
 We will first set up the HW. 
+
 1. **OneView : Add Server to OneView** needs the ILO-IP (and the credentials) to add this server into Oneview Management.
 2. **OneView : Create Server Profile Template** creates a server profile template from a text based template file.
 3. **Oneview : Deplay Server Profile Template** deploys the created Templeate as Server Profile onto a server.
 
 In a second Step we will
+
 4. **ESXi : Customize boot ISO** Adds kickstart file with customized  network config, root password into iso images and alters ISO behavior to auto install using this kick file.
 5. **ESXi : Boot from ISO via ILO** One-Time boots the server from the customized ISO image
 
