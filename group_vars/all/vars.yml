@@ -1,4 +1,9 @@
 ---
+# Central Webserver
+central_webserver: 10.31.46.21
+central_webserver_dir: /var/www/html/isos
+central_webserver_ovlist: ov_hardware_list.txt
+
 # Oneview configuration
 ov_template: "Workshop_{{ lab_id }}_{{ inventory_hostname_short }}"
 ov_profile:  "Workshop_{{ lab_id }}_{{ inventory_hostname_short }}"
