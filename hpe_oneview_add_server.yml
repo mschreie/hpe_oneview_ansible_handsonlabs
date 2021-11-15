@@ -46,4 +46,4 @@
         line: "{{ inventory_hostname }}: {{ ansible_facts['server_hardware']['name'] }}"
         state: present
         create: yes
-      delegate_to: "{{ central_webserver }}
+      delegate_to: "{{ central_webserver }}"
