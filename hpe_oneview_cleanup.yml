@@ -1,0 +1,134 @@
+---
+- hosts: oneview_hosts
+  gather_facts: false
+  collections:
+    - hpe.oneview
+
+### THIS WILL WIPE THE WHOLE ONEVIEW 
+###   good for this lab
+### VERY DANGEROUS IN OTHER ENVIRONMENTS
+### USE ON YOUR OWN RISK
+  
+  vars:
+    oneview_hardware_names:  []
+    oneview_profile_names: []
+    oneview_profile_template_names: []
+  tasks:
+    # reads local file no matter what you delegate
+ 
+    - name: Gather all Server HW within OneView
+      hpe.oneview.oneview_server_hardware_facts:
+        hostname: "{{ ansible_host }}"
+        username: "{{ oneview_username }}"
+        password: "{{ oneview_password }}"
+        # auth_login_domain: "{{ oneview_domain }}"
+        api_version: "{{ oneview_apiversion }}"
+      delegate_to: localhost
+
+    - name: capturing the hw names out of the struct
+      set_fact: 
+        oneview_hardware_names: "{{ oneview_hardware_names + [ item.name ] }}"
+      with_list:
+        "{{ server_hardwares }}"
+
+    - debug:
+        var: oneview_hardware_names
+
+    - name: Gather all Server Profiles within OneView
+      hpe.oneview.oneview_server_profile_facts:
+        hostname: "{{ ansible_host }}"
+        username: "{{ oneview_username }}"
+        password: "{{ oneview_password }}"
+        # auth_login_domain: "{{ oneview_domain }}"
+        api_version: "{{ oneview_apiversion }}"
+      delegate_to: localhost
+
+    - name: capturing the profile names out of the struct
+      set_fact: 
+        oneview_profile_names: "{{ oneview_profile_names + [ item.name ] }}"
+      with_list:
+        "{{ server_profiles }}"
+
+    - debug:
+        var: oneview_profile_names
+
+    - name: Gather all Server Profile Templates within OneView
+      hpe.oneview.oneview_server_profile_template_facts:
+        hostname: "{{ ansible_host }}"
+        username: "{{ oneview_username }}"
+        password: "{{ oneview_password }}"
+        # auth_login_domain: "{{ oneview_domain }}"
+        api_version: "{{ oneview_apiversion }}"
+      delegate_to: localhost
+
+    - name: capturing the template names out of the struct
+      set_fact: 
+        oneview_profile_template_names: "{{ oneview_profile_template_names + [ item.name ] }}"
+      with_list:
+        "{{ server_profile_templates }}"
+
+    - debug:
+        var: oneview_profile_template_names
+
+#### Now starting to delete
+
+    - name: Power of Servers harshly
+      hpe.oneview.oneview_server_hardware:
+        hostname: "{{ ansible_host }}"
+        username: "{{ oneview_username }}"
+        password: "{{ oneview_password }}"
+        # auth_login_domain: "{{ oneview_domain }}"
+        api_version: "{{ oneview_apiversion }}"
+        state: power_state_set
+        data:
+          name : "{{ item }}"
+          powerStateData:
+            powerState: "Off"
+            powerControl: "PressAndHold"
+      delegate_to: localhost
+      with_list:
+        "{{ oneview_hardware_names }}"
+      
+    - name: Remove all Server Profiles
+      hpe.oneview.oneview_server_profile:
+        hostname: "{{ ansible_host }}"
+        username: "{{ oneview_username }}"
+        password: "{{ oneview_password }}"
+        # auth_login_domain: "{{ oneview_domain }}"
+        api_version: "{{ oneview_apiversion }}"
+        state: absent
+        data:
+          name: "{{ item }}"
+      delegate_to: localhost
+      with_list:
+        "{{ oneview_profile_names }}"
+
+    - name: Remove all Server Hardware
+      hpe.oneview.oneview_server_hardware:
+        hostname: "{{ ansible_host }}"
+        username: "{{ oneview_username }}"
+        password: "{{ oneview_password }}"
+        # auth_login_domain: "{{ oneview_domain }}"
+        api_version: "{{ oneview_apiversion }}"
+        state: absent
+        data:
+          # name: "{{ilo_ip}}"
+          name: "{{ item }}"
+      delegate_to: localhost
+      with_list:
+        "{{ oneview_hardware_names }}"
+
+    - name: Remove all Server Profile Templates
+      hpe.oneview.oneview_server_profile_template:
+        hostname: "{{ ansible_host }}"
+        username: "{{ oneview_username }}"
+        password: "{{ oneview_password }}"
+        # auth_login_domain: "{{ oneview_domain }}"
+        api_version: "{{ oneview_apiversion }}"
+        state: absent
+        data:
+          name: "{{ item }}"
+      delegate_to: localhost
+      with_list:
+        "{{ oneview_profile_template_names }}"
+
