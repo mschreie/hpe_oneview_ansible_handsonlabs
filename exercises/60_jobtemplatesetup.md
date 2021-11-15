@@ -54,11 +54,13 @@ In a second Step we will
 | 5| **ESXi : Boot from ISO via ILO** | One-Time boots the server from the customized ISO image | connect to ILO and to Server Console to see isntallation process |
 
 There are additional Job Templates available (not needed for the aim of a deployment)
-| a| **Demo Job Template** preinstalled jobt template on  afreshly installed Ansible Controller 
-| b| **ESXi : Cleanup ISO creation** Wipes out temporary files and directories which where created during ISO preparation
-| c| **OneView : Get Server Profile Facts** Gets facts from a server profile - might not work
-| d| **OneView: Remove Server from OneView** Powers down given server, deletes Server Profile from Server and deletes the same. 
-| e| **OneView: Wipe clean whole OneView** Deletes all Servers, Server Profiles and Server Profile Templates from Oneview
+| Nr | Job Template | explanation | ways to check |
+|---|---|---|---|
+| a| **Demo Job Template** |  preinstalled jobt template on  afreshly installed Ansible Controller | - |
+| b| **ESXi : Cleanup ISO creation** |  Wipes out temporary files and directories which where created during ISO preparation | see filesystem on bastion host |
+| c| **OneView : Get Server Profile Facts** |  Gets facts from a server profile | see log output |
+| d| **OneView: Remove Server from OneView** |  Powers down given server, deletes Server Profile from Server and deletes the same. | changes in OneView |
+| e| **OneView: Wipe clean whole OneView** |  Deletes all Servers, Server Profiles and Server Profile Templates from Oneview | Changes in OneView |
 
 Connect to the ILO of your server, open a console and watch server boot and install process. (might have network latency issues).
 
