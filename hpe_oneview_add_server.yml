@@ -47,3 +47,4 @@
         state: present
         create: yes
       delegate_to: "{{ central_webserver }}"
+      become: true
