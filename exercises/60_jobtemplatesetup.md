@@ -37,23 +37,28 @@ Example:
 ```
 
 ### Execute the job templates
+Please execute the following job templates in the order given. 
 We will first set up the HW. 
 
-1. **OneView : Add Server to OneView** needs the ILO-IP (and the credentials) to add this server into Oneview Management.
-2. **OneView : Create Server Profile Template** creates a server profile template from a text based template file.
-3. **Oneview : Deplay Server Profile Template** deploys the created Templeate as Server Profile onto a server.
+| Nr | Job Template | explanation | ways to check |
+|---|---|---|---|
+| 1| **OneView : Add Server to OneView** | needs the ILO-IP (and the credentials) to add this server into Oneview Management. | changes in Oneview |
+| 2| **OneView : Create Server Profile Template** | creates a server profile template from a text based template file. | changes in Oneview |
+| 3| **Oneview : Deplay Server Profile Template** | deploys the created Templeate as Server Profile onto a server. | changes in Oneview |
 
 In a second Step we will
 
-4. **ESXi : Customize boot ISO** Adds kickstart file with customized  network config, root password into iso images and alters ISO behavior to auto install using this kick file.
-5. **ESXi : Boot from ISO via ILO** One-Time boots the server from the customized ISO image
+| Nr | Job Template | explanation | ways to check |
+|---|---|---|---|
+| 4| **ESXi : Customize boot ISO** | Adds kickstart file with customized  network config, root password into iso images and alters ISO behavior to auto install using this kick file. | view http:/\<bastion>/isos/ |
+| 5| **ESXi : Boot from ISO via ILO** | One-Time boots the server from the customized ISO image | connect to ILO and to Server Console to see isntallation process |
 
 There are additional Job Templates available (not needed for the aim of a deployment)
-* **Demo Job Template** preinstalled jobt template on  afreshly installed Ansible Controller 
-* **ESXi : Cleanup ISO creation** Wipes out temporary files and directories which where created during ISO preparation
-* **OneView : Get Server Profile Facts** Gets facts from a server profile - might not work
-* **OneView: Remove Server from OneView** Powers down given server, deletes Server Profile from Server and deletes the same. 
-* **OneView: Wipe clean whole OneView** Deletes all Servers, Server Profiles and Server Profile Templates from Oneview
+| a| **Demo Job Template** preinstalled jobt template on  afreshly installed Ansible Controller 
+| b| **ESXi : Cleanup ISO creation** Wipes out temporary files and directories which where created during ISO preparation
+| c| **OneView : Get Server Profile Facts** Gets facts from a server profile - might not work
+| d| **OneView: Remove Server from OneView** Powers down given server, deletes Server Profile from Server and deletes the same. 
+| e| **OneView: Wipe clean whole OneView** Deletes all Servers, Server Profiles and Server Profile Templates from Oneview
 
 Connect to the ILO of your server, open a console and watch server boot and install process. (might have network latency issues).
 
