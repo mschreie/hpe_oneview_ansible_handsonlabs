@@ -3,7 +3,7 @@
 ## Introduction
 
 Ansible Modules are typically written in python. Some of these ansible modules need python modules to run. Python has a concept of virtual environments, which allow you to install python modules within one such virtual environment without harming the other virtual environments. Ansible Tower makes use of this and allows to choose which venv (virtual environment) to execute with.
-We will create a venv on the Tower host and assure the 
+We will create a venv on the Tower host and assure it will be used by our test job template. 
 
 
 ## Our aim
@@ -30,7 +30,7 @@ With putty type in a session name `towerXX` and the IP-Adress and click `Save` b
 
 - Connect to your tower host via ssh. 
 - Login as user `root`.
-- cd to virtual environment base directory and create a new virtual python environment 
+- cd to virtual environment base directory and create a new virtual python environment.  
 ```
 # cd /var/lib/awx/venv/
 # python3 -m venv hpe_venv --system-site-packages
