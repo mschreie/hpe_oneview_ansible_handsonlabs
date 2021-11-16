@@ -8,49 +8,19 @@ To manage hardware through OneView we need to ensure to have the credentials to 
 
 
 ## Our aim
-- We will now create a first Job Template, which uses these credentials to connect to Oneview and fetch some data.
-- Executing this Job Template will fail, because the credentails are missing.
-- We will then create the credential type
+- We know from the last section that our Job Template is still not working. Executing this Job Template fails, because the variables holding the credentials are not available.
+- We will therefor create the credential type
 - create the credential 
 - Executing this Job Template again should at least have solved the issue with undefined variables
 - Create all remaining credentials 
 
 ## The Tasks
-### Create Job Template
-HINT:<br>
-Use putty to establish ssh connections to the bastion host.<br>
-With putty type in a session name `bastionXX` and the IP-Adress and click `Save` bevor clicking `Open`.<br>
+### Review Job Execution 
+Review the output of the last time we executed the Job template
+Navigate to **Jobs** in Tower UI, and click on the upmost **XX - Oneview: Oneview testing** :
 
-- Connect to your bastion host via ssh. 
-- Login as user `ansible`.
-- cd to cmd_line 
-- and execute the playbook `40_create-test-job.yml`.
-
-Example:
-```
-[ansible@bastion1 cmd_line]$ cd
-[ansible@bastion1 ~]$ cd cmd_line
-[ansible@bastion1 cmd_line]$ ansible-playbook -i inventory 40_create-test-job.yml
-```
-HINT:
-Depending on time and interest you might want to look at `inventory` file and recon the different host_groups. If you then look at the header of the playbook you might find the host_group this play is targeted against.<br>
-For a deeper investigation you might also want to look into `group_vars/all.yml` file, which defines many variables used throughout the cmd-line used playbooks. 
-
-### Execute Job Template
-Navigate to **Templates** in Tower UI, and click on **Oneview: Oneview testing** :
-
-You should now see the definition of the Job Template. The Job Templates brings together:
-- the playbook (found in the repository of the project)
-- the project  (to know which repositoy to search)
-- the inventory (to know which hosts to execute against)
-
-We will discover more aspects of the Job Template later.<br><br>
-
-press `LAUNCH`
-
-This should bring you to the `JOBS / XX - OneView: Oneview testing` View.<br>
-On the left hand side you find some information about this specific job just running. Examin what you see there.<br>  
-After a short while the STATUS will be red `Failed`. Please investigate for the reason of failure on the right hand side in the log output. 
+This should bring you back to the `JOBS / XX - OneView: Oneview testing` View.<br>
+Please investigate for the reason of failure in the provided logs. Most likely the credentials are missing.
 
 ![Credentail-Missing](/images/credentials_missing.png)
 
@@ -66,7 +36,7 @@ Example:
 
 To verify what this did please:
 Navigate to **Credential Types** in Tower UI, and click on **HPE Oneview Credentials** :
-Besides `NAME` and `DESCRIPTION` you shoould see 2 boxes.<br>  
+Besides `NAME` and `DESCRIPTION` you should see 2 boxes.<br>  
 - `INPUT CONFIGURATON` defines how input fields are named, how they are headlined in an Webform, when credentails are entered or altered.
 - `INJECTOR CONFIGURATION` defines how the information is presented to the jobs (or the plays) respectively. We configured 2 seperate ways. With `env` the defined variables are injected as environment variables into the environment of the running playbook. With `extra_vars` ansible variables are made available within the running playbook. In this scenario we use the extra_vars as this seems more obvious to understand.
 
@@ -101,6 +71,6 @@ Example:
 ```
 [ansible@bastion1 cmd_line]$ cd
 [ansible@bastion1 ~]$ cd cmd_line
-[ansible@bastion1 cmd_line]$ ansible-playbook -i inventory 33_create_allother_credentials.yml
+[ansible@bastion1 cmd_line]$ ansible-playbook -i inventory 43_create_allother_credentials.yml
 ```
 
