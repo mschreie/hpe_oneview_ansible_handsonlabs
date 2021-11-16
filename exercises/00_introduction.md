@@ -34,7 +34,8 @@ Within the lab you do not find any DNS service so that you need to use IP-Addres
 Please visit the lab.html file on your desktop for host, ip-addresses and user credentials.
 
 - **Jump Host** : When connected to the Lab via browser you will land on a Windows desktop presented within your browser. You might experience issues with copy & paste from your laptop to the windows machine in the browser. A nice workaround can be achieved by creating an etherpad at: https://etherpad.opendev.org and opening it to share commands between both environments.
-You can open the same URL within and outside of the desktop and have a 2-step copy & paste solution.<br><br>
+You can open the same URL within and outside of the desktop and have a 2-step copy & paste solution.<br>
+It might also make sense to open this lab guide within your environment, so that you can copy & paste directly.<br>
 We use the windows system as a jump host to access the other systems and services related to the lab.
 
 - **Controller** : The deployment will be managed from Automation Controller(Tower) via the Web-UI. So the Controller will be the object of interest, where we concentrate on the most.<br>

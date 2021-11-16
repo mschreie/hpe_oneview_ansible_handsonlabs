@@ -3,6 +3,9 @@
 ## Introduction
 
 As mentioned in the [Introduction](00_introduction.md) we start with a freshly installed Ansible Controller (Tower Version 3.8, AAP 1.2), which is subscribed and registered.<br>
+
+Point your browser to the IP adress of "tower" found in your lab.html and login with the credentials provided in the same document.<br>
+
 An **Organization** called `Handsonlabs Organization` is created. 
 
 ## Create a Project
