@@ -62,16 +62,13 @@ HINT:<br>
 The domain will not be needed in our setup. But as it is defined as a mandatory field you need to put in something.
 
 ### Add Credential to Job Template
-Navigate to the Job Template withn Tower UI and ensure the new credential is added to it.
+Navigate to the Job Template within Tower UI and ensure the new credential is added to it.
 Click `save`
 
 HINT: 
 If the credential does not show up, you might need to sync the project:<br>
 Navigate to **Projects** in Tower UI, and click on the **2 arrows building a circle** next to **HPE OneView Workshop** <br>
 Wait for the job to finish.  If this does not help, refrsh the browser.
-
-
-
 
 ### Execut Job Template again 
 Launch the Job / Job Template a second time and review the output. We should be able to see a different error. Most likely the module was not found. This tells us that all variables are defined now.
