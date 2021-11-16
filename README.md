@@ -14,8 +14,6 @@ To allow this to happen in a timely manner, we prepared some playbooks to fast f
 
 ## Our workshop:
 | Topic   | Exercises  | 
-## Our workshop:
-| Topic   | Exercises  | 
 |---|---|
 | **00 Introduction** :<br> This document will introduce the overall setup and the objective of this lab. Tower is partly preconfigured to make your life easier. All this is explained here. | [Introduction](./exercises/00_introduction.md) |
 | **10 Project Setup** :<br> Within this chapter we will set up a project | [Project Setup](./exercises/10_projectsetup.md) |
