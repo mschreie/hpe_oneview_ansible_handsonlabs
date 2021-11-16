@@ -83,5 +83,12 @@ Change the ANSIBLE ENVIRONMENT
 | ANSIBLE ENVIRONMENT | /var/lib/awx/venv/hpe_venv |
 Leave all other fields unaltered and Click `SAVE`
 
+HINT: 
+If the credential does not show up, try a browser refresh.
+If that does not help you might need to sync the project:<br>
+Navigate to **Projects** in Tower UI, and click on the **2 arrows building a circle** next to **HPE OneView Workshop** <br>
+Wait for the job to finish.  If this does not help, refrsh the browser once again.
+
+
 ### Execute Job Template again
 Launch the Job / Job Template a second time and review the output. The Job should run through without error. 

@@ -62,7 +62,7 @@ HINT:<br>
 The domain will not be needed in our setup. But as it is defined as a mandatory field you need to put in something.
 
 ### Add Credential to Job Template
-Navigate to the Job Template within Tower UI and ensure the new credential is added to it.
+Navigate to the Job Template (**Tempate** -> **OneView: Oneview testing**) within Tower UI and ensure the new credential is added to it by selecting it in the respective field.
 Click `save`
 
 HINT: 
