@@ -3,25 +3,26 @@
 
 ## Introduction
 
-This Lab will help understand how to use Ansible to automate HPE tools like HPE OneView and HPE iLO with Ansible. If you’re new to Ansible Automation, we suggest that you attend one of the Ansible Automation workshops to get started with the concepts. If you are planning to use Ansible Automation in production, we highly recommend attending the Red Hat official training to master the concepts as well as the product.
+This Lab introduces the use of Ansible Automation Platform to automate HPE tools like HPE OneView and HPE iLO. If you are new to Ansible Automation Platform, we suggest that you attend one of the Ansible Automation workshops to get started with the concepts. If you are planning to use the platform in production, we highly recommend attending the Red Hat official training to master the concepts as well as the product.
 
-The overall idea is to be able to automate the whole step from hw configuration (bios settings, local raid configuration) up to application configuration. In this Lab we will end with an installed VMware ESXi server.
-After finishing this lab you will have a slight getting started knowledge on how to configure and use Ansible Controller (formerly Ansible Tower) to use Ansible for automating HW setup via HPE OneView and HPE iLO.
+The overall idea of this lab is to automate all HPE physical server deployment steps from Hardware configuration (bios settings, local raid configuration) to application deployment and configuration. This lab will guide you to automate the installation of VMware ESXi on an HPE Server.
 
+By the end of this lab, you should have a good getting started knowledge on how to configure and use Ansible Automation Controller (formerly called Ansible Tower) to automate Hardware setup via HPE OneView and HPE iLO.
+ 
 To allow this to happen in a timely manner, we prepared some playbooks to fast forward some configuration tasks. 
+
 
 ## Our workshop:
 | Topic   | Exercises  | 
 |---|---|
-| **00 Introduction** :<br> This document will introduce the overall setup and the aim of this lab. Tower is partly preconfigured to make your life easier. All this is explained here. | [Introduction](./exercises/00_introduction.md) |
-| **10 Proejct Setup** :<br> Within this chapter we will set up a project | [Project Setup](./exercises/10_projectsetup.md) |
+| **00 Introduction** :<br> This document will introduce the overall setup and the objective of this lab. Tower is partly preconfigured to make your life easier. All this is explained here. | [Introduction](./exercises/00_introduction.md) |
+| **10 Project Setup** :<br> Within this chapter we will set up a project | [Project Setup](./exercises/10_projectsetup.md) |
 | **20 Inventory Setup** :<br> Within this chapter we will set up an inventory | [Inventory Setup](./exercises/20_inventorysetup.md) |
-| **30 Credentials Setup** :<br> To connect to OneView instance you need credentials. We will configure this | [Credentials Setup](./exercises/30_credentialsetup.md) |
-| **40 Automation Hub Setup** :<br> Within this chapter we will enable the system to fetch modules from Automation Hub | [Automationhub Setup](./exercises/40_automationhubsetup.md) |
-| **50 Virtual Environment Setup** :<br> The OneView Ansible Modules need python modules available. We will configure this | [Virtual Environement Setup](./exercises/50_venvsetup.md) |
-| **60 Job Template Setup** :<br> The whole process form adding the server to oneview up to installation ov ESXi is seperated into a couple of jobs, each with it's own playbook. We set up these job templates and let them run to see things working | [Job Template Setup](./exercises/60_jobtemplatesetup.md) |
-| **70 Bonus Exercice** :<br> Learn how to create a workflow template in Ansible Tower (Controller)| [Create an overall Workflow](./exercises/70_workflow.md)
-
+| **30 Credentials Setup** :<br> To connect to the HPE OneView instance you need credentials. We will configure this | [Credentials Setup](./exercises/30_credentialsetup.md) |
+| **40 Automation Hub Setup** :<br> Within this chapter we will enable the system to fetch modules from Automation Hub | [Automation Hub Setup](./exercises/40_automationhubsetup.md) |
+| **50 Virtual Environment Setup** :<br> The HPE OneView Ansible Modules need python modules to be available. We will configure this | [Virtual Environment Setup](./exercises/50_venvsetup.md) |
+| **60 Job Template Setup** :<br> This chapter shows how to add an HPE physical server to HPE OneView, how to configure it, then how to setup VMware ESXi in a number in step by steps jobs.  | [Job Template Setup](./exercises/60_jobtemplatesetup.md) |
+| **70 Bonus Exercice** :<br> Learn how to create a workflow job template in Ansible Tower (Controller)| [Create an overall Workflow](./exercises/70_workflow.md)
 
 
 <!-- ## Our workshop:
