@@ -26,6 +26,7 @@ Navigate to **Inventory** in Tower UI, and click on **Lab inventory** :
 
 Please ensure that all 3 groups are available and that you find 2 hosts in the corresponding groups. Assure the names relate to your lab (as outlined elsewhere). Also notice the host_vars related to the hosts.
 
+To know what to add please point a second tab of your browser to `http://your_bastion_host/isos/target_host.info`<br>
 To add the target host to the right group:
 Start at **Lab inventory** in Tower UI, click on **GROUPS** button, click on **target_hosts**, click on **hosts** button.
  
@@ -59,5 +60,7 @@ esxi_nameserver: "10.187.1.10"
 esxi_domain: "example.com"
 ```
 
+IMPORTANT:
+Please leave the three dashes in place. And please avoid any white space in front of the variable names.
 HINT:
 It might be that the Info-Pages has a parameter `host_ip`. In the VARIABLES textbox this needs to be called `ansible_host`
