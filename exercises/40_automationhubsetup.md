@@ -10,7 +10,7 @@ A freshly installed Tower has the parameters needed to connect to galaxy (the co
 Automation Hub needs a valid subscription and a downloaded Automation Token. [see here for more details](https://console.redhat.com/ansible/automation-hub/token) As we did not want to disclose this token, we created the `Automation Hub` Credential on your behalf.
 
 ## Our aim
-- We now from the last section that our Job Template is still not working. Executing this Job Template fails, becaus the Content Collection holding the Module is not downloadable.
+- We know from the last section that our Job Template is still not working. Executing this Job Template fails, becaus the Content Collection holding the Module is not downloadable.
 - We will then assure that the Organization has `Automation Hub` and `Ansible Galaxy` credentials attached. (order important)
 - Executing this Job Template again should get the module started. Most likely we will run in other issues. (which will be addressed later).
 
