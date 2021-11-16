@@ -9,7 +9,7 @@ To manage hardware through OneView we need to assure to have the credentials to 
 
 ## Our aim
 - We will now create a first Job Template, which uses these credentials to connect to Oneview and fetch some data.
-- Executing this Job Template will fail, becaus the credentails are missing.
+- Executing this Job Template will fail, because the credentails are missing.
 - We will then create the credential type
 - create the credential 
 - Executing this Job Template again should at least have solved the issue with undefined variables
