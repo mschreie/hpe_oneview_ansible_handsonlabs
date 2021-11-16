@@ -61,6 +61,11 @@ please be precise with the NAME of the Credential. The prepared playbooks which 
 HINT:<br>
 The domain will not be needed in our setup. But as it is defined as a mandatory field you need to put in something.
 
+### Add Credential to Job Template
+Navigate to the Job Template withn Tower UI and ensure the new credential is added to it.
+Click `save`
+
+
 ### Execut Job Template again 
 Launch the Job / Job Template a second time and review the output. We should be able to see a different error. Most likely the module was not found. This tells us that all variables are defined now.
 
