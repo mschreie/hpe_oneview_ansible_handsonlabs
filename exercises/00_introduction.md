@@ -51,7 +51,7 @@ You find following directories on bastion host:
 
 - **Target Physical Server** : We have all together 10 `DL360 Gen 9` Servers with integrated `ILO 4`. As we have 20 Lab environments please coordinate with your peers on usage.
 
-- **OneView Instance** : We also have 10 OneView instances. The predefined naming assures that your Server Profile Templates are kept separate as their names will differ. Adding the Server to Oneview and the Deployment process can only be done one after the other.
+- **OneView Instance** : We also have 10 OneView instances. The predefined naming ensure that your Server Profile Templates are kept separate as their names will differ. Adding the Server to Oneview and the Deployment process can only be done one after the other.
 
 - **Playbooks** : The playbooks for the deployment process reside in the repository `https://github.com/mschreie/hpe_oneview_ansible_handsonlabs`.<br>
 The playbooks to help configure the Ansible Controller are tailored to your lab and are copied onto your bastion host at `/home/ansible/cmd_line` You should not need to alter either of the playbooks, variables files, inventory files or alike. Configuration will happen in the Controller UI.

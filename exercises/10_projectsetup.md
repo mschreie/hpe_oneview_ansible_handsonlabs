@@ -28,6 +28,8 @@ The Project we need is:
 | other fields | Leave them blank or with default values.<br>
 | SCM UPDATE OPTIONS | You do not need to tick any |
 
+Press `Save`
+
 IMPORTANT:<br>
 please be make sure to type the **exact** the NAME of the Project. The prepared playbooks which take over some configuration steps for you, expect the Project name to be exactly as noted in the table above.
 

@@ -2,9 +2,9 @@
 
 ## Introduction
 
-We have now assured all prerequisits in Ansible Controller are avaiable so that a playbook can reach out to oneview and perform tasks there. We will now add the ansible playbooks found in our git repository as job templates into the Ansible Controller. Wit each job template we create we combine the
-- **Organization** which assures access to the content collections on Automation Hub
-- **Project** which assuers access to the playbooks (and other data) in the (git) repository
+We have now ensure all prerequisits in Ansible Controller are avaiable so that a playbook can reach out to oneview and perform tasks there. We will now add the ansible playbooks found in our git repository as job templates into the Ansible Controller. Wit each job template we create we combine the
+- **Organization** which ensure access to the content collections on Automation Hub
+- **Project** which ensures access to the playbooks (and other data) in the (git) repository
 - **Inventory** which defines wich nodes are availbale / should be reache out to
 - **Playbook** which defines what tasks to execute
 - **Virtual Python Environment** which holds all python modules needed without harming other python environments

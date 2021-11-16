@@ -11,7 +11,7 @@ Automation Hub needs a valid subscription and a downloaded Automation Token. [se
 
 ## Our aim
 - We know from the last section that our Job Template is still not working. Executing this Job Template fails, becaus the Content Collection holding the Module is not downloadable.
-- We will then assure that the Organization has `Automation Hub` and `Ansible Galaxy` credentials attached. (order important)
+- We will then ensure that the Organization has `Automation Hub` and `Ansible Galaxy` credentials attached. (order important)
 - Executing this Job Template again should get the module started. Most likely we will run in other issues. (which will be addressed later).
 
 ## The Tasks
@@ -27,7 +27,7 @@ Please investigate for the reason of failure in the provided logs. Most likely t
 Navigate to **Organizations** in Tower UI, and click on **Handsonlabs Organization** :
 
 Left to the `GALAXY CREDENTIALS` Textbox click on the **magnifying glass**.<br>
-Tower will only show credentials of the coresponding type. Select both credentials. Please assure that `Automation Hub` shows up first. Tower will search for colletions in the order the repositories are listed.<br>
+Tower will only show credentials of the coresponding type. Select both credentials. Please ensure that `Automation Hub` shows up first. Tower will search for colletions in the order the repositories are listed.<br>
 Click `SAVE`
 
 ### Execute Job Template again

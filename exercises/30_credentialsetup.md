@@ -4,7 +4,7 @@
 
 For the sake to seperate concerns and responsibilites and to be able to delegate job execution without disclosing the technical neccesarry access credentials Ansible Controller stores credentials securly within the system. These credentials get attached to the job templates which need them.<br>
 As credentials need different atrributes and have different ways to be used, Ansible Controller has the concept of Credential Types. For instance the credential type `Machine Credential` is used to connect to a Server via ssh.<br>
-To manage hardware through OneView we need to assure to have the credentials to connect to OneView. As Ansible Controller does not know the details of OneView, we will create a `custom credential type` which will e.g. be able to hold the API-Version. Thereafter we will create a credentail of that new type needed to connect to OneView.
+To manage hardware through OneView we need to ensure to have the credentials to connect to OneView. As Ansible Controller does not know the details of OneView, we will create a `custom credential type` which will e.g. be able to hold the API-Version. Thereafter we will create a credentail of that new type needed to connect to OneView.
 
 
 ## Our aim

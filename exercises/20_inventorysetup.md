@@ -17,14 +17,14 @@ As we do not have DNS available, each host entry needs an additional `ansible_ho
 We also added a parameter lab_id to the hosts. This is not needed (anymore), as we defined this as an inventory variable, available to all hosts.
 
 Typically the network layout defines which oneview host to use for a specific target host. Same is (most likely) true for the bastion host. To define this relationship the target_host needs a host variable `bastion_host` and `oneview_host` nameing the correct bastion host and the correct oneview host.<br>
-As we want to install ESXi with static ip address configuration ansible needs to know the network parameters for each host to deploy. Therefor we also need additional host variables for the target host to assure ESXi installation to have networking information available.
+As we want to install ESXi with static ip address configuration ansible needs to know the network parameters for each host to deploy. Therefor we also need additional host variables for the target host to ensure ESXi installation to have networking information available.
 
 
 ## View Inventory and add missing host
 
 Navigate to **Inventory** in Tower UI, and click on **Lab inventory** :
 
-Please assure that all 3 groups are available and that you find 3 hosts in the corresponding groups. Assure the names relate to your lab (as outlined elsewhere). Also notice the host_vars related to the hosts.
+Please ensure that all 3 groups are available and that you find 2 hosts in the corresponding groups. Assure the names relate to your lab (as outlined elsewhere). Also notice the host_vars related to the hosts.
 
 To add the target host to the right group:
 Start at **Lab inventory** in Tower UI, click on **GROUPS** button, click on **target_hosts**, click on **hosts** button.

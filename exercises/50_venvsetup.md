@@ -3,13 +3,13 @@
 ## Introduction
 
 Ansible Modules are typically written in python. Some of these ansible modules need python modules to run. Python has a concept of virtual environments, which allow you to install python modules within one such virtual environment without harming the other virtual environments. Ansible Tower makes use of this and allows to choose which venv (virtual environment) to execute with.
-We will create a venv on the Tower host and assure it will be used by our test job template. 
+We will create a venv on the Tower host and ensure it will be used by our test job template. 
 
 
 ## Our aim
 - We will examin the last run of our Job Template, which uses Oneview Module. Most likely some python module is missing.
 - We will create a virtual environment on the TOWER node manually
-- We will assure that our Job Template will use the newly created venv.
+- We will ensure that our Job Template will use the newly created venv.
 - Executing this Job Template again should get the job run through.
 
 ## The Tasks
