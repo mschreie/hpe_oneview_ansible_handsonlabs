@@ -1,11 +1,13 @@
-# Virtual Environment Setup
+# Job Template Setup and Execution
 
 ## Introduction
 
-We have now ensure all prerequisits in Ansible Controller are avaiable so that a playbook can reach out to oneview and perform tasks there. We will now add the ansible playbooks found in our git repository as job templates into the Ansible Controller. Wit each job template we create we combine the
+We have prooven that a Job is able to reach out to OneView and perform tasks there. Therefore we have now ensured all prerequisits in Ansible Controller are avaiable, so that we can concentrate on the deployment itself.<br> 
+We will now add the missing  job templates into the Ansible Controller. 
+Please remember: Each job template combines the
 - **Organization** which ensure access to the content collections on Automation Hub
 - **Project** which ensures access to the playbooks (and other data) in the (git) repository
-- **Inventory** which defines wich nodes are availbale / should be reache out to
+- **Inventory** which defines wich nodes are availbale / should be reached out to
 - **Playbook** which defines what tasks to execute
 - **Virtual Python Environment** which holds all python modules needed without harming other python environments
 
