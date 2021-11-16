@@ -40,7 +40,7 @@ Navigate to **Templates** in Tower UI, and click on **Oneview: Oneview testing**
 
 You should now see the definition of the Job Template. The Job Templates brings together:
 - the playbook (found in the repository of the project)
-- the project  (to know whihc repositoy to search)
+- the project  (to know which repositoy to search)
 - the inventory (to know which hosts to execute against)
 
 We will discover more aspects of the Job Template later.<br><br>
