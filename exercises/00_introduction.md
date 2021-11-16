@@ -2,7 +2,7 @@
 
 ## Objective
 
-Unlike managing and automating operating systems (rhel, windows..) and Applications, automating hardware is not commonly used. Managing Hardware is often left behind, maybe because many Ansible gurus do not the magic of using HPE OneView and Ansible.<br>
+Unlike managing and automating operating systems (rhel, windows..) and Applications, automating hardware is not commonly used. Managing Hardware is often left behind, maybe because many Ansible gurus do not see the magic of using HPE OneView and Ansible.<br>
 
 This Lab will guide through the steps needed to automate:
 Adding a server to HPE Oneview
