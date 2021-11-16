@@ -74,7 +74,7 @@ NAvigate to the github repository with your browser. Open the playbook for the n
 #### Dig into the playbook **ESXi: Customize boot ISO**
 NAvigate to the github repository with your browser. Open the playbook for the named Job template. What steps does it take? Why does it need root priviledges? 
 
-###  Additional questions:
+####  Additional questions:
 Which file is usesd as a text templat for Server Profile Template creation?
 How does "OneView : Deplay Server Profile Template" know the Name of the Server (as seen within OneView) to be deployed onto?
 
