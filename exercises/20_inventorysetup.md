@@ -2,7 +2,7 @@
 
 ## Introduction
 
-As you know Ansible executes playbooks against managed nodes. For Ansible to know which nodes to manage it needs an inventory. Typically inventories are derived from some other source (e.g CMDB, vCenter, AWS, ..). As we do not want to add dependecies to systems outside our control and our environment is very small, we decided to go with static entries entered into Tower directly.
+As you know, Ansible executes playbooks against managed nodes. For Ansible to know which nodes to manage it needs an inventory. Typically inventories are derived from some other source (e.g CMDB, vCenter, AWS, ..). As we do not want to add dependecies to systems outside our control and our environment is very small, we decided to go with static entries entered into Tower directly.
 To ease minimize the effort needed, we created an inventory `Lab inventory` and prefilled most of it.
 
 ## Inventory introduction
