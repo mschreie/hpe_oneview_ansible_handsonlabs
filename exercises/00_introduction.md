@@ -5,9 +5,9 @@
 Unlike managing and automating operating systems (rhel, windows..) and Applications, automating hardware is not commonly used. Managing Hardware is often left behind, maybe because many Ansible gurus do not see the magic of using HPE OneView and Ansible.<br>
 
 This Lab will guide through the steps needed to automate:
-Adding a server to HPE Oneview
-Create profile template : Oneview-Server-Profile-Template; It defines Hardware configuration and deploy it onto such a server.
-Preparing and triggering the installation of VMware ESXi server.
+* Adding a server to HPE Oneview
+* Create profile template : Oneview-Server-Profile-Template; It defines Hardware configuration and deploy it onto such a server.
+* Preparing and triggering the installation of VMware ESXi server.
 
 While some steps need to be configured manually, we also prepared playbooks to speed up those tasks.
 
