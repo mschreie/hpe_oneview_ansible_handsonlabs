@@ -39,9 +39,10 @@ We use the windows system as a jump host to access the other systems and service
 
 - **Controller** : The deployment will be managed from Automation Controller(Tower) via the Web-UI. So the Controller will be the object of interest, where we concentrate on the most.<br>
 We have a RHEL 8 Server with Ansible Tower (AAP 1.2 / Tower Version 3.8) installed. RHEL and Tower are correctly subscribed and registered at cloud.redhat.com.<br><br>
+The Controller SW itself runs as user `awx`. You as administrator of that host can connect as user `ansible`. Most of the tasks to perform here will need `root` privileges.<br>
 We already created an **Organization** called `Handsonlabs Organization`. We recommend using this organization so that some predefined playbooks will not run into issues.
 
-- **Bastion Host** : To configure the Controller and to have a place controller can prepare e.g. ISO-Images needed for the deployment process, we use the Bastion host.<br><br> 
+- **Bastion Host** : To configure the Controller and to have a place where the controller can prepare the ISO-Images, we use the Bastion host.<br><br> 
 You typically work as user "ansible" on the bastion host.<br><br> 
 You find following directories on bastion host:
    - `/var/www/html/isos`<br>This directory offers the Installation ISO immages and is reachable via browser as http://..../isos/ . You will also find some useful files about the setup of your environment.
@@ -53,3 +54,6 @@ You find following directories on bastion host:
 
 - **Playbooks** : The playbooks for the deployment process reside in the repository `https://github.com/mschreie/hpe_oneview_ansible_handsonlabs`.<br>
 The playbooks to help configure the Ansible Controller are tailored to your lab and are copied onto your bastion host at `/home/ansible/cmd_line` You should not need to alter either of the playbooks, variables files, inventory files or alike. Configuration will happen in the Controller UI.
+
+HINT:
+Please visit the lab.html file on your desktop for host, ip-addresses and user credentials of the just mentioned hosts.
