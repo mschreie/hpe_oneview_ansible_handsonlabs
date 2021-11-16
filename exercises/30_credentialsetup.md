@@ -13,6 +13,7 @@ To manage hardware through OneView we need to ensure to have the credentials to 
 - We will then create the credential type
 - create the credential 
 - Executing this Job Template again should at least have solved the issue with undefined variables
+- Create all remaining credentials 
 
 ## The Tasks
 ### Create Job Template
@@ -92,4 +93,14 @@ The domain will not be needed in our setup. But as it is defined as a mandatory 
 
 ### Execut Job Template again 
 Launch the Job / Job Template a second time and review the output. We should be able to see a different error. Most likely the module was not found. This tells us that all variables are defined now.
+
+### Create all remaining credentials 
+For the sake of time we provided a playbook to create the remaining credentials.<br>
+Please like before execute 33_create_allother_credentials.yml
+Example:
+```
+[ansible@bastion1 cmd_line]$ cd
+[ansible@bastion1 ~]$ cd cmd_line
+[ansible@bastion1 cmd_line]$ ansible-playbook -i inventory 33_create_allother_credentials.yml
+```
 
