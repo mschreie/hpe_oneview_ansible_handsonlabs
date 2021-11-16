@@ -12,7 +12,8 @@ An **Organization** called `Handsonlabs Organization` is created.
 
 Now we need to set up a Project. The project defines the source repository where Ansible Controller finds the playbooks, to be executed with the help of a job template defenition. 
 
-Navigate to **Projects** in Tower UI, create a **New Project** :
+Within the Tower UI navigate to **Projects** on teh left sidebar.<br>
+Create a **New Project** by clicking the green **+** button.
 
 ![Create-Prj](/images/create-prj.png)
 

@@ -26,7 +26,7 @@ Please investigate for the reason of failure in the provided logs. Most likely s
 ### Create a virtual environment
 HINT:<br>
 Use putty to establish ssh connections to the TOWER host.<br>
-With putty type in a session name `towerXX` and the IP-Adress and click `Save` bevor clicking `Open`.<br>
+With putty type in a session name `towerXX` and the IP-Adress and click `Save` before clicking `Open`.<br>
 
 - Connect to your tower host via ssh. 
 - Login as user `root`.

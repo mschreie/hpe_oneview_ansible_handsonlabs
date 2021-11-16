@@ -19,7 +19,7 @@ Automation Hub needs a valid subscription and a downloaded Automation Token. [se
 ### Create Job Template
 HINT:<br>
 Use putty to establish ssh connections to the bastion host.<br>
-With putty type in a session name `bastionXX` and the IP-Adress and click `Save` bevor clicking `Open`.<br>
+With putty type in a session name `bastionXX` and the IP-Adress and click `Save` before clicking `Open`.<br>
 
 - Connect to your bastion host via ssh. 
 - Login as user `ansible`.
