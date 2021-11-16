@@ -26,7 +26,7 @@ Navigate to **Inventory** in Tower UI, and click on **Lab inventory** :
 
 Please ensure that all 3 groups are available and that you find 2 hosts in the corresponding groups. Assure the names relate to your lab (as outlined elsewhere). Also notice the host_vars related to the hosts.
 
-To know what to add please point a second tab of your browser to `http://your_bastion_host/isos/target_host.info`<br>
+To know what to add please point a second tab of your browser to `http://&gt;bastion_IP&lt;/isos/target_host.info`<br>
 To add the target host to the right group:
 Start at **Lab inventory** in Tower UI, click on **GROUPS** button, click on **target_hosts**, click on **hosts** button.
  
@@ -34,7 +34,7 @@ Start at **Lab inventory** in Tower UI, click on **GROUPS** button, click on **t
 
 As in the image you should see **INVENTORIES / Lab inventory / ALL GROUPS / target_hosts / ASSOCIATED HOSTS** in the headline. Click on **+** button and choose **New Host** .
 
-Please point your browser to your bastion host to find the details for your target system: `http://<bastion_host>/isos/target_host.info`
+Please point your browser to your bastion host to find the details for your target system: `http://&lt;bastion_IP&gt;/isos/target_host.info`
 
 The following is an example. Names and IP adresses wil differ in your environment!
 
