@@ -24,13 +24,13 @@ With putty type in a session name `bastionXX` and the IP-Adress and click `Save`
 - Connect to your bastion host via ssh. 
 - Login as user `ansible`.
 - cd to cmd_line 
-- and execute the playbook `30_create-test-job.yml`.
+- and execute the playbook `40_create-test-job.yml`.
 
 Example:
 ```
 [ansible@bastion1 cmd_line]$ cd
 [ansible@bastion1 ~]$ cd cmd_line
-[ansible@bastion1 cmd_line]$ ansible-playbook -i inventory 30_create-test-job.yml
+[ansible@bastion1 cmd_line]$ ansible-playbook -i inventory 40_create-test-job.yml
 ```
 HINT:
 Depending on time and interest you might want to look at `inventory` file and recon the different host_groups. If you then look at the header of the playbook you might find the host_group this play is targeted against.<br>
@@ -56,12 +56,12 @@ After a short while the STATUS will be red `Failed`. Please investigate for the 
 
 ### Create custom credential type
 For the sake of time we provided a playbook to create the custom credential type.<br>
-Please like before execute 31_create_oneview_cred_type.yml
+Please like before execute 41_create_oneview_cred_type.yml
 Example:
 ```
 [ansible@bastion1 cmd_line]$ cd
 [ansible@bastion1 ~]$ cd cmd_line
-[ansible@bastion1 cmd_line]$ ansible-playbook -i inventory 31_create_oneview_cred_type.yml
+[ansible@bastion1 cmd_line]$ ansible-playbook -i inventory 41_create_oneview_cred_type.yml
 ```
 
 To verify what this did please:
@@ -96,7 +96,7 @@ Launch the Job / Job Template a second time and review the output. We should be 
 
 ### Create all remaining credentials 
 For the sake of time we provided a playbook to create the remaining credentials.<br>
-Please like before execute 33_create_allother_credentials.yml
+Please like before execute 43_create_allother_credentials.yml
 Example:
 ```
 [ansible@bastion1 cmd_line]$ cd
