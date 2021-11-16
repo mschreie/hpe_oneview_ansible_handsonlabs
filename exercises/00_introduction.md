@@ -29,9 +29,9 @@ We have 20 Lab environments available, each with
          shared with another team
 ```
 
-- **Connect** : To reach the Lab you need to connect to: 
-FIXME: URL and LOGIN and PASSWORD needed<br><br>
-Within the lab you do not find any DNS service so that you need to use IP-Addresses most of the time. Within Ansible the hostnames defined in the ansible inventory do work and should be used.
+- **Connect** : To reach the Lab please connect to the URL provided by your instructor. HE will also share user credentials.
+Within the lab you do not find any DNS service so that you need to use IP-Addresses most of the time. Within Ansible the hostnames defined in the ansible inventory do work and should be used.<br>
+Please visit the lab.html file on your desktop for host, ip-addresses and user credentials.
 
 - **Jump Host** : When connected to the Lab via browser you will land on a Windows desktop presented within your browser. You might experience issues with copy & paste from your laptop to the windows machine in the browser. A nice workaround can be achieved by creating an etherpad at: https://etherpad.opendev.org and opening it to share commands between both environments.
 You can open the same URL within and outside of the desktop and have a 2-step copy & paste solution.<br><br>
