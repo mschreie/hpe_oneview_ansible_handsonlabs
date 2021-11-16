@@ -37,32 +37,27 @@ Example:
 ```
 
 ### Execute the job templates
-Please execute the following job templates in the order given. 
-We will first set up the HW. 
+
+Please execute the following job templates Nr 1 to Nr 5 in the order given.<br> 
+We will first 3 will set up the HW. 4 and 5 will configure and install ESXi on Top.<br>
+The Job Template a to d ar not part of the workflow but might be helpful during the exersices.<br>
 
 | Nr | Job Template | explanation | ways to check |
 |---|---|---|---|
 | 1| **OneView : Add Server to OneView** | needs the ILO-IP (and the credentials) to add this server into Oneview Management. | changes in Oneview |
 | 2| **OneView : Create Server Profile Template** | creates a server profile template from a text based template file. | changes in Oneview |
 | 3| **Oneview : Deplay Server Profile Template** | deploys the created Templeate as Server Profile onto a server. | changes in Oneview |
-
-In a second Step we will
-
-| Nr | Job Template | explanation | ways to check |
-|---|---|---|---|
+| **Nr** | **Job Template** | **explanation** | **ways to check** |
 | 4| **ESXi : Customize boot ISO** | Adds kickstart file with customized  network config, root password into iso images and alters ISO behavior to auto install using this kick file. | view http:/\<bastion>/isos/ |
 | 5| **ESXi : Boot from ISO via ILO** | One-Time boots the server from the customized ISO image | connect to ILO and to Server Console to see isntallation process |
-
-There are additional Job Templates available (not needed for the aim of a deployment)
-| Nr | Job Template | explanation | ways to check |
-|---|---|---|---|
+| **Nr** | **Job Template** | **explanation** | **ways to check** |
 | a| **Demo Job Template** |  preinstalled jobt template on  afreshly installed Ansible Controller | - |
 | b| **ESXi : Cleanup ISO creation** |  Wipes out temporary files and directories which where created during ISO preparation | see filesystem on bastion host |
 | c| **OneView : Get Server Profile Facts** |  Gets facts from a server profile | see log output |
 | d| **OneView: Remove Server from OneView** |  Powers down given server, deletes Server Profile from Server and deletes the same. | changes in OneView |
 | e| **OneView: Wipe clean whole OneView** |  Deletes all Servers, Server Profiles and Server Profile Templates from Oneview | Changes in OneView |
 
-Connect to the ILO of your server, open a console and watch server boot and install process. (might have network latency issues).
+For the overall review, proof, please connect to the ILO of your server, open a console and watch server boot and install process. During our preparation work this had massive network latency issues but was good enough to see that teh system did get installed.
 
 ### Hand Over of the environment
 Please run following playbook to reset OneView 
