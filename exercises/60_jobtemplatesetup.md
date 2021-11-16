@@ -11,7 +11,7 @@ We have now assured all prerequisits in Ansible Controller are avaiable so that 
 
 As adding these jobs might be a tedious task we once again help you with a playbook taking over this task. The time saved is better invested with examination and execution.
 
-HINT: Please sync with your peer, who uses the same target systems on hwo to proceed. After the integration of all playbooks one user might want to start with executing while the other starts with analysing. We should swap roles after first run went through.
+HINT: Please sync with your peer, who uses the same target systems on who taks which role (User A or User B). After the integration of all playbooks one user might want to start with executing while the other starts with analysing. You should swap roles after first run went through.
 
 ##### User A
 - Add all missing Job Templates 
