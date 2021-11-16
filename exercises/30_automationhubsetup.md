@@ -65,3 +65,10 @@ Click `SAVE`
 
 ### Execute Job Template again
 Launch the Job / Job Template a second time and review the output. We should be able to see the Module got executed but will then fail for other reasons. Maybe you can analyse the reason?
+
+HINT: 
+If the error message did not change. We did not succeed yet with this chapter. Sync the project and rerun the Job / Job Template again.<br>
+Navigate to **Projects** in Tower UI, and click on the **2 arrows building a circle** next to **HPE OneView Workshop** <br>
+Wait for the job to finish.<br>  
+Navigate to **Jobs** in Tower UI and clck on the *rocket* nextx to the upmost **XX - Oneview: Oneview testing** Job.
+

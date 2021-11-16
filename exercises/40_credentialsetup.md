@@ -52,7 +52,7 @@ The Credentail  we need is:
 | ORGANIZATION | Handsonlabs Organization |
 | CREDENTIAL TYPE | HPE Oneview Credential |
 | HPE ONEVIEW USERNAME | Administrator |
-| HPE ONEVIEW PASSWORD | will be defined elsewhere |
+| HPE ONEVIEW PASSWORD | &lt;OneView_UI_Password&gt; |
 | HPE ONEVIEW DOMAIN | domain |
 | HPE ONEVIEW API VERSION | 2000 |
 
@@ -71,7 +71,7 @@ Navigate to **Projects** in Tower UI, and click on the **2 arrows building a cir
 Wait for the job to finish.  If this does not help, refrsh the browser.
 
 ### Execut Job Template again 
-Launch the Job / Job Template a second time and review the output. We should be able to see a different error. Most likely the module was not found. This tells us that all variables are defined now.
+Launch the Job / Job Template a second time and review the output. We should be able to see a different error. Most likely we will hit some other error. This tells us that all variables are defined now.
 
 ### Create all remaining credentials 
 For the sake of time we provided a playbook to create the remaining credentials.<br>
