@@ -32,8 +32,8 @@ The Project we need is:
 Press `Save`
 
 IMPORTANT:<br>
-please be make sure to type the **exact** the NAME of the Project. The prepared playbooks which take over some configuration steps for you, expect the Project name to be exactly as noted in the table above.
+please be make sure to type the **exact** the NAME of the Project. The prepared playbooks which takes over some configuration steps for you, expect the Project name to be exactly as noted in the table above.
 
 
 Hint:<br>
-We do not want the project to be updated before a job is launched to save time. In our case the repository is quite stable and if for any reason an update is needed, we can still trigger this manualy.<br>
+We do not want the project to be updated before a job is launched to save time. In our case the repository is quite stable and if for any reason an update is needed, we can still trigger this manually.<br>
