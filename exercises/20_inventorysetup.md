@@ -58,7 +58,7 @@ esxi_nameserver: "10.187.1.10"
 esxi_domain: "example.com"
 ```
 
-IMPORTANT:
-Please leave the three dashes in place. And please avoid any white space in front of the variable names.
-HINT:
+_IMPORTANT:_
+Please leave the three dashes in place. And please avoid any white space in front of the variable names. <br>
+_HINT:_
 It might be that the Info-Pages has a parameter `host_ip`. In the VARIABLES textbox this needs to be called `ansible_host`
