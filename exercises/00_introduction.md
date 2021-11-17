@@ -15,20 +15,21 @@ While some steps need to be configured manually, we also prepared playbooks to s
 
 ## General Setup
 
-We have 20 Lab environments available, each with
+We have 20 Lab environments available, each with has the below setup:
+
+![ans-wksp-01](/images/ansible-workshop-illustration-05.png)
 
 ```
-    - a virtual machine running : Automation Controller (formerly called Ansible Tower)
-         RHEL 8, Ansible Controller installed
-    - a virtual machine running : Bastion Host
-         RHEL 8, Webserver installed, genisoimage installed, ansible cmd-line tool available
-    - a virtual machine running : MS Windows Jump Host ( MS Windows)
-         Putty installed
+    - Jump Host: a virtual machine running MS Windows.
+        Putty installed
+    - Automation Controller (formerly called Ansible Tower) : a virtual machine running RHEL 8, 
+        Automation Controller installed and subscribed
+    - Bastion Host : a virtual machine running RHEL 8
+        Webserver installed, genisoimage installed, ansible cmd-line tool available
+    - HPE Oneview host : an appliance running HPE Oneview shared with another team.
+    - Rack Mount Server with ILO Advanced License shared with another team.
+    
     - Red Hat Automation Hub Credentials to pull content from Red Hat Cloud.
-    - an appliance running : Oneview Instance
-         shared with another team
-    - Rack Mount Server with ILO Advanced License
-         shared with another team
 ```
 
 - **Connect** : To reach the Lab please connect to the URL provided by your instructor. He will also share user credentials.
