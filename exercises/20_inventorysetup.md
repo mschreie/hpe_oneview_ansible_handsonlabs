@@ -2,22 +2,22 @@
 
 ## Introduction
 
-As you know, Ansible executes playbooks against managed nodes. For Ansible to know which nodes to manage it needs an inventory. Typically inventories are derived from some other source (e.g CMDB, vCenter, AWS, ..). As we do not want to add dependecies to systems outside our control and our environment is very small, we decided to go with static entries entered into Tower directly.
-To ease minimize the effort needed, we created an inventory `Lab inventory` and prefilled most of it.
+As you know, Ansible executes playbooks against managed nodes. For Ansible to know which nodes to manage it needs an inventory. Typically inventories are derived from some other source (e.g CMDB, vCenter, AWS, ..). As we do not want to add dependecies to systems outside our control and our environment is very small, we decided to go with static inventories entered into Tower directly.
+To minimize the effort needed, we created an inventory `Lab inventory` and prefilled most of it.
 
 ## Inventory introduction
 This setup is built with scale in mind even though we only have a limited number of Systems. For scalability we target host_groups (instead of single hosts), this would give us the chance to deploy dozens of servers at the same time.
 The host groups we defined are:
-- **target_hosts** : Including all the target hosts, which will be newly deployed during this lab.<br>Correct target system needs to be added.
-- **oneview_hosts** : Including all the oneview hosts.<br>This is prefilled with the correct host(s).
+- **target_hosts** : Including all the target hosts (physical servers), which will be newly deployed during this lab.<br>Correct target system needs to be added.
+- **oneview_hosts** : Including all the HPE OneView hosts.<br>This is prefilled with the correct host(s).
 - **bastion_hosts** : Including all the bastion hosts.<br>This is prefilled with the correct host(s).
 - **tower_hosts** : The Tower Hosts Group was / is only needed to set up the Ansible Tower system properly and will not be found in the inventory inside Tower.
 
-As we do not have DNS available, each host entry needs an additional `ansible_host` entry, which defines how Ansible can reach the host in question. In our case this `ansible_host` needs to contain a valid IP address.<br><br>
-We also added a parameter lab_id to the hosts. This is not needed (anymore), as we defined this as an inventory variable, available to all hosts.
+Since we do not have a DNS service, each host entry needs an additional `ansible_host` entry, which defines how Ansible can reach the host in question. In our case this `ansible_host` needs to contain a valid IP address.<br><br>
 
-Typically the network layout defines which oneview host to use for a specific target host. Same is (most likely) true for the bastion host. To define this relationship the target_host needs a host variable `bastion_host` and `oneview_host` nameing the correct bastion host and the correct oneview host.<br>
-As we want to install ESXi with static ip address configuration ansible needs to know the network parameters for each host to deploy. Therefor we also need additional host variables for the target host to ensure ESXi installation to have networking information available.
+
+Typically the network layout defines which HPE Oneview host to use for a specific target host. Same is (most likely) true for the bastion host. To define this relationship the target_host needs a host variable `bastion_host` and `oneview_host` naming the correct bastion host and the correct HPE oneview host.<br>
+As we want to install ESXi with static ip address configuration ansible needs to know the network parameters for each host to deploy. Therefore, we also need additional host variables for the target host to ensure ESXi installation to have networking information available.
 
 
 ## View Inventory and add missing host
