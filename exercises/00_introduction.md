@@ -2,12 +2,14 @@
 
 ## Objective
 
-Unlike managing and automating operating systems (rhel, windows..) and Applications, automating hardware is not commonly used. Managing Hardware is often left behind, maybe because many Ansible gurus do not see the magic of using HPE OneView and Ansible.<br>
 
-This Lab will guide through the steps needed to automate:
-* Adding a server to HPE Oneview
-* Create profile template : Oneview-Server-Profile-Template; It defines Hardware configuration and deploy it onto such a server.
-* Preparing and triggering the installation of VMware ESXi server.
+Many Ansible users are already familiar with managing instances, systems and applications in a virtual environment… However, Ansible can also manage Hardware and devices such as Physical Servers and Network equipment... In this lab, we will introduce managing and automating HPE Hardware with Ansible and HPE OneView.<br>
+
+
+This Lab will guide you through the steps needed to automate:
+* Adding a server to HPE Oneview.
+* Create a profile template : Oneview-Server-Profile-Template; It defines Hardware configuration and deploy it into a server.
+* Preparing and triggering the installation of HPE VMware ESXi server.
 
 While some steps need to be configured manually, we also prepared playbooks to speed up those tasks.
 
@@ -15,15 +17,15 @@ While some steps need to be configured manually, we also prepared playbooks to s
 
 We have 20 Lab environments available, each with
 
-```Lab Systems:
-    - Ansible Automation Platform Controller (formerly called Ansible Tower)
+```
+    - a virtual machine running : Automation Controller (formerly called Ansible Tower)
          RHEL 8, Ansible Controller installed
-    - Bastion Host
+    - a virtual machine running : Bastion Host
          RHEL 8, Webserver installed, genisoimage installed, ansible cmd-line tool available
-    - Windows Jump Host (Windows)
+    - a virtual machine running : MS Windows Jump Host ( MS Windows)
          Putty installed
-    - Red Hat Automation Hub Credentials to pull content from 
-    - Oneview Instance
+    - Red Hat Automation Hub Credentials to pull content from Red Hat Cloud.
+    - an appliance running : Oneview Instance
          shared with another team
     - Rack Mount Server with ILO Advanced License
          shared with another team
