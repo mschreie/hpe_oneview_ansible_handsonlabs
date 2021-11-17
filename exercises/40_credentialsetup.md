@@ -47,7 +47,7 @@ The Credentail  we need is:
 
 | Parameter | Value |
 |---|---|
-| NAME | HPE OneView Credential |
+| NAME | HPE Oneview Credential |
 | DESCRIPTION | HPE Oneview SDK Credential |
 | ORGANIZATION | Handsonlabs Organization |
 | CREDENTIAL TYPE | HPE Oneview Credential |
