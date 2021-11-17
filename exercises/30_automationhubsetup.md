@@ -56,13 +56,14 @@ After a short while the STATUS will be red `Failed`. Please investigate the reas
 
 ![Module-Missing](/images/module_missing.png)
 
-### Assure `Automation Hub` and `Ansible Galaxy` credentials attached to Organization
+### Ensure `Automation Hub` and `Ansible Galaxy` credentials attached to the Organization
+
 In order to allow Ansible Controller to pull the missing content from Red Hat Automation Hub we add the credentials to the Organization.
 
 Navigate to **Organizations** in Tower UI, and click on **Handsonlabs Organization** :
 
 Left to the `GALAXY CREDENTIALS` Textbox click on the **magnifying glass**.<br>
-Tower will only show credentials of the coresponding type. Select both credentials. Please ensure that `Automation Hub` shows up first. Tower will search for colletions in the order the repositories are listed.<br>
+Tower will only show credentials of the coresponding type. Select both credentials. Please select `Automation Hub` **first** then `Ansible Galaxy`. Tower will fetch collections from the repositories in the order they are listed.<br>
 Click `SAVE`
 
 ### Execute Job Template again
