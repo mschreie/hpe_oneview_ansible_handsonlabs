@@ -49,7 +49,7 @@ Please visit the **lab.html** file on your Desktop for **hosts**, **ip-addresses
     It might also make sense to open this lab guide within your MS Windows Desktop environment, so that you can copy & paste directly.<br>
 
 
-- **Controller** : The deployment will be managed from Automation Controller(Ansible Tower) via the Web-UI. So the Automation Controller will be the object of interest, where we concentrate on the most.<br>
+- **Automation Controller** : The deployment will be managed from Automation Controller(Ansible Tower) via the Web-UI. So the Automation Controller will be the object of interest, where we concentrate on the most.<br>
 We have a RHEL 8 Server with Ansible Tower (AAP 1.2 / Tower Version 3.8) installed. RHEL and Tower are already subscribed and registered at cloud.redhat.com.<br><br>
 The Tower SW itself runs as user `awx`. You as administrator of that host can connect as user `ansible`. Most of the tasks to perform here will need `root` privileges.<br>
 We already created an **Organization** called `Handsonlabs Organization`. We recommend using this organization so that some predefined playbooks will not run into issues.
@@ -60,11 +60,11 @@ We already created an **Organization** called `Handsonlabs Organization`. We rec
    * A Customer command_line to configure your Tower under : `$HOME/cmd_line`<br>
    This directory offers some scripts to help you speed up repetitive or boring tasks.
 
-- **Target Physical Server** : Lab provides only 10 `DL360 Gen 9` Physical Servers with integrated `ILO 4`. As we have 20 Lab environments please coordinate with your peers on usage.
+- **Target Host or Physical Server** : Lab provides only 10 `DL360 Gen 9` Physical Servers with integrated `ILO 4`. As we have 20 Lab environments please coordinate with your peers on usage.
 
-- **OneView Instance** : We also have only 10 HPE OneView instances. The predefined naming ensures that your Server Profile Templates are kept separate as their names will differ. Adding the Physical Server to HPE Oneview and the Deployment process can only be done one after the other.
+- **HPE OneView Host or Instance** : We also have only 10 HPE OneView instances. The predefined naming ensures that your Server Profile Templates are kept separate as their names will differ. Adding the Physical Server to HPE Oneview and the Deployment process can only be done one after the other.
 
-- **Playbooks** : The playbooks for the deployment process reside in the repository `https://github.com/mschreie/hpe_oneview_ansible_handsonlabs`.<br>
+- **Ansible Playbooks** : The playbooks for the deployment process reside in the repository `https://github.com/mschreie/hpe_oneview_ansible_handsonlabs`.<br>
 The playbooks to help configure the Ansible Tower are tailored to your lab and are copied onto your bastion host at `/home/ansible/cmd_line` You should not need to alter either of the playbooks, variables files, inventory files or alike. Configuration will happen in the Controller UI.
 
 HINT:
