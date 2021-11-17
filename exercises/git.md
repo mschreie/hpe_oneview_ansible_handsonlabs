@@ -2,10 +2,10 @@
 
 Simple documentation about the most rudimentary tasks
 
-To work with git you need a rudimentary understanding of what git does and how it works.
+In this Lab we did all work needed to be done in the git repository for you. Still it might make sense to have an idea of what git is and how it works.  To work with git you need a rudimentary understanding of what git does and how it works.
 Git is a very powerful and flexible revision control system. There are many different ways to work with git and different locations of code.
 
-In our case we will have a
+The most simple way to work with git is to have a
 * origin repository residing on github.com
 * a cloned local copy to work with
 You will edit changes on the local files, commit them to the local repository and push this new version to the origin repository.
@@ -15,12 +15,12 @@ Ansible Tower will pull the repository content from github.com so needs to be co
 
 For a simple guide please visit: http://rogerdudler.github.io/git-guide/
 
-You can use a graphical interface like Microsoft Visual Code as mentioned else where or work on cmd line. In both cases the workflow is the same, which is why you should now them The following image illustrates how pull and push get newest data and send changed data to the main repository and how Ansible Controller (aka Tower) can make use of this.
+You can use a graphical interface like Microsoft Visual Code or work on cmd line. In both cases the workflow is the same, which is why you should know them. The following image illustrates how pull and push get newest data and send changed data to the main repository and how Ansible Controller (aka Tower) can make use of this.
 
 ![git_clonepullandpush.png](/images/git_clonepullandpush.png)
 
 
-# For the workshop you will need to 
+# If you want to derive your own setup from the sources given, you could:
 
 ## make a copy of this repository in order to make changes
 	this is best done in github webfrontend
