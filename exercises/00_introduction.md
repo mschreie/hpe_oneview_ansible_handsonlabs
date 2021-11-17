@@ -31,18 +31,26 @@ We have 20 Lab environments available, each with
          shared with another team
 ```
 
-- **Connect** : To reach the Lab please connect to the URL provided by your instructor. HE will also share user credentials.
-Within the lab you do not find any DNS service so that you need to use IP-Addresses most of the time. Within Ansible the hostnames defined in the ansible inventory do work and should be used.<br>
-Please visit the lab.html file on your desktop for host, ip-addresses and user credentials.
+- **Connect** : To reach the Lab please connect to the URL provided by your instructor. He will also share user credentials.
+    
+| Lab Credentials |                             |
+|-----------------|-----------------------------|
+| **LAB URL**     | Provided by Instructor      |
+| **Login**       | Provided by Instructor      |
+| **Password**    | Provided by Instructor      |
+    
 
-- **Jump Host** : When connected to the Lab via browser you will land on a Windows desktop presented within your browser. You might experience issues with copy & paste from your laptop to the windows machine in the browser. A nice workaround can be achieved by creating an etherpad at: https://etherpad.opendev.org and opening it to share commands between both environments.
-You can open the same URL within and outside of the desktop and have a 2-step copy & paste solution.<br>
-It might also make sense to open this lab guide within your environment, so that you can copy & paste directly.<br>
-We use the windows system as a jump host to access the other systems and services related to the lab.
+Since the lab has no DNS server, IP-Addresses will be used instead of FQDNs. The Ansible inventory maps hostnames to IP addresses, those hostnames can only be used when running Ansible plays.<br>
+Please visit the **lab.html** file on your Desktop for **hosts**, **ip-addresses** and user **credentials**.
 
-- **Controller** : The deployment will be managed from Automation Controller(Tower) via the Web-UI. So the Controller will be the object of interest, where we concentrate on the most.<br>
-We have a RHEL 8 Server with Ansible Tower (AAP 1.2 / Tower Version 3.8) installed. RHEL and Tower are correctly subscribed and registered at cloud.redhat.com.<br><br>
-The Controller SW itself runs as user `awx`. You as administrator of that host can connect as user `ansible`. Most of the tasks to perform here will need `root` privileges.<br>
+- **Jump Host** : When connected to the Lab URL, you will land on MS Windows Desktop presented within your browser. It is used as a jump host to access the other systems and services related to the lab.<br>
+    You might experience issues with copy & paste from your own Personal computer to the MS Windows machine in the browser. A nice workaround can be achieved by creating an etherpad at: https://etherpad.opendev.org to share commands between both environments (2 step copy paste).<br>
+    It might also make sense to open this lab guide within your MS Windows Desktop environment, so that you can copy & paste directly.<br>
+
+
+- **Controller** : The deployment will be managed from Automation Controller(Ansible Tower) via the Web-UI. So the Automation Controller will be the object of interest, where we concentrate on the most.<br>
+We have a RHEL 8 Server with Ansible Tower (AAP 1.2 / Tower Version 3.8) installed. RHEL and Tower are already subscribed and registered at cloud.redhat.com.<br><br>
+The Tower SW itself runs as user `awx`. You as administrator of that host can connect as user `ansible`. Most of the tasks to perform here will need `root` privileges.<br>
 We already created an **Organization** called `Handsonlabs Organization`. We recommend using this organization so that some predefined playbooks will not run into issues.
 
 - **Bastion Host** : To configure the Controller and to have a place where the controller can prepare the ISO-Images, we use the Bastion host.<br><br> 
