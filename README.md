@@ -23,4 +23,5 @@ To allow this to happen in a timely manner, we prepared some playbooks to fast f
 | **50 Virtual Environment Setup** :<br> This chapter will explain how to setup HPE OneView python SDK in the Virtual Environment | [Virtual Environment Setup](./exercises/50_venvsetup.md) |
 | **60 Job Template Setup** :<br> This chapter shows how to add an HPE physical server to HPE OneView, how to configure it, then how to setup VMware ESXi in a in step by steps jobs.  | [Job Template Setup](./exercises/60_jobtemplatesetup.md) |
 | **70 Bonus Exercice** :<br> Learn how to create a workflow job template in Automation Controller  (Ansible Tower)| [Create an overall Workflow](./exercises/70_workflow.md)
+| **Additional Reading: git** :<br> Gain a first overview of git and how it works in conjunction with Ansible Automation Controller (Ansible Tower)| [Git](./exercises/git.md)
 
