@@ -2,20 +2,22 @@
 
 ## Introduction
 
-Ansible is very powerful. One reason to that is the huge community providing roles and content collections. The community versions can be found on https://galaxy.ansible.com. To have a trustful source with certified modules Red Hat Partners and Customers should use Automation Hub as source of content collections and roles.<br>
+Ansible is a powerful language. Thanks to its huge community providing roles and content collections. The community versions can be found on https://galaxy.ansible.com where reside all upstream development. To have a trusted source with certified, tested and supported modules Red Hat Partners and Customers should use Red Hat [Automation Hub](https://console.redhat.com/ansible/automation-hub).<br>
+
 The HPE OneView Collection for instance is a certified and supported content collection, found on Red Hat Automation Hub.<br><br>
 
 Within Ansible Controller you define a credential for each repository you want to connect to. This credential is of credential_type `Ansible Galaxy/Automation Hub API Token`.<br>
 A freshly installed Tower has the parameters needed to connect to galaxy (the community repository) predefined in a credentail called `Ansible Galaxy`.<br>
-Automation Hub needs a valid subscription and a downloaded Automation Token. [see here for more details](https://console.redhat.com/ansible/automation-hub/token) As we did not want to disclose this token, we created the `Automation Hub` Credential on your behalf.
+Automation Hub needs a valid subscription and a downloaded Automation Token. [see here for more details](https://console.redhat.com/ansible/automation-hub/token) 
+The `Automation Hub` Credential is already created for you.
 
-## Our aim
-- We will now create a first Job Template, which connects to Oneview and fetches some data.
-- Executing this Job Template will fail, because the OneView Content Collection is missing.
+## Objective
+- We will now create a first Job Template, which connects to HPE Oneview and fetches some data.
+- Executing this Job Template will fail, because the HPE OneView Content Collection is missing.
 - We will then ensure that the Organization has `Automation Hub` and `Ansible Galaxy` credentials attached. (order important)
 - Executing this Job Template again should get us one step forward. Most likely we will run in other issues. (which will be addressed later).
 
-## The Tasks
+## Tasks
 ### Create Job Template
 HINT:<br>
 Use putty to establish ssh connections to the bastion host.<br>
@@ -23,7 +25,7 @@ With putty type in a session name `bastionXX` and the IP-Adress and click `Save`
 
 - Connect to your bastion host via ssh. 
 - Login as user `ansible`.
-- cd to cmd_line 
+- cd to cmd_line folder
 - and execute the playbook `30_create-test-job.yml`.
 
 Example:
@@ -33,8 +35,8 @@ Example:
 [ansible@bastion1 cmd_line]$ ansible-playbook -i inventory 30_create-test-job.yml
 ```
 HINT:
-Depending on time and interest you might want to look at `inventory` file and recon the different host_groups. If you then look at the header of the playbook you might find the host_group this play is targeted against.<br>
-For a deeper investigation you might also want to look into `group_vars/all.yml` file, which defines many variables used throughout the cmd-line used playbooks. 
+Depending on time and interest you might want to look at `inventory` file and identify the different host_groups. If you then look at the header of the playbook you might find the host_group. The playbook will run against that tower_hosts.<br>
+For a further investigation you might also want to look into `group_vars/all.yml` file, which defines many variables used throughout the cmd-line used playbooks. 
 
 ### Execute Job Template
 Navigate to **Templates** in Tower UI, and click on **Oneview: Oneview testing** :
