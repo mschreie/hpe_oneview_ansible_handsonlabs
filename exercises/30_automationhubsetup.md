@@ -4,6 +4,11 @@
 
 Ansible is a powerful language. Thanks to its huge community providing roles and content collections. The community versions can be found on https://galaxy.ansible.com where reside all upstream development. To have a trusted source with certified, tested and supported modules Red Hat Partners and Customers should use Red Hat [Automation Hub](https://console.redhat.com/ansible/automation-hub).<br>
 
+The illustration below explains how Automation Controller (Ansible Tower) sync content from both Automation Hub and Galaxy.
+
+![Module-Missing](/images/ansible-workshop-illustration-02.png)
+
+
 The HPE OneView Collection for instance is a certified and supported content collection, found on Red Hat Automation Hub.<br><br>
 
 Within Ansible Controller you define a credential for each repository you want to connect to. This credential is of credential_type `Ansible Galaxy/Automation Hub API Token`.<br>
