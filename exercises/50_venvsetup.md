@@ -41,6 +41,9 @@ With putty type in a session name `towerXX` and the IP-Adress and click `Save` b
 (hpe_venv) # python3 -V
 Python 3.6.8
 ```
+HINT:<br>
+This is a captial V to show the version nummber. If using a lower case v, you will get into verbose interaactive mode. In that case hit Ctrl-D to leave phython.
+
 
 - install all needed python modules 
 With your virtual environment set up and active, you can install the HPE sdks required for this use-case. In this workshop we will focus on :
