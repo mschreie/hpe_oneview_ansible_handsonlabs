@@ -6,7 +6,7 @@ Ansible Modules are typically written in python. Some of these ansible modules n
 We will create a venv on the Tower host and ensure it will be used by our test job template. 
 
 
-## Our aim
+## Objectives
 - We will examin the last run of our Job Template, which uses Oneview Module. Most likely some python module is missing.
 - We will create a virtual environment on the TOWER node manually
 - We will ensure that our Job Template will use the newly created venv.

@@ -7,7 +7,7 @@ As credentials need different atrributes and have different ways to be used, Ans
 To manage hardware through OneView we need to ensure to have the credentials to connect to OneView. As Ansible Controller does not know the details of OneView, we will create a `custom credential type` which will e.g. be able to hold the API-Version. Thereafter we will create a credentail of that new type needed to connect to OneView.
 
 
-## Our aim
+## Objectives
 - We know from the last section that our Job Template is still not working. Executing this Job Template fails, because the variables holding the credentials are not available.
 - We will therefor create the credential type
 - create the credential 
