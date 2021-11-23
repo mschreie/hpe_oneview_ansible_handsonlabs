@@ -15,3 +15,10 @@ I found many examples with `powerControl: MomentaryPress`, but i wanted to swith
 https://techlibrary.hpe.com/docs/enterprise/servers/oneview5.0/cicf-api/en/index.html#rest/server-hardware
 
 
+## Persistance
+Ansible gathers facts at the start of execution of a Playbook (or Job). During execution of such a job you can manipulate and add variables and facts. But they are typically lost at the end of the playbook execution. If needed in an information out of one job in the next would need some way of persistance. Trying to save data on a local system (the system which executes the playbook) works on command line but does not work with Controller (aka Tower). Why that is the case and how to work around that can be read here:<br>
+https://serverfault.com/questions/697859/ansible-local-action-stat-doesnt-find-my-file
+
+
+
+

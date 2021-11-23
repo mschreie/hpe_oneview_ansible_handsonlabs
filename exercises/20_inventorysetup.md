@@ -20,10 +20,16 @@ Typically the network layout defines which HPE Oneview host to use for a specifi
 As we want to install ESXi with static ip address configuration ansible needs to know the network parameters for each host to deploy. Therefore, we also need additional host variables for the target host to ensure ESXi installation to have networking information available.
 
 
-## View Inventory and add missing host
+## Objective
+Add the target host with all needed parameters to the pre-prepared inventory.
+
+## Tasks
+### View Inventory
 
 * Navigate to **Inventory** in Tower UI, and click on **Lab inventory**
 * Ensure that you have 3 groups (target_hosts, oneview_hosts, bastion_hosts). Ensure that 2 hosts in their corresponding groups. Check that the names relate to your lab (as outlined elsewhere). Also check if the host_vars related to the hosts are defined.
+
+### add missing host to the inventory
 
 * To know what to add please open a second tab of your browser to `http://BASTION_IP_ADDRESS/isos/target_host.info`<br>
 To add the target host to the right group:
@@ -60,5 +66,3 @@ esxi_domain: "example.com"
 
 _IMPORTANT:_
 Please leave the three dashes in place. And please avoid any white space in front of the variable names. <br>
-_HINT:_
-It might be that the Info-Pages has a parameter `host_ip`. In the VARIABLES textbox this needs to be called `ansible_host`

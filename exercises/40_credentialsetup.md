@@ -8,14 +8,14 @@ To manage hardware through OneView we need to ensure to have the credentials to 
 
 
 ## Objectives
-- We know from the last section that our Job Template is still not working. Executing this Job Template fails, because the variables holding the credentials are not available.
+- _optional_ We know from the last section that our Job Template is still not working. Executing this Job Template fails, because the variables holding the credentials are not available.
 - We will therefor create the credential type
 - create the credential 
-- Executing this Job Template again should at least have solved the issue with undefined variables
+- _optional_ Executing this Job Template again should at least have solved the issue with undefined variables
 - Create all remaining credentials 
 
 ## The Tasks
-### Review Job Execution 
+### _optional_ Review Job Execution 
 Review the output of the last time we executed the Job template
 Navigate to **Jobs** in Tower UI, and click on the upmost **XX - Oneview: Oneview testing** :
 
@@ -70,7 +70,7 @@ If the credential does not show up, you might need to sync the project:<br>
 Navigate to **Projects** in Tower UI, and click on the **2 arrows building a circle** next to **HPE OneView Workshop** <br>
 Wait for the job to finish.  If this does not help, refrsh the browser.
 
-### Execut Job Template again 
+### _optional_ Execut Job Template again 
 Launch the Job / Job Template a second time and review the output. We should be able to see a different error. Most likely we will hit some other error. This tells us that all variables are defined now.
 
 ### Create all remaining credentials 

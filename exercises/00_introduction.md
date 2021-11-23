@@ -18,9 +18,14 @@ For this deployment process to work, you need to ensure HPE OneView Content Coll
 
 ![DeploySimple](/images/ansible-workshop-illustration-deploymentprocess.png)
 
+There are 2 different ways to run thoruhg this lab:
+### guided try and error
 This lab will try the Communcation with OneView by reading configuration out of OV, but fail at some point. We will solve the issue by adding the missing pieces. Re-Test and fail again. This is done repeatedly till things run smoothly. Exersice 60 will then implement all steps of the deployment process itself and make the deployment happen.
 
-During this lab some steps need to be configured manually, while we also prepared playbooks to speed up other tasks.
+### guided configuration
+Skip the try and error, and just configure everything as needed. Run the test after doing all configuration steps. In both cases exersice 60 will then implement all steps of the deployment process itself and make the deployment happen.
+
+During this lab some steps need to be configured manually, while we also prepared playbooks to speed up other tasks. We marke the additional steps of "guided try and error" as "optional"
 
 ## General Setup
 

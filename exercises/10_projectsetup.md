@@ -6,9 +6,13 @@ As mentioned in the [Introduction](00_introduction.md) we start with a freshly i
 
 Point your browser to the IP adress of "tower" found in your lab.html and login with the credentials provided in the same document.<br>
 
-An **Organization** called `Handsonlabs Organization` is created. 
+An **Organization** called `Handsonlabs Organization` is already created. 
 
-## Create a Project
+## Objective
+The Objective of this chapter is to create a Project.
+
+## Tasks
+### Create a Project
 
 Now we need to set up a Project. The project defines the source repository where Ansible Controller finds the playbooks, to be executed with the help of a job template defenition. 
 

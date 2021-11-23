@@ -18,9 +18,9 @@ The `Automation Hub` Credential is already created for you.
 
 ## Objective
 - We will now create a first Job Template, which connects to HPE Oneview and fetches some data.
-- Executing this Job Template will fail, because the HPE OneView Content Collection is missing.
+- _optional_ Executing this Job Template will fail, because the HPE OneView Content Collection is missing.
 - We will then ensure that the Organization has `Automation Hub` and `Ansible Galaxy` credentials attached. (order important)
-- Executing this Job Template again should get us one step forward. Most likely we will run in other issues. (which will be addressed later).
+- _optional_ Executing this Job Template again should get us one step forward. Most likely we will run in other issues. (which will be addressed later).
 
 ## Tasks
 ### Create Job Template
@@ -43,7 +43,7 @@ HINT:
 Depending on time and interest you might want to look at `inventory` file and identify the different host_groups. If you then look at the header of the playbook you might find the host_group. The playbook will run against that tower_hosts.<br>
 For a further investigation you might also want to look into `group_vars/all.yml` file, which defines many variables used throughout the cmd-line used playbooks. 
 
-### Execute Job Template
+### _optional_ Execute Job Template
 Navigate to **Templates** in Tower UI, and click on **Oneview: Oneview testing** :
 
 You should now see the definition of the Job Template. The Job Templates brings together:
@@ -71,7 +71,7 @@ Left to the `GALAXY CREDENTIALS` Textbox click on the **magnifying glass**.<br>
 Tower will only show credentials of the coresponding type. Select both credentials. Please select `Automation Hub` **first** then `Ansible Galaxy`. Tower will fetch collections from the repositories in the order they are listed.<br>
 Click `SAVE`
 
-### Execute Job Template again
+### _optional_ Execute Job Template again
 Launch the Job / Job Template a second time and review the output. We should be able to see the Module got executed but will then fail for other reasons. Maybe you can analyse the reason?
 
 HINT: 

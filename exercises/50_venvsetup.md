@@ -7,14 +7,14 @@ We will create a venv on the Tower host and ensure it will be used by our test j
 
 
 ## Objectives
-- We will examin the last run of our Job Template, which uses Oneview Module. Most likely some python module is missing.
+- _optional_ We will examin the last run of our Job Template, which uses Oneview Module. Most likely some python module is missing.
 - We will create a virtual environment on the TOWER node manually
 - We will ensure that our Job Template will use the newly created venv.
-- Executing this Job Template again should get the job run through.
+- _optional_ Executing this Job Template again should get the job run through.
 
 ## The Tasks
 
-### Review Job Execution 
+### _optional_ Review Job Execution 
 Review the output of the last time we executed the Job template
 Navigate to **Jobs** in Tower UI, and click on the upmost **XX - Oneview: Oneview testing** :
 
@@ -93,5 +93,8 @@ Navigate to **Projects** in Tower UI, and click on the **2 arrows building a cir
 Wait for the job to finish.  If this does not help, refrsh the browser once again.
 
 
-### Execute Job Template again
+### Execute Job Template (again)
 Launch the Job / Job Template a second time and review the output. The Job should run through without error. 
+
+HINT:
+If you skipped the optional execution of the Job Template, this will be the first time you launch it. The Job should run through without an error.
