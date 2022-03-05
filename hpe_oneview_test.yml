@@ -1,6 +1,8 @@
 ---
 - hosts: oneview_hosts
   gather_facts: false
+  collections:
+    - hpe.oneview
 
   tasks:
      
