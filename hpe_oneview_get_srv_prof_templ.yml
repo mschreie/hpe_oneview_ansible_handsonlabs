@@ -10,7 +10,7 @@
         password: "{{ oneview_password }}"
         auth_login_domain: "{{ oneview_domain }}"
         api_version: "{{ oneview_apiversion }}"
-        delegate_to: localhost
+      delegate_to: localhost
 
     - name: Gather facts about all Server Profile Templates
       hpe.oneview.oneview_server_profile_template_facts:
