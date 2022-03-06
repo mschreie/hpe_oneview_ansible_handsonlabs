@@ -3,14 +3,14 @@
   gather_facts: no
 
   tasks:
-    - name: Gather facts about all Scopes
-      hpe.oneview.oneview_scope_facts:
-        hostname: "{{ hostvars[oneview_host].ansible_host }}"
-        username: "{{ oneview_username }}"
-        password: "{{ oneview_password }}"
-        auth_login_domain: "{{ oneview_domain }}"
-        api_version: "{{ oneview_apiversion }}"
-      delegate_to: localhost
+#    - name: Gather facts about all Scopes
+#      hpe.oneview.oneview_scope_facts:
+#        hostname: "{{ hostvars[oneview_host].ansible_host }}"
+#        username: "{{ oneview_username }}"
+#        password: "{{ oneview_password }}"
+#        auth_login_domain: "{{ oneview_domain }}"
+#        api_version: "{{ oneview_apiversion }}"
+#      delegate_to: localhost
 
     - name: Gather facts about all Server Profile Templates
       hpe.oneview.oneview_server_profile_template_facts:
