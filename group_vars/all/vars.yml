@@ -29,7 +29,8 @@ deployment_network_name: "RedHat_Core"
 ## firmware_baseline_name: "HPE Synergy Custom SPP 2018110 2019 02 15"
 
 # adjustable VMware installation related vars:
-org_iso:  "{{ bastion_iso_dir }}/VMware-VMvisor-Installer-7.0U3-18644231.x86_64.iso"
+##org_iso:  "{{ bastion_iso_dir }}/VMware-VMvisor-Installer-7.0U3-18644231.x86_64.iso"
+org_iso:  "{{ bastion_iso_dir }}/VMware-VMvisor-Installer-7.0U2a-17867351.x86_64.iso"
 cust_iso: "{{ bastion_iso_dir }}/{{ cust_iso_file }}"
 ## esxi_rootpw should be in Tower credential!!
 # named: esxi_password
