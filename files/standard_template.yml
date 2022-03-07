@@ -1,47 +1,74 @@
 ---
 profile_data:
-  name: "{{ ov_profile }}"
-  serverHardwareTypeName: "{{ server_hardware_type_name }}"
-  bios:
-    manageBios: false
-  boot:
-    manageBoot: false
-  bootMode:
-    manageMode: false
-    #mode: UEFIOptimized
-    #pxeBootPolicy: Auto
-  description: nothing fancy
-  firmware:
-    manageFirmware: false
-    firmwareActivationType: null
-    firmwareInstallType: null
-    forceInstallFirmware: false
-  localStorage:
-    controllers:
-      - deviceSlot: Embedded
-        driveWriteCache: Unmanaged
-        initialize: true
-        logicalDrives:
-        - accelerator: Unmanaged
-          bootable: false
-          driveTechnology: null
-          name: Logical Drive 1
-          numPhysicalDrives: 2
-          numSpareDrives: null
-          raidLevel: RAID1
-          sasLogicalJBODId: null
-        mode: RAID
-        predictiveSpareRebuild: Unmanaged
-    sasLogicalJBODs: []
-  macType: Physical
-  managementProcessor:
-    manageMp: false
-    mpSettings: []
-  osDeploymentSettings:
-    deployMethod: null
-    osCustomAttributes: []
-  refreshState: NotRefreshing
-  sanStorage:
-    manageSanStorage: false
-    sanSystemCredentials: []
-    volumeAttachments: []
+          name: "{{ server_profile_template_name }}"
+          serverHardwareTypeName: "{{ server_hardware_type_name }}"
+          enclosureGroupName: "{{ enclosure_group_name }}"
+          #initialScopeNames:
+          #  - Renamed
+          #  - test
+          managementProcessor:
+            complianceControl: "Checked"
+            manageMp: true
+            mpSettings:
+              - settingType: "AdministratorAccount"
+                args:
+                  deleteAdministratorAccount: false
+                  password: "{{ ilo_password }}"
+          bios:
+            complianceControl: "Checked"
+            manageBios: true
+            overriddenSettings:
+             - id: "CustomPostMessage"
+               value: "This is the Workshop Custom Post screen message"
+             - id: "ExtendedMemTest"
+               value: "Disabled"
+          boot:
+            manageBoot: true
+            order:
+              - "HardDisk"
+          bootMode:
+            manageMode: true
+            mode: "UEFIOptimized"
+            pxeBootPolicy: "Auto"
+            secureBoot: "Disabled"
+          connectionSettings:
+            complianceControl: "CheckedMinimum"
+            manageConnections: true
+            connections:
+              - id: 1
+                name: "RedHat_MGMT"
+                functionType: "Ethernet"
+                networkName: "{{ deployment_network_name }}"
+                ##networkName: null
+                portId: "Flb 1:1-a"
+                requestedMbps: 2500
+                requestedVFs: "Auto"
+                boot:
+                  priority: "Primary"
+                  ethernetBootType: "PXE"
+                  bootVlanId: null
+                lagName: null
+                managed: true
+                isolatedTrunk: false
+          localStorage:
+            complianceControl: "CheckedMinimum"
+            ##sasLogicalJBODs: []
+            controllers:
+              - deviceSlot: "Embedded"
+                mode: "HBA"
+                initialize: true
+                driveWriteCache: "Unmanaged"
+                predictiveSpareRebuild: "Unmanaged"
+                logicalDrives: null
+          sanStorage:
+                complianceControl: "Unchecked"
+                manageSanStorage: false
+          firmware:
+            complianceControl: Unchecked
+            manageFirmware: false
+            ##firmwareBaselineName: "{{ firmware_baseline_name }}"
+            ##firmwareInstallType: "FirmwareAndOSDrivers"
+            forceInstallFirmware: false
+          osDeploymentSettings:
+            deployMethod: null
+            osCustomAttributes: []
