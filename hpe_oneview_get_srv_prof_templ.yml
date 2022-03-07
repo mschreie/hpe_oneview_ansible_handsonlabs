@@ -19,7 +19,6 @@
         password: "{{ oneview_password }}"
         auth_login_domain: "{{ oneview_domain }}"
         api_version: "{{ oneview_apiversion }}"
-        scope: hpe_redhat
       delegate_to: localhost
 
     - name: Print out all facts about all profile templates
