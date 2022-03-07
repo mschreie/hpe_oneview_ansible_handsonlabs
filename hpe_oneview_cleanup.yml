@@ -21,7 +21,7 @@
         hostname: "{{ ansible_host }}"
         username: "{{ oneview_username }}"
         password: "{{ oneview_password }}"
-        # auth_login_domain: "{{ oneview_domain }}"
+        auth_login_domain: "{{ oneview_domain }}"
         api_version: "{{ oneview_apiversion }}"
       delegate_to: localhost
 
@@ -39,7 +39,7 @@
         hostname: "{{ ansible_host }}"
         username: "{{ oneview_username }}"
         password: "{{ oneview_password }}"
-        # auth_login_domain: "{{ oneview_domain }}"
+        auth_login_domain: "{{ oneview_domain }}"
         api_version: "{{ oneview_apiversion }}"
       delegate_to: localhost
 
@@ -57,7 +57,7 @@
         hostname: "{{ ansible_host }}"
         username: "{{ oneview_username }}"
         password: "{{ oneview_password }}"
-        # auth_login_domain: "{{ oneview_domain }}"
+        auth_login_domain: "{{ oneview_domain }}"
         api_version: "{{ oneview_apiversion }}"
       delegate_to: localhost
 
@@ -77,7 +77,7 @@
         hostname: "{{ ansible_host }}"
         username: "{{ oneview_username }}"
         password: "{{ oneview_password }}"
-        # auth_login_domain: "{{ oneview_domain }}"
+        auth_login_domain: "{{ oneview_domain }}"
         api_version: "{{ oneview_apiversion }}"
         state: power_state_set
         data:
@@ -94,7 +94,7 @@
         hostname: "{{ ansible_host }}"
         username: "{{ oneview_username }}"
         password: "{{ oneview_password }}"
-        # auth_login_domain: "{{ oneview_domain }}"
+        auth_login_domain: "{{ oneview_domain }}"
         api_version: "{{ oneview_apiversion }}"
         state: absent
         data:
@@ -108,7 +108,7 @@
         hostname: "{{ ansible_host }}"
         username: "{{ oneview_username }}"
         password: "{{ oneview_password }}"
-        # auth_login_domain: "{{ oneview_domain }}"
+        auth_login_domain: "{{ oneview_domain }}"
         api_version: "{{ oneview_apiversion }}"
         state: absent
         data:
@@ -123,7 +123,7 @@
         hostname: "{{ ansible_host }}"
         username: "{{ oneview_username }}"
         password: "{{ oneview_password }}"
-        # auth_login_domain: "{{ oneview_domain }}"
+        auth_login_domain: "{{ oneview_domain }}"
         api_version: "{{ oneview_apiversion }}"
         state: absent
         data:
