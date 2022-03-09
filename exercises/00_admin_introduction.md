@@ -5,20 +5,20 @@
 
 Many Ansible users are already familiar with managing instances, systems and applications in a virtual environment… However, Ansible can also manage Hardware and devices such as Physical Servers and Network equipment... In this lab, we will introduce managing and automating HPE Hardware with Ansible and HPE OneView.<br>
 
-
 This Lab will guide you through the steps needed to automate a deployment process covering HW configuration up to ESXi installation:
 
 ![DeploySimple](/images/ansible-workshop-illustration-deploymentprocess-simple.png)
 
-* Adding a server to HPE Oneview.
+* Adding a server to HPE Oneview. - If this lab is set up with Synergy Blades Servers. This step wil be ommited. 
 * Create a profile template : Oneview-Server-Profile-Template; It defines Hardware configuration and deploy it into a server.
 * Preparing and triggering the installation of HPE VMware ESXi server.
+
 
 For this deployment process to work, you need to ensure HPE OneView Content Collection is in place and has the correct execution environment configurerd. You also need credentials to log in to the different systems. 
 
 ![DeploySimple](/images/ansible-workshop-illustration-deploymentprocess.png)
 
-There are 2 different ways to run thoruhg this lab:
+There are (yet again) 2 different ways to run through this lab:
 ### guided try and error
 This lab will try the Communcation with OneView by reading configuration out of OV, but fail at some point. We will solve the issue by adding the missing pieces. Re-Test and fail again. This is done repeatedly till things run smoothly. Exersice 60 will then implement all steps of the deployment process itself and make the deployment happen.
 
