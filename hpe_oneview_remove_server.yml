@@ -8,7 +8,7 @@
     # reads local file no matter what you delegate
     - name: read ov_hardware_names from file
       include_vars:
-        file: "/tmp/oneview_deployment.state"
+        file: "{{ tmpdir }}/oneview_deployment.state"
         name: ovhostnamelist
 
     - name: extract ov_hardware_name
@@ -65,11 +65,11 @@
           name: "{{ov_hardware_name}}"
       delegate_to: localhost
 
-    # Only works in Tower if /tmp is added to
+    # Only works in Tower if tmpdir is added to
     # Configuraration= -> Jobs -> Path to expose ot isolated jobs
     - name: remove ov_hardware_name to local file
       lineinfile:
-        path: /tmp/oneview_deployment.state
+        path: "{{ tmpdir }}/oneview_deployment.state"
         regexp: "{{ inventory_hostname }}"
         ##line: "{{ inventory_hostname }}: {{ ansible_facts['server_hardware']['name'] }}"
         state: absent

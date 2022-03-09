@@ -15,7 +15,7 @@
     # reads local file no matter what you delegate
     - name: read ov_hardware_names from file
       include_vars:
-        file: "/tmp/standard_template.yml"
+        file: "{{ tmpdir }}/standard_template.yml"
         name: ovsp_template
 
     - name: Create a server profile template

@@ -6,12 +6,11 @@
     myvars: {}
    
   tasks:
-    # Only works in Tower if /tmp is added to
+    # Only works in Tower if tmpdir is added to
     # Configuraration= -> Jobs -> Path to expose ot isolated jobs 
     - name: persist ov_hardware_name to local file
       lineinfile:
-         # path: /var/lib/awx/oneview_deployment.state
-         path: /tmp/oneview_deployment.state
+         path: "{{ tmpdir }}/oneview_deployment.state"
          ##regexp: "{{ inventory_hostname }}"
          #line: "{{ inventory_hostname }}: {{ ansible_facts['server_hardware']['name'] }}"
          line: "xx: 123 }}"
@@ -22,7 +21,7 @@
      # only read local files no matter what you delegate
     - name: read ov_hardware_names from file
       include_vars:
-        file: "/tmp/oneview_deployment.state"
+        file: "{{ tmpdir }}/oneview_deployment.state"
         name: ovhostnamelist
 
     - name: see what we got
@@ -45,30 +44,10 @@
     - name:
       fail:
 
-#    # needs to be b64decoded 
-#    # result is once again just a string...
-#    - name: read ov_hardware_names from file
-#      slurp:
-#         src: "/tmp/oneview_deployment.state"
-#      register: ovhostnamelist
-#    - name: see what we got
-#      debug:
-#        msg: "{{ ovhostnamelist.content  | b64decode }}"
-
-
-#    GREAT i read the file and get the lines separated into a list!!
-#    - name: read file
-#      set_fact:
-#        filecontent: "{{ (lookup('file', '/tmp/oneview_deployment.state')).split('\n') }}"
-#
-#    - name: see what we got
-#      debug:
-#        var: filecontent
-
 # now i also get each line transfered into key/value pair stored in a dict
     - name: read remote file
       slurp:
-         src: "/tmp/oneview_deployment.state"
+         src: "{{ tmpdir }}/oneview_deployment.state"
       register: ovhostnamestring
       delegate_to: bastion21  
 
@@ -82,7 +61,7 @@
         myvars: "{{ myvars | combine( { item.split(':')[0]: item.split(':')[1] } ) }}"
               }
       loop:
-        ##"{{ (lookup('file', '/tmp/oneview_deployment.state')).split('\n') }}"
+        ##"{{ (lookup('file', tmpdir ~ '/oneview_deployment.state')).split('\n') }}"
         "{{ (ovhostnamestring.content | b64decode).split('\n') }}"
       delegate_to: bastion21  
 

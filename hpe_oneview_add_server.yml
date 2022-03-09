@@ -28,11 +28,11 @@
       ignore_errors: True
       register: display_facts
 
-    # Only works in Tower if /tmp is added to
+    # Only works in Tower if tmpdir is added to
     # Configuraration= -> Jobs -> Path to expose ot isolated jobs
     - name: persist ov_hardware_name to local file
       lineinfile:
-        path: /tmp/oneview_deployment.state
+        path: "{{ tmpdir }}/oneview_deployment.state"
         ##regexp: "{{ inventory_hostname }}"
         line: "{{ inventory_hostname }}: {{ ansible_facts['server_hardware']['name'] }}"
         state: present
