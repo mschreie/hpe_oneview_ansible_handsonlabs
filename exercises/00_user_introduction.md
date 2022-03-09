@@ -21,37 +21,34 @@ We have 10 Lab environments available, each with has the below setup:
 ![ans-wksp-01](/images/ansible-workshop-illustration-05.png)
 
 ```
-    - Jump Host: a virtual machine running MS Windows.
-        Putty installed
+    - User: The user / the participant needs to connect to machines via ssh and via http / https. 
+        We can not grant that DNS will be working. So it is best to use IP-Adresses to connect.
+        If you have a Windows machine it is best to have Putty installed.
     - Automation Controller (formerly called Ansible Tower) : a virtual machine running RHEL 8, 
-        Automation Controller installed and subscribed
+        Automation Controller installed and subscribed.
+	It's the controlling node you will mostly work on.
+    - Automation Hub : a virtual machine running RHEL 8, 
+        With private Automation Hub installed and subscribed. It is used in AAP 2 environments to 
+        host the Execution Environment.
     - Bastion Host : a virtual machine running RHEL 8
         Webserver installed, genisoimage installed, ansible cmd-line tool available
-    - HPE Oneview host : an appliance running HPE Oneview shared with another team.
-    - Rack Mount Server with ILO Advanced License shared with another team.
-    
-    - Red Hat Automation Hub Credentials to pull content from Red Hat Cloud.
+    - HPE Oneview host : an appliance running HPE Oneview. Depending on setup this can be a shared 
+        OneView instance. Please only change your dedicated Server as you might break other labs.
+    - Server with ILO Advanced License 
+        If it's a rack mount server it needs to be added to OneView as a first deployment step.
+        If it's a Synergy Blade it is integrated into OneView and needs to be identified clearly.   
 ```
 
-- **Connect** : To reach the Lab please connect to the URL provided by your instructor. He will also share user credentials.
+- **Connect** : To reach the Lab please connect your VPN as sent to you via email.
     
-| Lab Credentials |                             |
-|-----------------|-----------------------------|
-| **LAB URL**     | Provided by Instructor      |
-| **Login**       | Provided by Instructor      |
-| **Password**    | Provided by Instructor      |
-    
+Review the presentation provided by the instructor to find the credentials and the target systems. 
+We provide a list with Hostnames and IP addresses somehow.
 
 Since the lab has no DNS server, IP-Addresses will be used instead of FQDNs. The Ansible inventory maps hostnames to IP addresses, those hostnames can only be used when running Ansible plays.<br>
-Please visit the **lab.html** file on your Desktop for **hosts**, **ip-addresses** and user **credentials**.
-
-- **Jump Host** : When connected to the Lab URL, you will land on MS Windows Desktop presented within your browser. It is used as a jump host to access the other systems and services related to the lab.<br>
-    You might experience issues with copy & paste from your own Personal computer to the MS Windows machine in the browser. A nice workaround can be achieved by creating an etherpad at: https://etherpad.opendev.org to share commands between both environments (2 step copy paste).<br>
-    It might also make sense to open this lab guide within your MS Windows Desktop environment, so that you can copy & paste directly.<br>
 
 
 - **Automation Controller** : The deployment will be managed from Automation Controller(Ansible Tower) via the Web-UI. So the Automation Controller will be the object of interest, where we concentrate on the most.<br>
-We have a RHEL 8 Server with Ansible Tower (AAP 1.2 / Tower Version 3.8) installed. RHEL and Tower are already subscribed and registered at cloud.redhat.com.<br><br>
+We have a RHEL 8 Server with Ansible Controller (formerly known as Tower) installed. Everything is installed and subscribed. Project, Jobs, Credentials, et all is set up and ready to perform the deployment tasks.<br><br>
 The Tower SW itself runs as user `awx`. You as administrator of that host can connect as user `ansible`. Most of the tasks to perform here will need `root` privileges.<br>
 We already created an **Organization** called `Handsonlabs Organization`. We recommend using this organization so that some predefined playbooks will not run into issues.
 
