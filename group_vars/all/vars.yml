@@ -58,3 +58,6 @@ ks_dest: "{{ wrk_dir }}/ks.cfg"
 bootoption: "runweasel ks=cdrom:/KS.CFG"
 bootcfg_dest: "{{ wrk_dir }}/efi/boot/boot.cfg"
 bootcfg_dest2: "{{ wrk_dir }}/boot.cfg"
+
+# tmp dir
+tmpdir: /tmp/work
