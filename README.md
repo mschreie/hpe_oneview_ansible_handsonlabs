@@ -7,6 +7,16 @@ This Lab introduces the use of **Red Hat Ansible Automation Platform** to automa
 
 The overall idea of this lab is to automate all HPE physical server deployment steps from Hardware configuration (bios settings, local raid configuration..) to application deployment and configuration. This lab will guide you to automate the installation of VMware ESXi on an HPE Physical Server.
 
+You can use this Workshop in to seperate ways. 
+A. (#User Experience) : As a User or Operator you run through the working setup (predeployed by your instructor) and understand the steps needed to deploy servers
+B. (#Admin Experience) : As a Content Provider or Domain Specialist you learn the steps needed to set up the environment to allow a user or operator to easily set up new servers.
+
+# User Experience
+By the end of this lab, you should have an overview of how Ansible Automation Controller can help to automate a deployment process. This process includes HW Configuratuion Management via HPE OneView and OS deploment - in this case the deployment of an ESXi server.  Hopefully you know how to adjust input parameters to adjust the deployment.
+
+
+
+# Admin Experience
 By the end of this lab, you should have a good getting started knowledge on how to configure and use Ansible Automation Controller (formerly called Ansible Tower) to automate Hardware setup via HPE OneView and HPE iLO.
  
 To allow this to happen in a timely manner, we prepared some playbooks to fast forward some configuration tasks. 
