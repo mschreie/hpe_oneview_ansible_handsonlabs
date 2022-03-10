@@ -61,10 +61,7 @@
         api_version: "{{ oneview_apiversion }}"
 
         state: absent
-        data:
-          "{{ovsp_template.profile_data}}"
-        params:
-          force: true
+        name: "{{ server_profile_template_name }}"
       delegate_to: localhost
       register: result
       run_once: true
