@@ -61,7 +61,8 @@
         api_version: "{{ oneview_apiversion }}"
 
         state: absent
-        name: "{{ server_profile_template_name }}"
+        data:
+          name: "{{ server_profile_template_name }}"
       delegate_to: localhost
       register: result
       run_once: true
