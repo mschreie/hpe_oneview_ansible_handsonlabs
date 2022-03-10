@@ -1,0 +1,71 @@
+---
+- hosts: target_hosts
+  gather_facts: false
+  collections:
+    - hpe.oneview
+
+### This will delete only the systems we deployed / used oureselves
+  
+  vars:
+
+  tasks:
+          # not valid for rackmountservers (yet)
+    
+    - name: print out the ov_hardware_name
+      debug:
+        msg: "ov_hardware_name:  {{ ov_hardware_name }}"
+      
+    - fail:
+        msg: "You need to define ov_hardware_name for each host which should be deployed via this script"
+      when: ov_hardware_name is undefined 
+
+    - name: Power Off compute in order to remove the profile
+      hpe.oneview.oneview_server_hardware:
+        hostname: "{{ hostvars[oneview_host].ansible_host }}"
+        username: "{{ oneview_username }}"
+        password: "{{ oneview_password }}"
+        auth_login_domain: "{{ oneview_domain }}"
+        api_version: "{{ oneview_apiversion }}"
+
+        state: power_state_set
+        data:
+          name : '{{ ov_hardware_name }}'
+          powerStateData:
+            powerState: "Off"
+            powerControl: "PressAndHold"
+      delegate_to: localhost
+
+    - name: Delete server profile and remove from compute
+      hpe.oneview.oneview_server_profile:
+        hostname: "{{ hostvars[oneview_host].ansible_host }}"
+        username: "{{ oneview_username }}"
+        password: "{{ oneview_password }}"
+        auth_login_domain: "{{ oneview_domain }}"
+        api_version: "{{ oneview_apiversion }}"
+
+        state: absent
+        data:
+          name: "{{ ov_profile }}"
+          #serverProfileTemplateName: "{{ ov_template }}"
+          #serverHardwareName: "{{ ov_hardware_name }}"
+        params:
+          force: True
+      delegate_to: localhost
+
+    - name: Delete server profile template
+      hpe.oneview.oneview_server_profile_template:
+        hostname: "{{ hostvars[oneview_host].ansible_host }}"
+        username: "{{ oneview_username }}"
+        password: "{{ oneview_password }}"
+        auth_login_domain: "{{ oneview_domain }}"
+        api_version: "{{ oneview_apiversion }}"
+
+        state: absent
+        data:
+          "{{ovsp_template.profile_data}}"
+        params:
+          force: true
+      delegate_to: localhost
+      register: result
+      run_once: true
+
