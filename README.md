@@ -17,12 +17,12 @@ By the end of this lab, you should have an overview of how Ansible Automation Co
 ## Our workshop:
 | Topic   | Exercises  | 
 |---|---|
-| **00 Introduction** :<br> This chapter introduces the overall setup and the objective of this lab. Automation Controller (Ansible Tower) is partly pre-configured to make your life easier. All needed details are explained here. | [Introduction](./exercises/user_00_user_introduction.md) |
+| **00 Introduction** :<br> This chapter introduces the overall setup and the objective of this lab. Automation Controller (Ansible Tower) is partly pre-configured to make your life easier. All needed details are explained here. | [Introduction](./exercises/user_00_introduction.md) |
 | **10 Input Parameters** :<br> This chapter will show what input parameters are needed and how they are provided | [Input Parameters](./exercises/user_10_inputparameters.md) |
 | **20 Status Quo** :<br> In this chapter we will review OneView and the status of our to-be-deployed server | [Status Quo](./exercises/user_20_statusquo.md) |
 | **30 Deploy it** :<br> This chapter will guide you through the actual deployment process | [Deploy It](./exercises/user_30_deployit.md) |
 | **40 Review results** :<br> This chapter will review OneView and the status of the deployed server once again | [Review Results](./exercises/user_40_reviewresults.md) |
-| **70 Bonus Exercice** :<br> Learn how to create a workflow job template in Automation Controller  (Ansible Tower)| [Create an overall Workflow](./exercises/70_workflow.md)
+| **70 Bonus Exercice** :<br> Learn how to create a workflow job template in Automation Controller  (Ansible Tower)| [Create an overall Workflow](./exercises/admin_70_workflow.md)
 
 
 # Admin Experience
