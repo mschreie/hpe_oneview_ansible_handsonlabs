@@ -2,7 +2,6 @@
 
 ## Objective
 
-
 Many Ansible users are already familiar with managing instances, systems and applications in a virtual environment… However, Ansible can also manage Hardware and devices such as Physical Servers and Network equipment... In this lab, we will introduce managing and automating HPE Hardware with Ansible and HPE OneView.<br>
 
 This Lab will guide you through the deployment process covering HW configuration up to ESXi installation:
@@ -48,22 +47,16 @@ Since the lab has no DNS server, IP-Addresses will be used instead of FQDNs. The
 
 
 - **Automation Controller** : The deployment will be managed from Automation Controller(Ansible Tower) via the Web-UI. So the Automation Controller will be the object of interest, where we concentrate on the most.<br>
-We have a RHEL 8 Server with Ansible Controller (formerly known as Tower) installed. Everything is installed and subscribed. Project, Jobs, Credentials, et all is set up and ready to perform the deployment tasks.<br><br>
+We have a RHEL 8 Server with Ansible Controller (formerly known as Tower) installed. Everything is installed and subscribed. Organization, Project, Jobs, Credentials, et all is set up and ready to perform the deployment tasks.<br><br>
 The Tower SW itself runs as user `awx`. You as administrator of that host can connect as user `ansible`. Most of the tasks to perform here will need `root` privileges.<br>
-We already created an **Organization** called `Handsonlabs Organization`. We recommend using this organization so that some predefined playbooks will not run into issues.
 
 - **Bastion Host** : We provide a Bastion host running RHEL8 that will host:
-   * ESXi ISO image using an apache server. This will image will be used to boot the physical servers. you will find under `/var/www/html/isos`<br>
-      ex: http://BASTION_HOST_IP/isos/ .You will also find some useful files about the setup of your environment.
-   * A Customer command_line to configure your Tower under : `$HOME/cmd_line`<br>
-   This directory offers some scripts to help you speed up repetitive or boring tasks.
+   * ESXi ISO image using an apache server. This image will be used to boot the physical servers. you will find under `/var/www/html/isos`<br>
+      ex: http://BASTION_HOST_IP/isos/ 
 
-- **Target Host or Physical Server** : Lab provides only 10 `DL360 Gen 9` Physical Servers with integrated `ILO 4`. As we have 20 Lab environments please coordinate with your peers on usage.
+- **Target Host or Physical Server** : Lab provides only 10 `BL460c Gen9` Physical Servers with integrated `ILO 4`. 
 
-- **HPE OneView Host or Instance** : We also have only 10 HPE OneView instances. The predefined naming ensures that your Server Profile Templates are kept separate as their names will differ. Adding the Physical Server to HPE Oneview and the Deployment process can only be done one after the other.
+- **HPE OneView Host** : All physical Servers of this lab (and also some belonging to other environments) are managed from one OneView instance. The predefined naming ensures that your Server Profile Templates are kept separate from your peers.
 
 - **Ansible Playbooks** : The playbooks for the deployment process reside in the repository `https://github.com/mschreie/hpe_oneview_ansible_handsonlabs`.<br>
-The playbooks to help configure the Ansible Tower are tailored to your lab and are copied onto your bastion host at `/home/ansible/cmd_line` You should not need to alter either of the playbooks, variables files, inventory files or alike. Configuration will happen in the Controller UI.
-
-HINT:
-Please visit the lab.html file on your desktop for host, ip-addresses and user credentials of the just mentioned hosts.
+The relevant playbooks are part of the coresponding job-template definitions within the Controller. 
