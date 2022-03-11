@@ -1,4 +1,4 @@
-# Project Setup
+# Input parameters
 
 ## Introduction
 
@@ -22,6 +22,7 @@ Experienced OneView users can easily adopt this blueprint to their needs. It mig
 Questions:
 1: How is the local storage configured?
 2: Is an ILO password defined?
+3: Is there a POST (Power On Self Test) - Message defined? (feel free to alter it).
 
 HINT: If you want to alter the blueprint, review HPEs OneView API documentation:
 https://techlibrary.hpe.com/docs/enterprise/servers/oneview5.0/cicf-api/en/index.html#rest/server-profile-templates
